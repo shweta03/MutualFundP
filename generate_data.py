@@ -935,7 +935,8 @@ def main():
         "nifty_annual":   nifty_annual,
         "portfolio_selection": portfolio_selection,
         "backtest":       backtest,
-        "funds":          funds_clean,
+        "screener":       funds_clean,   # key must be "screener" — index.html reads d.screener
+        "funds":          funds_clean,   # keep "funds" too for backwards compat
     })
 
     with open("data.json", "w") as f:

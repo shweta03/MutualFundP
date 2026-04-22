@@ -1,0 +1,60 @@
+name: Daily Data Refresh
+
+on:
+  schedule:
+    # 07:30 UTC = 1:00 PM IST every day
+    - cron: "30 7 * * 1-5"   # weekdays only (markets closed weekends)
+    # Also run Saturday morning to catch Friday's final NAV
+    - cron: "30 7 * * 6"
+  workflow_dispatch:           # allow manual trigger from GitHub UI
+
+permissions:
+  contents: write              # needed to commit data.json back to repo
+
+jobs:
+  refresh-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      # ── 1. Checkout repo ──────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # ── 2. Set up Python ─────────────────────────────────
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      # ── 3. Install dependencies ───────────────────────────
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # ── 4. Run data engine ────────────────────────────────
+      - name: Generate data files
+        run: python generate_data.py
+
+      # ── 5. Commit & push updated JSON files ───────────────
+      - name: Commit data files
+        run: |
+          git config user.name  "MintingM Bot"
+          git config user.email "bot@mintingm.in"
+          git add data.json vix_data.json breadth_data.json
+          # Only commit if files actually changed
+          git diff --staged --quiet || git commit -m "📊 Data refresh $(date +'%d %b %Y %H:%M IST')"
+          git push
+
+      # ── 6. Notify on failure (optional — add your email) ──
+      - name: Report failure
+        if: failure()
+        run: |
+          echo "❌ Data refresh failed on $(date)"
+          echo "Check the Actions log for details"
+          # To get email alerts: go to GitHub Settings → Notifications
+          # GitHub sends email automatically on workflow failure

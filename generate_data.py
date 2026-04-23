@@ -46,34 +46,26 @@ DEBT_CATS = [
 ]
 GOLD_CATS = ["gold etf", "gold fund", "gold fof"]
 
-# Fund universe: AMFI scheme codes to include
-# Regular Plan - Growth option only
-# Verified against AMFI NAVAll.txt as of Apr 2026
-FUND_UNIVERSE_CODES = [
-    # ── EQUITY ──
-    120403,  # Kotak Flexi Cap Fund - Regular Growth
-    122639,  # Parag Parikh Flexi Cap Fund - Regular Growth
-    118989,  # HDFC Mid Cap Opportunities Fund - Regular Growth
-    119062,  # SBI Magnum Mid Cap Fund - Regular Growth (mid cap)
-    119597,  # SBI Bluechip Fund - Regular Growth
-    118825,  # Mirae Asset Large Cap Fund - Regular Growth
-    120594,  # ICICI Prudential Midcap Fund - Regular Growth
-    119533,  # Aditya Birla SL Frontline Equity Fund - Regular Growth (large cap)
-    # ── DEBT ──
-    118560,  # HDFC Short Term Debt Fund - Regular Growth  ← mark stale if old
+# Fund universe strategy:
+# Instead of hardcoding codes (which go stale), we auto-discover from AMFI
+# by filtering on known categories. Set to None to auto-discover.
+# You can still add specific codes to FORCE_INCLUDE if you want particular funds.
+
+FORCE_INCLUDE_CODES = [
+    122639,  # Parag Parikh Flexi Cap Fund - Regular Growth  (must include)
+    120684,  # Nippon India ETF Gold BeES                    (best gold ETF)
+    118560,  # HDFC Short Term Debt Fund - Regular Growth
     119533,  # Aditya BSL Corporate Bond Fund - Regular Growth
     120505,  # ICICI Pru Banking & PSU Debt Fund - Regular Growth
-    119062,  # SBI Short Duration Fund - Regular Growth
-    118954,  # Nippon India Low Duration Fund - Regular Growth
-    119305,  # HDFC Banking & PSU Debt Fund - Regular Growth
-    # ── GOLD ──
-    120684,  # Nippon India ETF Gold BeES
-    119063,  # SBI Gold Fund - Regular Growth
-    118548,  # HDFC Gold ETF
-    118547,  # HDFC Gold Fund - Regular Growth
 ]
-# De-duplicate preserving order
-FUND_UNIVERSE_CODES = list(dict.fromkeys(FUND_UNIVERSE_CODES))
+
+# How many funds to include per asset type (top N by AUM/history after filtering)
+MAX_EQUITY = 80
+MAX_DEBT   = 60
+MAX_GOLD   = 20
+
+# Min history required (years) — set lower to catch newer funds
+MIN_HISTORY_YEARS = 1
 
 # Profile definitions
 PROFILES = {
@@ -769,29 +761,62 @@ def main():
     # ── 1. AMFI current NAV ──────────────────────────────
     amfi_lookup = fetch_amfi_nav()
 
-    # ── 2. Build fund universe ───────────────────────────
-    print("\n🔄 Processing fund universe...")
+    # ── 2. Auto-discover fund universe from full AMFI list ──
+    print("\n🔄 Auto-discovering fund universe from AMFI...")
+
+    def is_regular_growth(name):
+        """Only include Regular Plan Growth — skip Direct, IDCW, Bonus, etc."""
+        n = name.lower()
+        if "direct" in n: return False
+        if "idcw" in n or "dividend" in n: return False
+        if "bonus" in n: return False
+        if "annual" in n and "payout" in n: return False
+        # Must contain growth signal or be neutral (no payout signal)
+        return True
+
+    # Build candidate list from AMFI
+    candidates = {"Equity": [], "Debt": [], "Gold": []}
+    for code, info in amfi_lookup.items():
+        if not is_regular_growth(info["name"]):
+            continue
+        asset_type = classify_type(info["amfi_cat"], info["name"])
+        if asset_type == "Other":
+            continue
+        candidates[asset_type].append((code, info))
+
+    print(f"   Found: {len(candidates['Equity'])} Equity, {len(candidates['Debt'])} Debt, {len(candidates['Gold'])} Gold candidates")
+
+    # Always include forced codes first
+    force_set = set(FORCE_INCLUDE_CODES)
+
+    # Sort: forced codes first, then by scheme code (proxy for older/larger funds)
+    def sort_key(item):
+        code, info = item
+        return (0 if code in force_set else 1, code)
+
+    for t in candidates:
+        candidates[t].sort(key=sort_key)
+
+    # Cap per type
+    limits = {"Equity": MAX_EQUITY, "Debt": MAX_DEBT, "Gold": MAX_GOLD}
+    universe_to_process = []
+    for asset_type, limit in limits.items():
+        universe_to_process.extend(candidates[asset_type][:limit])
+
+    print(f"   Processing {len(universe_to_process)} funds total...")
+
     funds_raw = []
     fund_id_counter = 1000
 
-    for code in FUND_UNIVERSE_CODES:
-        amfi_info = amfi_lookup.get(code)
-        if not amfi_info:
-            print(f"   ⚠ Code {code} not found in AMFI — skipping")
-            continue
-
+    for code, amfi_info in universe_to_process:
         asset_type = classify_type(amfi_info["amfi_cat"], amfi_info["name"])
-        if asset_type == "Other":
-            continue
-
         cat = extract_category(amfi_info["amfi_cat"])
 
-        print(f"   [{asset_type}] {amfi_info['name'][:45]}...")
-        hist = fetch_history(code, min_years=1)
-        time.sleep(0.3)  # be polite to mfapi.in
+        print(f"   [{asset_type}] {amfi_info['name'][:50]}...")
+        hist = fetch_history(code, min_years=MIN_HISTORY_YEARS)
+        time.sleep(0.25)  # be polite to mfapi.in
 
         if hist is None:
-            # Still include fund but mark as not live (no fresh data)
             funds_raw.append({
                 "id": fund_id_counter,
                 "code": code,
@@ -812,6 +837,7 @@ def main():
         else:
             metrics = compute_metrics(hist)
             if metrics is None:
+                fund_id_counter += 1
                 continue
             score_info = compute_raw_score(metrics, asset_type)
             data_from = int(hist["date"].iloc[0].year)
@@ -920,7 +946,33 @@ def main():
     funds_clean = [clean_fund(f) for f in funds_raw]
     live_count  = sum(1 for f in funds_clean if f.get("live"))
 
-    # ── 9. Assemble data.json ─────────────────────────────
+    # ── 9. Build portfolio_funds in exact format ingestDataJSON expects ──
+    # HTML matches by first 3 words of fund name, so keys must reflect that
+    # Structure: list of {profile, name, r1..r7, sharpe, std_dev, max_dd, nav_date}
+    portfolio_funds_list = []
+    for profile_key, prof_data in portfolio_selection.items():
+        for f in prof_data["funds"]:
+            # Find full metrics from live_funds
+            match = next((lf for lf in live_funds if lf["id"] == f["id"]), None)
+            if match:
+                portfolio_funds_list.append({
+                    "profile":  profile_key,
+                    "name":     match["name"],
+                    "type":     match["type"],
+                    "cat":      match["cat"],
+                    "r1":       match.get("r1"),
+                    "r3":       match.get("r3"),
+                    "r5":       match.get("r5"),
+                    "r7":       match.get("r7"),
+                    "r10":      match.get("r10"),
+                    "sharpe":   match.get("sharpe"),
+                    "std_dev":  match.get("std_dev"),
+                    "max_dd":   match.get("max_dd"),
+                    "nav_date": match.get("nav_date"),
+                    "score":    match.get("score"),
+                })
+
+    # ── 10. Assemble data.json ────────────────────────────────
     data_out = sanitize({
         "generated_at":   datetime.now().isoformat(),
         "generated_date": today_str,
@@ -934,23 +986,24 @@ def main():
         "sg_history":     sg_history,
         "nifty_annual":   nifty_annual,
         "portfolio_selection": portfolio_selection,
-        "backtest":       backtest,
-        "screener":       funds_clean,   # key must be "screener" — index.html reads d.screener
-        "funds":          funds_clean,   # keep "funds" too for backwards compat
+        "portfolio_funds": portfolio_funds_list,   # ← format ingestDataJSON reads
+        "backtest":        backtest,
+        "screener":        funds_clean,   # ← key ingestDataJSON reads for UNIVERSE
+        "funds":           funds_clean,   # ← backwards compat
     })
 
     with open("data.json", "w") as f:
         json.dump(data_out, f, indent=2)
-    print(f"\n✅ data.json written ({live_count} live funds, {len(funds_clean)} total)")
+    print(f"\n✅ data.json written ({live_count} live funds, {len(funds_clean)} total, {len(portfolio_funds_list)} portfolio fund entries)")
 
-    # ── 10. VIX data ──────────────────────────────────────
+    # ── 11. VIX data ──────────────────────────────────────
     vix_out = generate_vix_data()
     if vix_out:
         with open("vix_data.json", "w") as f:
             json.dump(sanitize(vix_out), f, indent=2)
         print("✅ vix_data.json written")
 
-    # ── 11. Breadth data ──────────────────────────────────
+    # ── 12. Breadth data ──────────────────────────────────
     breadth_out = generate_breadth_data()
     if breadth_out:
         with open("breadth_data.json", "w") as f:

@@ -769,6 +769,9 @@ def main():
     # ── 2. Auto-discover fund universe from full AMFI list ──
     print("\n🔄 Auto-discovering fund universe from AMFI...")
 
+    # Always include forced codes first — define before is_regular_growth
+    force_set = set(FORCE_INCLUDE_CODES)
+
     def is_regular_growth(code, name):
         """
         Include Regular Plan Growth only.
@@ -802,9 +805,6 @@ def main():
         candidates[asset_type].append((code, info))
 
     print(f"   Found: {len(candidates['Equity'])} Equity, {len(candidates['Debt'])} Debt, {len(candidates['Gold'])} Gold candidates")
-
-    # Always include forced codes first
-    force_set = set(FORCE_INCLUDE_CODES)
 
     # Sort: forced codes first, then by scheme code (proxy for older/larger funds)
     def sort_key(item):

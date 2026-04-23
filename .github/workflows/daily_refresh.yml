@@ -2,11 +2,12 @@ name: Daily Data Refresh
 
 on:
   schedule:
-    # 07:30 UTC = 1:00 PM IST every day
-    - cron: "30 7 * * 1-5"   # weekdays only (markets closed weekends)
-    # Also run Saturday morning to catch Friday's final NAV
-    - cron: "30 7 * * 6"
-  workflow_dispatch:           # allow manual trigger from GitHub UI
+    # 06:30 UTC = 12:00 PM IST
+    # AMFI publishes NAVs between 9–11 PM IST the previous night
+    # By 12 PM next day, all NAVs are confirmed stable and available
+    - cron: "30 6 * * 1-5"    # weekdays Mon–Fri
+    - cron: "30 6 * * 6"      # Saturday (catches Friday's final NAV)
+  workflow_dispatch:           # manual trigger from GitHub UI anytime
 
 permissions:
   contents: write              # needed to commit data.json back to repo
@@ -14,7 +15,7 @@ permissions:
 jobs:
   refresh-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       # ── 1. Checkout repo ──────────────────────────────────

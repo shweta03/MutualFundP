@@ -52,11 +52,16 @@ GOLD_CATS = ["gold etf", "gold fund", "gold fof"]
 # You can still add specific codes to FORCE_INCLUDE if you want particular funds.
 
 FORCE_INCLUDE_CODES = [
-    122639,  # Parag Parikh Flexi Cap Fund - Regular Growth  (must include)
-    120684,  # Nippon India ETF Gold BeES                    (best gold ETF)
+    122639,  # Parag Parikh Flexi Cap Fund - Regular Growth
+    118989,  # HDFC Mid Cap Opportunities Fund - Regular Growth
+    118976,  # HDFC Balanced Advantage Fund - Regular Growth
+    120684,  # Nippon India ETF Gold BeES
+    118701,  # Nippon India Gold Savings Fund - Regular Growth
     118560,  # HDFC Short Term Debt Fund - Regular Growth
     119533,  # Aditya BSL Corporate Bond Fund - Regular Growth
     120505,  # ICICI Pru Banking & PSU Debt Fund - Regular Growth
+    120177,  # ICICI Pru Value Discovery Fund - Regular Growth
+    118825,  # Nippon India Multi Cap Fund - Regular Growth
 ]
 
 # How many funds to include per asset type (top N by AUM/history after filtering)
@@ -764,20 +769,32 @@ def main():
     # ── 2. Auto-discover fund universe from full AMFI list ──
     print("\n🔄 Auto-discovering fund universe from AMFI...")
 
-    def is_regular_growth(name):
-        """Only include Regular Plan Growth — skip Direct, IDCW, Bonus, etc."""
+    def is_regular_growth(code, name):
+        """
+        Include Regular Plan Growth only.
+        Skip Direct plans, IDCW/Dividend payouts, Bonus options.
+        Force-include codes always pass regardless of name.
+        """
+        if code in force_set:
+            return True
         n = name.lower()
-        if "direct" in n: return False
-        if "idcw" in n or "dividend" in n: return False
-        if "bonus" in n: return False
-        if "annual" in n and "payout" in n: return False
-        # Must contain growth signal or be neutral (no payout signal)
+        # Skip direct plans
+        if " - direct" in n or "-direct" in n or "direct plan" in n:
+            return False
+        # Skip payout variants
+        if "idcw" in n or "dividend" in n:
+            return False
+        if "bonus" in n:
+            return False
+        # Skip institutional / super institutional plans
+        if "institutional" in n and "growth" not in n:
+            return False
         return True
 
     # Build candidate list from AMFI
     candidates = {"Equity": [], "Debt": [], "Gold": []}
     for code, info in amfi_lookup.items():
-        if not is_regular_growth(info["name"]):
+        if not is_regular_growth(code, info["name"]):
             continue
         asset_type = classify_type(info["amfi_cat"], info["name"])
         if asset_type == "Other":

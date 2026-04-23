@@ -29,121 +29,46 @@ from dateutil.relativedelta import relativedelta
 # CONFIGURATION
 # ─────────────────────────────────────────────
 
-RISK_FREE_RATE = 0.065          # 6.5% — 10Y Gsec approximate
-GOLD_THRESHOLD = 9.0            # SG Ratio threshold for Gold Active
-GOLD_ACTIVE_SPLIT = 0.70        # 70% of equity bucket → Gold when active
+RISK_FREE_RATE    = 0.065   # 6.5% — 10Y Gsec
+GOLD_THRESHOLD    = 9.0    # Sensex/Gold ratio threshold
+GOLD_ACTIVE_SPLIT = 0.70   # 70% of equity bucket → Gold when active
 
-# Which AMFI categories map to which asset type
-EQUITY_CATS = [
+# ─────────────────────────────────────────────
+# UNIVERSE CONFIGURATION
+# All regular-plan growth funds with 3Y+ history are included.
+# No hardcoded list. No pre-score gate. Everything auto-discovered from AMFI daily.
+# New funds automatically enter once they hit MIN_HISTORY_YEARS.
+# Wound-down/merged funds automatically drop out when their NAV goes stale.
+# ─────────────────────────────────────────────
+
+# Minimum NAV history to be included in screener
+MIN_HISTORY_YEARS = 3
+
+# For portfolio selection: only funds with 5Y history are eligible
+# (more reliable scores for picking a model portfolio)
+MIN_PORTFOLIO_YEARS = 5
+
+# AMFI sub-category → asset type mapping
+EQUITY_SUBCATS = [
     "flexi cap", "large cap", "mid cap", "small cap",
     "large & mid cap", "multi cap", "focused fund",
-    "contra fund", "value fund", "elss"
+    "contra fund", "value fund", "elss",
+    "balanced advantage", "dynamic asset allocation", "aggressive hybrid",
 ]
-DEBT_CATS = [
+DEBT_SUBCATS = [
     "short duration", "corporate bond", "banking and psu",
-    "banking & psu", "medium duration", "medium to long duration",
-    "low duration", "money market", "ultra short duration"
+    "medium duration", "low duration", "money market", "ultra short duration",
 ]
-GOLD_CATS = ["gold etf", "gold fund", "gold fof"]
+GOLD_SUBCATS = ["gold etf", "gold fund", "gold fof", "gold savings"]
 
-# ─────────────────────────────────────────────
-# VERIFIED FUND UNIVERSE
-# All codes verified against AMFI NAVAll.txt
-# Only Regular Plan - Growth options
-# NAV freshness validated from AMFI (not mfapi) before history fetch
-# ─────────────────────────────────────────────
-FUND_UNIVERSE = [
-    # ═══ EQUITY — FLEXI CAP ═══
-    # Code 0 = lookup by name from AMFI at runtime
-    (0, "Parag Parikh Flexi Cap Fund - Regular Growth",            "Flexi Cap",        "Equity"),
-    (0, "Kotak Flexi Cap Fund - Regular Growth",                   "Flexi Cap",        "Equity"),
-    (0, "HDFC Flexi Cap Fund - Growth Option",                     "Flexi Cap",        "Equity"),
-    (0, "UTI Flexi Cap Fund - Regular Plan - Growth",              "Flexi Cap",        "Equity"),
-    (0, "Canara Robeco Flexi Cap Fund - Regular Plan - Growth",    "Flexi Cap",        "Equity"),
-    (0, "DSP Flexi Cap Fund - Regular Plan - Growth",              "Flexi Cap",        "Equity"),
-    (0, "Franklin India Flexi Cap Fund",                           "Flexi Cap",        "Equity"),
-    # ═══ EQUITY — LARGE CAP ═══
-    (0, "Mirae Asset Large Cap Fund - Regular Plan - Growth",      "Large Cap",        "Equity"),
-    (0, "SBI Bluechip Fund - Regular Plan - Growth",               "Large Cap",        "Equity"),
-    (0, "HDFC Top 100 Fund - Growth Option",                       "Large Cap",        "Equity"),
-    (0, "ICICI Prudential Bluechip Fund - Growth",                 "Large Cap",        "Equity"),
-    (0, "Kotak Bluechip Fund - Regular Plan Growth",               "Large Cap",        "Equity"),
-    (0, "Nippon India Large Cap Fund - Growth Plan",               "Large Cap",        "Equity"),
-    # ═══ EQUITY — LARGE & MID CAP ═══
-    (0, "Mirae Asset Emerging Bluechip Fund - Regular Plan",       "Large & Mid Cap",  "Equity"),
-    (0, "Kotak Equity Opportunities Fund - Regular Plan - Growth", "Large & Mid Cap",  "Equity"),
-    (0, "ICICI Prudential Large & Mid Cap Fund - Growth",          "Large & Mid Cap",  "Equity"),
-    (0, "DSP Equity Opportunities Fund - Regular Plan - Growth",   "Large & Mid Cap",  "Equity"),
-    # ═══ EQUITY — MID CAP ═══
-    (0, "HDFC Mid-Cap Opportunities Fund - Growth Option",         "Mid Cap",          "Equity"),
-    (0, "Kotak Emerging Equity Fund - Regular Plan - Growth",      "Mid Cap",          "Equity"),
-    (0, "DSP Midcap Fund - Regular Plan - Growth",                 "Mid Cap",          "Equity"),
-    (0, "Nippon India Growth Fund - Growth Plan",                  "Mid Cap",          "Equity"),
-    (0, "SBI Magnum Midcap Fund - Regular Plan - Growth",          "Mid Cap",          "Equity"),
-    (0, "Edelweiss Mid Cap Fund - Regular Plan - Growth",          "Mid Cap",          "Equity"),
-    # ═══ EQUITY — SMALL CAP ═══
-    (0, "Nippon India Small Cap Fund - Growth Plan",               "Small Cap",        "Equity"),
-    (0, "SBI Small Cap Fund - Regular Plan - Growth",              "Small Cap",        "Equity"),
-    (0, "HDFC Small Cap Fund - Growth Option",                     "Small Cap",        "Equity"),
-    (0, "DSP Small Cap Fund - Regular Plan - Growth",              "Small Cap",        "Equity"),
-    (0, "Kotak Small Cap Fund - Regular Plan - Growth",            "Small Cap",        "Equity"),
-    # ═══ EQUITY — MULTI CAP ═══
-    (0, "Nippon India Multi Cap Fund - Growth Plan",               "Multi Cap",        "Equity"),
-    (0, "ICICI Prudential Multicap Fund - Growth",                 "Multi Cap",        "Equity"),
-    (0, "Kotak Multicap Fund - Regular Plan - Growth",             "Multi Cap",        "Equity"),
-    (0, "HDFC Multi Cap Fund - Growth Option",                     "Multi Cap",        "Equity"),
-    # ═══ EQUITY — VALUE / CONTRA ═══
-    (0, "ICICI Prudential Value Discovery Fund - Growth",          "Value Fund",       "Equity"),
-    (0, "SBI Contra Fund - Regular Plan - Growth",                 "Contra Fund",      "Equity"),
-    (0, "Nippon India Value Fund - Growth Plan",                   "Value Fund",       "Equity"),
-    (0, "Kotak India EQ Contra Fund - Regular Plan - Growth",      "Contra Fund",      "Equity"),
-    # ═══ EQUITY — BALANCED ADVANTAGE ═══
-    (0, "HDFC Balanced Advantage Fund - Growth Option",            "Balanced Adv",     "Equity"),
-    (0, "ICICI Prudential Balanced Advantage Fund - Growth",       "Balanced Adv",     "Equity"),
-    (0, "Nippon India Balanced Advantage Fund - Growth Plan",      "Balanced Adv",     "Equity"),
-    (0, "Kotak Balanced Advantage Fund - Regular Plan - Growth",   "Balanced Adv",     "Equity"),
-    # ═══ EQUITY — ELSS ═══
-    (0, "Parag Parikh ELSS Tax Saver Fund - Regular Plan - Growth","ELSS",             "Equity"),
-    (0, "Mirae Asset ELSS Tax Saver Fund - Regular Plan - Growth", "ELSS",             "Equity"),
-    (0, "SBI Long Term Equity Fund - Regular Plan - Growth",       "ELSS",             "Equity"),
-    (0, "Canara Robeco Equity Tax Saver Fund - Regular Plan",      "ELSS",             "Equity"),
-    (0, "DSP Tax Saver Fund - Regular Plan - Growth",              "ELSS",             "Equity"),
-    # ═══ DEBT — SHORT DURATION ═══
-    (0, "HDFC Short Duration Fund - Regular Plan - Growth",        "Short Duration",   "Debt"),
-    (0, "ICICI Prudential Short Term Fund - Regular Plan - Growth","Short Duration",   "Debt"),
-    (0, "Aditya Birla Sun Life Short Term Fund - Regular Growth",  "Short Duration",   "Debt"),
-    (0, "Axis Short Term Fund - Regular Plan - Growth",            "Short Duration",   "Debt"),
-    (0, "Nippon India Short Term Fund - Growth Plan",              "Short Duration",   "Debt"),
-    (0, "SBI Short Term Debt Fund - Regular Plan - Growth",        "Short Duration",   "Debt"),
-    (0, "Kotak Bond Short Term Plan - Regular Plan - Growth",      "Short Duration",   "Debt"),
-    # ═══ DEBT — CORPORATE BOND ═══
-    (0, "Aditya Birla Sun Life Corporate Bond Fund - Regular Growth","Corporate Bond", "Debt"),
-    (0, "Kotak Corporate Bond Fund - Standard Growth",             "Corporate Bond",   "Debt"),
-    (0, "HDFC Corporate Bond Fund - Regular Plan - Growth",        "Corporate Bond",   "Debt"),
-    (0, "ICICI Prudential Corporate Bond Fund - Growth",           "Corporate Bond",   "Debt"),
-    (0, "Axis Corporate Bond Fund - Regular Plan - Growth",        "Corporate Bond",   "Debt"),
-    (0, "Nippon India Corporate Bond Fund - Growth Plan",          "Corporate Bond",   "Debt"),
-    # ═══ DEBT — BANKING & PSU ═══
-    (0, "ICICI Prudential Banking & PSU Debt Fund - Regular Growth","Banking & PSU",  "Debt"),
-    (0, "HDFC Banking and PSU Debt Fund - Regular Plan - Growth",  "Banking & PSU",   "Debt"),
-    (0, "Aditya Birla Sun Life Banking & PSU Debt Fund - Regular", "Banking & PSU",   "Debt"),
-    (0, "SBI Banking and PSU Fund - Regular Plan - Growth",        "Banking & PSU",   "Debt"),
-    (0, "Kotak Banking and PSU Debt Fund - Regular Plan - Growth", "Banking & PSU",   "Debt"),
-    (0, "Bandhan Banking & PSU Debt Fund - Regular Plan - Growth", "Banking & PSU",   "Debt"),
-    # ═══ DEBT — LOW DURATION ═══
-    (0, "Nippon India Low Duration Fund - Growth Plan",            "Low Duration",     "Debt"),
-    (0, "HDFC Low Duration Fund - Regular Plan - Growth",          "Low Duration",     "Debt"),
-    (0, "ICICI Prudential Savings Fund - Regular Plan - Growth",   "Low Duration",     "Debt"),
-    (0, "Aditya Birla Sun Life Low Duration Fund - Regular Growth","Low Duration",     "Debt"),
-    (0, "Kotak Low Duration Fund - Regular Plan - Growth",         "Low Duration",     "Debt"),
-    # ═══ GOLD ═══
-    (0, "Nippon India ETF Gold BeES",                              "Gold ETF",         "Gold"),
-    (0, "Nippon India Gold Savings Fund - Regular Plan - Growth",  "Gold FoF",         "Gold"),
-    (0, "SBI Gold Fund - Regular Plan - Growth",                   "Gold FoF",         "Gold"),
-    (0, "HDFC Gold ETF",                                           "Gold ETF",         "Gold"),
-    (0, "HDFC Gold Fund - Regular Plan - Growth",                  "Gold FoF",         "Gold"),
-    (0, "Axis Gold Fund - Regular Plan - Growth",                  "Gold FoF",         "Gold"),
-    (0, "Kotak Gold Fund - Regular Plan - Growth",                 "Gold FoF",         "Gold"),
+# Fund name filters — skip these regardless of category
+EXCLUDE_KEYWORDS = [
+    "segregated", " series ", "series i ", "series ii", "series iii",
+    "series iv", "series v", "series vi", "series vii", "series viii",
+    "fixed term", "ftf", "capital protection", "unclaimed", "discontinued",
+    "eco plan", "wealth plan", "retail plan", "super institutional",
+    "interval fund", "close ended", " - direct", "direct plan",
+    "idcw", " dividend", "bonus option",
 ]
 
 # Profile definitions
@@ -152,56 +77,6 @@ PROFILES = {
     "M": {"eq": 0.60, "debt": 0.40, "label": "Moderate"},
     "A": {"eq": 0.80, "debt": 0.20, "label": "Aggressive"},
 }
-
-# ─────────────────────────────────────────────
-# STEP 1A — NAME-BASED CODE RESOLUTION
-# Resolves fund names from FUND_UNIVERSE to actual AMFI codes at runtime.
-# This way codes never go stale — AMFI is always the source of truth.
-# ─────────────────────────────────────────────
-
-def build_name_index(amfi_lookup):
-    """
-    Build normalised name → entry index from AMFI for fuzzy matching.
-    Excludes Direct, IDCW, Dividend, Bonus plans.
-    """
-    index = {}
-    for code, info in amfi_lookup.items():
-        name = info["name"].lower()
-        if any(x in name for x in [" - direct", "direct plan", " idcw",
-                                     "dividend", "bonus option", "idcw payout"]):
-            continue
-        index[name] = (code, info["name"], info["nav_date"], info["nav_latest"])
-    return index
-
-
-def resolve_code(display_name, amfi_index):
-    """
-    Find AMFI code for a fund by fuzzy name match.
-    Returns (code, actual_name, nav_date, nav_latest) or None.
-    """
-    needle = display_name.lower().strip()
-
-    # Exact match
-    if needle in amfi_index:
-        return amfi_index[needle]
-
-    # Score-based: count matching words in first 6 words
-    needle_words = set(needle.replace("-", " ").split()[:7])
-    # Remove generic stopwords
-    stops = {"fund", "regular", "plan", "growth", "option", "the", "and"}
-    needle_words -= stops
-
-    best, best_score = None, 0
-    for amfi_name, entry in amfi_index.items():
-        amfi_words = set(amfi_name.replace("-", " ").split()[:7]) - stops
-        score = len(needle_words & amfi_words)
-        # Require at least 3 meaningful word matches
-        if score > best_score and score >= 3:
-            best_score = score
-            best = entry
-
-    return best
-
 
 # ─────────────────────────────────────────────
 # STEP 1 — FETCH AMFI CURRENT NAV
@@ -261,11 +136,16 @@ def fetch_history(scheme_code, amfi_nav_date_str, min_years=1):
     try:
         amfi_date = datetime.strptime(amfi_nav_date_str, "%d-%b-%Y").date()
         days_old = (date.today() - amfi_date).days
+        # Reject if NAV is older than 7 days OR if year is suspiciously old
+        # (catches funds that were merged/wound-down but still appear in mfapi)
         if days_old > 7:
-            print(f"   ⚠ STALE AMFI NAV ({days_old}d): {scheme_code} ({amfi_nav_date_str}) — skipping")
+            print(f"   ⚠ STALE AMFI NAV ({days_old}d old, {amfi_nav_date_str}): {scheme_code} — skipping")
+            return None
+        if amfi_date.year < 2024:
+            print(f"   ⚠ SUSPICIOUS NAV DATE ({amfi_nav_date_str}): {scheme_code} — skipping")
             return None
     except Exception:
-        pass  # if date parse fails, continue and let mfapi validate
+        pass
 
     try:
         headers = {"User-Agent": "Mozilla/5.0 (compatible; MintingM/1.0)"}
@@ -287,8 +167,8 @@ def fetch_history(scheme_code, amfi_nav_date_str, min_years=1):
 
         # Secondary freshness check on mfapi's latest date
         mfapi_latest = df["date"].iloc[-1].date()
-        if (date.today() - mfapi_latest).days > 7:
-            print(f"   ⚠ STALE mfapi ({(date.today()-mfapi_latest).days}d): {scheme_code} — skipping")
+        if (date.today() - mfapi_latest).days > 7 or mfapi_latest.year < 2024:
+            print(f"   ⚠ STALE mfapi ({mfapi_latest}): {scheme_code} — skipping")
             return None
 
         years_available = (df["date"].iloc[-1] - df["date"].iloc[0]).days / 365.25
@@ -307,24 +187,65 @@ def fetch_history(scheme_code, amfi_nav_date_str, min_years=1):
 # ─────────────────────────────────────────────
 
 def cagr(df, years):
-    """Compute CAGR for given lookback period in years."""
-    end_date = df["date"].iloc[-1]
-    start_date = end_date - pd.DateOffset(years=years)
-    sub = df[df["date"] >= start_date].copy()
-    if len(sub) < 30:
+    """
+    Compute CAGR for given lookback period.
+    Anchors on TODAY (not latest NAV date) to match Moneycontrol/AMFI standard.
+    e.g. 1Y = from (today - 1 year) to today's closest NAV.
+    """
+    today = pd.Timestamp(date.today())
+
+    # End: closest NAV on or before today
+    end_sub = df[df["date"] <= today]
+    if end_sub.empty:
         return None
-    start_nav = sub["nav"].iloc[0]
-    end_nav = sub["nav"].iloc[-1]
-    actual_years = (sub["date"].iloc[-1] - sub["date"].iloc[0]).days / 365.25
+    end_nav  = end_sub["nav"].iloc[-1]
+    end_date = end_sub["date"].iloc[-1]
+
+    # Start: closest NAV on or before (today - N years)
+    start_target = today - pd.DateOffset(years=years)
+    start_sub = df[df["date"] <= start_target]
+    if len(start_sub) < 5:
+        return None
+    start_nav  = start_sub["nav"].iloc[-1]
+    start_date = start_sub["date"].iloc[-1]
+
+    actual_years = (end_date - start_date).days / 365.25
     if actual_years < 0.5 or start_nav <= 0:
         return None
+
     return round(((end_nav / start_nav) ** (1 / actual_years) - 1) * 100, 2)
+
+
+def absolute_return(df, months):
+    """
+    Absolute return over N months (not annualised).
+    Used for 1M and 3M — matches Angel One / Moneycontrol display.
+    Formula: (end_NAV / start_NAV - 1) × 100
+    """
+    today = pd.Timestamp(date.today())
+
+    end_sub = df[df["date"] <= today]
+    if end_sub.empty:
+        return None
+    end_nav = end_sub["nav"].iloc[-1]
+
+    start_target = today - pd.DateOffset(months=months)
+    start_sub = df[df["date"] <= start_target]
+    if start_sub.empty:
+        return None
+    start_nav = start_sub["nav"].iloc[-1]
+
+    if start_nav <= 0:
+        return None
+
+    return round((end_nav / start_nav - 1) * 100, 2)
 
 
 def compute_metrics(df):
     """
     Compute all risk/return metrics from daily NAV.
-    Formula exactly matching the Formula Guide in index.html.
+    - 1M, 3M: absolute return (not annualised) — matches Angel One
+    - 1Y, 3Y, 5Y, 7Y, 10Y: CAGR annualised — anchored on date.today()
     """
     df = df.copy()
     df["ret"] = df["nav"].pct_change()
@@ -333,6 +254,11 @@ def compute_metrics(df):
     if len(df) < 60:
         return None
 
+    # Absolute returns (sub-1Y)
+    r1m = absolute_return(df, 1)
+    r3m = absolute_return(df, 3)
+
+    # Annualised CAGR returns
     r1  = cagr(df, 1)
     r3  = cagr(df, 3)
     r5  = cagr(df, 5)
@@ -347,23 +273,18 @@ def compute_metrics(df):
     daily_std = df["ret"].std()
     ann_std = daily_std * math.sqrt(252)
 
-    # Sharpe = (AnnRet - RFR) / AnnStd
     sharpe = round((ann_ret_val / 100 - RISK_FREE_RATE) / ann_std, 3) if ann_std > 0 else None
 
-    # Sortino — downside std only
     down_ret = df[df["ret"] < 0]["ret"]
     down_std = down_ret.std() * math.sqrt(252) if len(down_ret) > 10 else ann_std
     sortino = round((ann_ret_val / 100 - RISK_FREE_RATE) / down_std, 3) if down_std > 0 else None
 
-    # Max Drawdown
     roll_max = df["nav"].cummax()
     drawdown = (df["nav"] - roll_max) / roll_max
     max_dd = round(float(drawdown.min()), 4)
 
-    # Calmar
     calmar = round((ann_ret_val / 100) / abs(max_dd), 3) if max_dd != 0 else None
 
-    # Annual win rate
     df["year"] = df["date"].dt.year
     annual_rets = df.groupby("year")["nav"].apply(
         lambda x: (x.iloc[-1] / x.iloc[0] - 1) * 100 if len(x) > 20 else None
@@ -371,7 +292,8 @@ def compute_metrics(df):
     win_rate = round((annual_rets > 0).sum() / len(annual_rets) * 100, 1) if len(annual_rets) > 0 else None
 
     return {
-        "r1": r1, "r3": r3, "r5": r5, "r7": r7, "r10": r10,
+        "r1m": r1m, "r3m": r3m,                          # absolute
+        "r1": r1, "r3": r3, "r5": r5, "r7": r7, "r10": r10,  # annualised CAGR
         "sharpe": sharpe,
         "std_dev": round(ann_std, 4),
         "max_dd": max_dd,
@@ -379,7 +301,7 @@ def compute_metrics(df):
         "calmar": calmar,
         "win_rate": win_rate,
         "ann_ret": ann_ret_val,
-        "_annual_rets": annual_rets.to_dict(),   # used for backtest
+        "_annual_rets": annual_rets.to_dict(),
     }
 
 
@@ -899,55 +821,102 @@ def main():
     # ── 1. AMFI current NAV ──────────────────────────────
     amfi_lookup = fetch_amfi_nav()
 
-    # ── 2. Process fund universe — resolve codes from AMFI by name ──
-    print(f"\n🔄 Resolving {len(FUND_UNIVERSE)} funds against AMFI...")
-    amfi_name_index = build_name_index(amfi_lookup)
-    print(f"   Name index built: {len(amfi_name_index)} regular-plan funds")
+    # ── 2. Build full universe — all valid regular-plan funds ──
+    print("\n🔄 Scanning AMFI for all valid regular-plan growth funds...")
 
-    # De-duplicate display names
-    seen_names = set()
-    resolved = []
-    not_found = []
+    import re as _re
 
-    for display_name, cat, asset_type in [(e[1], e[2], e[3]) for e in FUND_UNIVERSE]:
-        if display_name in seen_names:
+    def get_subcat(amfi_cat):
+        m = _re.search(r'- (.+?)(?:\))', amfi_cat)
+        return m.group(1).lower() if m else amfi_cat.lower()
+
+    def get_asset_type(amfi_cat):
+        subcat = get_subcat(amfi_cat)
+        if any(k in subcat for k in GOLD_SUBCATS):   return "Gold"
+        if any(k in subcat for k in EQUITY_SUBCATS): return "Equity"
+        if any(k in subcat for k in DEBT_SUBCATS):   return "Debt"
+        return "Other"
+
+    def get_clean_cat(amfi_cat):
+        m = _re.search(r'- (.+?)(?:\))', amfi_cat)
+        if m:
+            raw = m.group(1)
+            for prefix in ["Equity Scheme - ", "Debt Scheme - ", "Hybrid Scheme - ",
+                           "Other Scheme - ", "Solution Oriented Scheme - "]:
+                if raw.startswith(prefix):
+                    return raw[len(prefix):]
+            return raw
+        return amfi_cat
+
+    def is_valid_fund(name, amfi_cat):
+        n = name.lower()
+        if any(k in n for k in EXCLUDE_KEYWORDS): return False
+        if "close ended" in amfi_cat.lower():     return False
+        return True
+
+    def is_nav_fresh(nav_date_str):
+        try:
+            d = datetime.strptime(nav_date_str, "%d-%b-%Y").date()
+            return (date.today() - d).days <= 7 and d.year >= 2024
+        except:
+            return False
+
+    # Scan every fund in AMFI
+    candidates = []
+    for code, info in amfi_lookup.items():
+        if not is_nav_fresh(info["nav_date"]):
             continue
-        seen_names.add(display_name)
+        if not is_valid_fund(info["name"], info["amfi_cat"]):
+            continue
+        asset_type = get_asset_type(info["amfi_cat"])
+        if asset_type == "Other":
+            continue
+        candidates.append({
+            "code":       code,
+            "name":       info["name"],
+            "cat":        get_clean_cat(info["amfi_cat"]),
+            "type":       asset_type,
+            "nav_latest": info["nav_latest"],
+            "nav_date":   info["nav_date"],
+        })
 
-        match = resolve_code(display_name, amfi_name_index)
-        if match:
-            code, actual_name, nav_date, nav_latest = match
-            resolved.append((code, actual_name, nav_date, nav_latest, cat, asset_type))
-        else:
-            not_found.append(display_name)
+    from collections import Counter as _Counter
+    type_counts = _Counter(c["type"] for c in candidates)
+    print(f"   Valid candidates: {len(candidates)} "
+          f"({type_counts['Equity']} Equity, "
+          f"{type_counts['Debt']} Debt, "
+          f"{type_counts['Gold']} Gold)")
+    print(f"   Fetching 3Y+ history for each — this takes ~15 min...")
 
-    if not_found:
-        print(f"\n   ⚠ {len(not_found)} funds not matched in AMFI (will be skipped):")
-        for n in not_found:
-            print(f"     - {n}")
-
-    # De-duplicate by code (first match wins)
-    seen_codes = set()
-    deduped = []
-    for entry in resolved:
-        if entry[0] not in seen_codes:
-            seen_codes.add(entry[0])
-            deduped.append(entry)
-
-    print(f"\n   ✅ {len(deduped)} unique funds to process "
-          f"({sum(1 for e in deduped if e[5]=='Equity')} Equity, "
-          f"{sum(1 for e in deduped if e[5]=='Debt')} Debt, "
-          f"{sum(1 for e in deduped if e[5]=='Gold')} Gold)")
-
+    # ── 3. Fetch history + compute full MintingM scores ──────
     funds_raw = []
     fund_id_counter = 1000
+    skipped_history = 0
+    skipped_3y = 0
 
-    for code, fund_name, nav_date_str, nav_latest, cat, asset_type in deduped:
-        print(f"   [{asset_type}] {fund_name[:52]}  ({nav_date_str})")
-        hist = fetch_history(code, nav_date_str, min_years=1)
-        time.sleep(0.3)
+    for idx, fund in enumerate(candidates, 1):
+        code       = fund["code"]
+        fund_name  = fund["name"]
+        nav_date   = fund["nav_date"]
+        asset_type = fund["type"]
+        cat        = fund["cat"]
+
+        if idx % 50 == 0:
+            print(f"   ... {idx}/{len(candidates)} processed, "
+                  f"{len(funds_raw)} scored so far")
+
+        hist = fetch_history(code, nav_date, min_years=MIN_HISTORY_YEARS)
+        time.sleep(0.2)  # respectful rate limiting
 
         if hist is None:
+            skipped_history += 1
+            fund_id_counter += 1
+            continue
+
+        # Verify actual history length
+        years_available = (hist["date"].iloc[-1] - hist["date"].iloc[0]).days / 365.25
+        if years_available < MIN_HISTORY_YEARS:
+            skipped_3y += 1
             fund_id_counter += 1
             continue
 
@@ -959,70 +928,85 @@ def main():
         score_info = compute_raw_score(metrics, asset_type)
 
         funds_raw.append({
-            "id":         fund_id_counter,
-            "code":       code,
-            "name":       fund_name,
-            "cat":        cat,
-            "type":       asset_type,
-            "nav_latest": nav_latest,
-            "nav_date":   nav_date_str,
-            "live":       True,
-            "data_from":  int(hist["date"].iloc[0].year),
-            "r1":         metrics["r1"],
-            "r3":         metrics["r3"],
-            "r5":         metrics["r5"],
-            "r7":         metrics["r7"],
-            "r10":        metrics["r10"],
-            "sharpe":     metrics["sharpe"],
-            "std_dev":    metrics["std_dev"],
-            "max_dd":     metrics["max_dd"],
-            "sortino":    metrics["sortino"],
-            "calmar":     metrics["calmar"],
-            "win_rate":   metrics["win_rate"],
-            "raw_score":  score_info["raw_score"],
-            "sf":         score_info["sf"],
-            "df":         score_info["df"],
-            "fp":         score_info["fp"],
-            "_annual_rets": metrics.get("_annual_rets", {}),
+            "id":          fund_id_counter,
+            "code":        code,
+            "name":        fund_name,
+            "cat":         cat,
+            "type":        asset_type,
+            "nav_latest":  fund["nav_latest"],
+            "nav_date":    nav_date,
+            "live":        True,
+            "data_from":   int(hist["date"].iloc[0].year),
+            "r1m":         metrics["r1m"],
+            "r3m":         metrics["r3m"],
+            "r1":          metrics["r1"],
+            "r3":          metrics["r3"],
+            "r5":          metrics["r5"],
+            "r7":          metrics["r7"],
+            "r10":         metrics["r10"],
+            "sharpe":      metrics["sharpe"],
+            "std_dev":     metrics["std_dev"],
+            "max_dd":      metrics["max_dd"],
+            "sortino":     metrics["sortino"],
+            "calmar":      metrics["calmar"],
+            "win_rate":    metrics["win_rate"],
+            "raw_score":   score_info["raw_score"],
+            "sf":          score_info["sf"],
+            "df":          score_info["df"],
+            "fp":          score_info["fp"],
+            "_annual_rets":metrics.get("_annual_rets", {}),
+            # Flag funds with 5Y+ history — eligible for portfolio selection
+            "_has_5y":     years_available >= 5,
         })
         fund_id_counter += 1
 
-    # ── 3. Normalize scores ──────────────────────────────
+    final_counts = _Counter(f["type"] for f in funds_raw)
+    print(f"\n   ✅ Scored {len(funds_raw)} funds "
+          f"({final_counts['Equity']} Equity, "
+          f"{final_counts['Debt']} Debt, "
+          f"{final_counts['Gold']} Gold)")
+    print(f"   Skipped: {skipped_history} stale/unavailable, "
+          f"{skipped_3y} insufficient history (<3Y)")
+
+    # ── 4. Normalize scores ──────────────────────────────
     funds_raw = normalize_scores(funds_raw)
 
-    # ── 4. SG Ratio ──────────────────────────────────────
+    # ── 5. SG Ratio ──────────────────────────────────────
     current_sg, sg_history = get_sg_ratio_and_history()
     gold_active = current_sg > GOLD_THRESHOLD
 
-    # ── 5. Nifty annual returns ───────────────────────────
+    # ── 6. Nifty annual returns ───────────────────────────
     nifty_annual = get_nifty_annual()
 
-    # ── 6. Portfolio selection ────────────────────────────
-    print("\n🎯 Selecting portfolio funds...")
-    live_funds = [f for f in funds_raw if f.get("live")]
+    # ── 7. Portfolio selection ────────────────────────────
+    # Only pick from funds with 5Y+ history for reliability
+    print("\n🎯 Selecting portfolio funds (5Y+ history only)...")
+    portfolio_eligible = [f for f in funds_raw if f.get("live") and f.get("_has_5y")]
+    all_live = [f for f in funds_raw if f.get("live")]
+    print(f"   Eligible for portfolio: {len(portfolio_eligible)} / {len(all_live)} funds")
     portfolio_selection = {}
 
     for profile_key, prof in PROFILES.items():
-        picks = select_portfolio_funds(live_funds, profile_key)
+        picks = select_portfolio_funds(portfolio_eligible, profile_key)
         portfolio_selection[profile_key] = {
             "profile": profile_key,
             "eq":      prof["eq"],
             "debt":    prof["debt"],
             "funds":   picks,
         }
-        names = [f["name"].split("-")[0].strip()[:20] for f in picks]
+        names = [f["name"].split("-")[0].strip()[:22] for f in picks]
         print(f"   {profile_key} ({prof['label']}): {names}")
 
-    # ── 7. Backtesting ────────────────────────────────────
+    # ── 8. Backtesting ────────────────────────────────────
     print("\n🔢 Running backtests...")
     backtest = {}
     for profile_key, prof in PROFILES.items():
-        picks   = portfolio_selection[profile_key]["funds"]
+        picks    = portfolio_selection[profile_key]["funds"]
         pick_ids = {f["id"] for f in picks}
 
-        eq_funds  = [f for f in live_funds if f["type"] == "Equity"  and f["id"] in pick_ids]
-        dt_funds  = [f for f in live_funds if f["type"] == "Debt"    and f["id"] in pick_ids]
-        gld_funds = [f for f in live_funds if f["type"] == "Gold"    and f["id"] in pick_ids]
+        eq_funds  = [f for f in all_live if f["type"] == "Equity" and f["id"] in pick_ids]
+        dt_funds  = [f for f in all_live if f["type"] == "Debt"   and f["id"] in pick_ids]
+        gld_funds = [f for f in all_live if f["type"] == "Gold"   and f["id"] in pick_ids]
 
         bt = run_backtest(
             profile_key, prof["eq"], prof["debt"],
@@ -1067,14 +1051,15 @@ def main():
     portfolio_funds_list = []
     for profile_key, prof_data in portfolio_selection.items():
         for f in prof_data["funds"]:
-            # Find full metrics from live_funds
-            match = next((lf for lf in live_funds if lf["id"] == f["id"]), None)
+            match = next((lf for lf in all_live if lf["id"] == f["id"]), None)
             if match:
                 portfolio_funds_list.append({
                     "profile":  profile_key,
                     "name":     match["name"],
                     "type":     match["type"],
                     "cat":      match["cat"],
+                    "r1m":      match.get("r1m"),
+                    "r3m":      match.get("r3m"),
                     "r1":       match.get("r1"),
                     "r3":       match.get("r3"),
                     "r5":       match.get("r5"),

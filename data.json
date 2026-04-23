@@ -1,59 +1,63 @@
 {
-  "generated_at": "2026-04-23T13:28:35.017162",
+  "generated_at": "2026-04-23T14:07:38.744483",
   "generated_date": "23 Apr 2026",
-  "generated_time": "13:25 IST",
+  "generated_time": "14:04 IST",
   "data_source": "AMFI India direct + mfapi.in \u2014 official NAV data",
-  "live_funds": 144,
+  "live_funds": 143,
   "total_funds": 160,
   "gold_threshold": 9.0,
-  "sg_ratio": 5.41,
-  "gold_active": false,
+  "sg_ratio": 9.4,
+  "gold_active": true,
   "sg_history": {
-    "2003": 9.6,
-    "2004": 10.8,
-    "2005": 12.6,
-    "2006": 15.3,
-    "2007": 19.3,
-    "2008": 7.1,
-    "2009": 10.7,
-    "2010": 10.0,
-    "2011": 5.8,
-    "2012": 6.6,
-    "2013": 8.9,
-    "2014": 11.4,
-    "2015": 11.5,
-    "2016": 10.6,
-    "2017": 12.7,
-    "2018": 12.6,
-    "2019": 11.8,
-    "2020": 10.7,
-    "2021": 13.3,
-    "2022": 12.6,
-    "2023": 13.2,
-    "2024": 10.8,
-    "2025": 6.8,
-    "2026": 5.41
+    "2000": 10.8,
+    "2001": 11.2,
+    "2002": 9.6,
+    "2003": 7.1,
+    "2004": 7.8,
+    "2005": 8.4,
+    "2006": 9.8,
+    "2007": 12.4,
+    "2008": 13.1,
+    "2009": 6.8,
+    "2010": 7.2,
+    "2011": 8.6,
+    "2012": 9.4,
+    "2013": 10.1,
+    "2014": 9.8,
+    "2015": 8.9,
+    "2016": 8.2,
+    "2017": 8.7,
+    "2018": 9.3,
+    "2019": 8.1,
+    "2020": 6.9,
+    "2021": 8.4,
+    "2022": 9.8,
+    "2023": 10.2,
+    "2024": 9.6,
+    "2025": 9.5,
+    "2026": 9.4
   },
   "nifty_annual": {
+    "2007": 36.6,
     "2008": -51.8,
-    "2009": 75.8,
-    "2010": 17.9,
-    "2011": -24.6,
-    "2012": 27.7,
-    "2013": 6.8,
-    "2014": 31.4,
-    "2015": -4.1,
-    "2016": 3.0,
-    "2017": 28.6,
-    "2018": 3.2,
-    "2019": 12.0,
-    "2020": 14.9,
-    "2021": 24.1,
-    "2022": 4.3,
-    "2023": 20.0,
+    "2009": 70.7,
+    "2010": 17.2,
+    "2011": -24.9,
+    "2012": 23.9,
+    "2013": 5.2,
+    "2014": 33.1,
+    "2015": -5.3,
+    "2016": 5.1,
+    "2017": 28.7,
+    "2018": 4.0,
+    "2019": 12.7,
+    "2020": 14.8,
+    "2021": 23.8,
+    "2022": 2.7,
+    "2023": 19.4,
     "2024": 8.8,
-    "2025": 10.5,
-    "2026": -7.5
+    "2025": 10.1,
+    "2026": -6.9
   },
   "portfolio_selection": {
     "C": {
@@ -62,36 +66,36 @@
       "debt": 0.8,
       "funds": [
         {
-          "id": 1036,
-          "name": "HDFC Flexi Cap Fund - Growth Plan",
+          "id": 1003,
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
           "type": "Equity",
           "cat": "Flexi Cap Fund",
-          "score": 6.95,
-          "code": 101762
+          "score": 9.22,
+          "code": 122639
         },
         {
           "id": 1144,
           "name": "Invesco India Gold Exchange Traded Fund",
           "type": "Gold",
           "cat": "Gold ETF",
-          "score": 9.86,
+          "score": 10.0,
           "code": 112368
         },
         {
-          "id": 1101,
-          "name": "Nippon India Corporate Bond Fund - Growth Plan - Growth Option",
+          "id": 1081,
+          "name": "Aditya Birla Sun Life Corporate Bond Fund - Growth - Direct Plan",
           "type": "Debt",
           "cat": "Corporate Bond Fund",
           "score": 10.0,
-          "code": 100856
+          "code": 119533
         },
         {
-          "id": 1121,
-          "name": "ICICI Prudential Short Term Fund - Growth Option",
+          "id": 1103,
+          "name": "Nippon India Corporate Bond Fund - Growth Plan - Growth Option",
           "type": "Debt",
-          "cat": "Short Duration Fund",
-          "score": 10.0,
-          "code": 101758
+          "cat": "Corporate Bond Fund",
+          "score": 9.99,
+          "code": 100856
         }
       ]
     },
@@ -101,44 +105,44 @@
       "debt": 0.4,
       "funds": [
         {
-          "id": 1036,
-          "name": "HDFC Flexi Cap Fund - Growth Plan",
+          "id": 1003,
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
           "type": "Equity",
           "cat": "Flexi Cap Fund",
-          "score": 6.95,
-          "code": 101762
+          "score": 9.22,
+          "code": 122639
         },
         {
-          "id": 1008,
-          "name": "Nippon India Growth Mid Cap Fund-Growth Plan-Growth Option",
+          "id": 1001,
+          "name": "HDFC Mid Cap Fund - Growth Option - Direct Plan",
           "type": "Equity",
           "cat": "Mid Cap Fund",
           "score": 10.0,
-          "code": 100377
+          "code": 118989
         },
         {
           "id": 1144,
           "name": "Invesco India Gold Exchange Traded Fund",
           "type": "Gold",
           "cat": "Gold ETF",
-          "score": 9.86,
+          "score": 10.0,
           "code": 112368
         },
         {
-          "id": 1101,
-          "name": "Nippon India Corporate Bond Fund - Growth Plan - Growth Option",
+          "id": 1081,
+          "name": "Aditya Birla Sun Life Corporate Bond Fund - Growth - Direct Plan",
           "type": "Debt",
           "cat": "Corporate Bond Fund",
           "score": 10.0,
-          "code": 100856
+          "code": 119533
         },
         {
-          "id": 1121,
-          "name": "ICICI Prudential Short Term Fund - Growth Option",
+          "id": 1103,
+          "name": "Nippon India Corporate Bond Fund - Growth Plan - Growth Option",
           "type": "Debt",
-          "cat": "Short Duration Fund",
-          "score": 10.0,
-          "code": 101758
+          "cat": "Corporate Bond Fund",
+          "score": 9.99,
+          "code": 100856
         }
       ]
     },
@@ -148,27 +152,27 @@
       "debt": 0.2,
       "funds": [
         {
-          "id": 1036,
-          "name": "HDFC Flexi Cap Fund - Growth Plan",
+          "id": 1003,
+          "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
           "type": "Equity",
           "cat": "Flexi Cap Fund",
-          "score": 6.95,
-          "code": 101762
+          "score": 9.22,
+          "code": 122639
         },
         {
-          "id": 1008,
-          "name": "Nippon India Growth Mid Cap Fund-Growth Plan-Growth Option",
+          "id": 1001,
+          "name": "HDFC Mid Cap Fund - Growth Option - Direct Plan",
           "type": "Equity",
           "cat": "Mid Cap Fund",
           "score": 10.0,
-          "code": 100377
+          "code": 118989
         },
         {
-          "id": 1028,
+          "id": 1032,
           "name": "Nippon India Multi Cap Fund-Growth Plan-Growth Option",
           "type": "Equity",
           "cat": "Multi Cap Fund",
-          "score": 7.57,
+          "score": 6.72,
           "code": 101161
         },
         {
@@ -176,16 +180,16 @@
           "name": "Invesco India Gold Exchange Traded Fund",
           "type": "Gold",
           "cat": "Gold ETF",
-          "score": 9.86,
+          "score": 10.0,
           "code": 112368
         },
         {
-          "id": 1101,
-          "name": "Nippon India Corporate Bond Fund - Growth Plan - Growth Option",
+          "id": 1081,
+          "name": "Aditya Birla Sun Life Corporate Bond Fund - Growth - Direct Plan",
           "type": "Debt",
           "cat": "Corporate Bond Fund",
           "score": 10.0,
-          "code": 100856
+          "code": 119533
         }
       ]
     }
@@ -193,19 +197,19 @@
   "portfolio_funds": [
     {
       "profile": "C",
-      "name": "HDFC Flexi Cap Fund - Growth Plan",
+      "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
       "type": "Equity",
       "cat": "Flexi Cap Fund",
-      "r1": 3.69,
-      "r3": 20.47,
-      "r5": 20.68,
-      "r7": 16.89,
-      "r10": 16.42,
-      "sharpe": 0.495,
-      "std_dev": 0.2005,
-      "max_dd": -0.5992,
+      "r1": 5.01,
+      "r3": 18.55,
+      "r5": 17.42,
+      "r7": 19.64,
+      "r10": 18.05,
+      "sharpe": 0.963,
+      "std_dev": 0.1199,
+      "max_dd": -0.312,
       "nav_date": "22-Apr-2026",
-      "score": 6.95
+      "score": 9.22
     },
     {
       "profile": "C",
@@ -221,7 +225,23 @@
       "std_dev": 0.1539,
       "max_dd": -0.307,
       "nav_date": "22-Apr-2026",
-      "score": 9.86
+      "score": 10.0
+    },
+    {
+      "profile": "C",
+      "name": "Aditya Birla Sun Life Corporate Bond Fund - Growth - Direct Plan",
+      "type": "Debt",
+      "cat": "Corporate Bond Fund",
+      "r1": 4.5,
+      "r3": 7.38,
+      "r5": 6.46,
+      "r7": 7.4,
+      "r10": 7.56,
+      "sharpe": 0.769,
+      "std_dev": 0.0138,
+      "max_dd": -0.0238,
+      "nav_date": "22-Apr-2026",
+      "score": 10.0
     },
     {
       "profile": "C",
@@ -237,53 +257,37 @@
       "std_dev": 0.0092,
       "max_dd": -0.0172,
       "nav_date": "22-Apr-2026",
-      "score": 10.0
-    },
-    {
-      "profile": "C",
-      "name": "ICICI Prudential Short Term Fund - Growth Option",
-      "type": "Debt",
-      "cat": "Short Duration Fund",
-      "r1": 5.79,
-      "r3": 7.37,
-      "r5": 6.48,
-      "r7": 7.22,
-      "r10": 7.27,
-      "sharpe": 0.491,
-      "std_dev": 0.0157,
-      "max_dd": -0.0346,
-      "nav_date": "22-Apr-2026",
-      "score": 10.0
+      "score": 9.99
     },
     {
       "profile": "M",
-      "name": "HDFC Flexi Cap Fund - Growth Plan",
+      "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
       "type": "Equity",
       "cat": "Flexi Cap Fund",
-      "r1": 3.69,
-      "r3": 20.47,
-      "r5": 20.68,
-      "r7": 16.89,
-      "r10": 16.42,
-      "sharpe": 0.495,
-      "std_dev": 0.2005,
-      "max_dd": -0.5992,
+      "r1": 5.01,
+      "r3": 18.55,
+      "r5": 17.42,
+      "r7": 19.64,
+      "r10": 18.05,
+      "sharpe": 0.963,
+      "std_dev": 0.1199,
+      "max_dd": -0.312,
       "nav_date": "22-Apr-2026",
-      "score": 6.95
+      "score": 9.22
     },
     {
       "profile": "M",
-      "name": "Nippon India Growth Mid Cap Fund-Growth Plan-Growth Option",
+      "name": "HDFC Mid Cap Fund - Growth Option - Direct Plan",
       "type": "Equity",
       "cat": "Mid Cap Fund",
-      "r1": 13.74,
-      "r3": 26.94,
-      "r5": 23.41,
-      "r7": 21.68,
-      "r10": 19.11,
-      "sharpe": 0.644,
-      "std_dev": 0.1958,
-      "max_dd": -0.6265,
+      "r1": 13.36,
+      "r3": 25.75,
+      "r5": 23.4,
+      "r7": 21.11,
+      "r10": 19.14,
+      "sharpe": 0.804,
+      "std_dev": 0.1572,
+      "max_dd": -0.3951,
       "nav_date": "22-Apr-2026",
       "score": 10.0
     },
@@ -301,7 +305,23 @@
       "std_dev": 0.1539,
       "max_dd": -0.307,
       "nav_date": "22-Apr-2026",
-      "score": 9.86
+      "score": 10.0
+    },
+    {
+      "profile": "M",
+      "name": "Aditya Birla Sun Life Corporate Bond Fund - Growth - Direct Plan",
+      "type": "Debt",
+      "cat": "Corporate Bond Fund",
+      "r1": 4.5,
+      "r3": 7.38,
+      "r5": 6.46,
+      "r7": 7.4,
+      "r10": 7.56,
+      "sharpe": 0.769,
+      "std_dev": 0.0138,
+      "max_dd": -0.0238,
+      "nav_date": "22-Apr-2026",
+      "score": 10.0
     },
     {
       "profile": "M",
@@ -317,53 +337,37 @@
       "std_dev": 0.0092,
       "max_dd": -0.0172,
       "nav_date": "22-Apr-2026",
-      "score": 10.0
-    },
-    {
-      "profile": "M",
-      "name": "ICICI Prudential Short Term Fund - Growth Option",
-      "type": "Debt",
-      "cat": "Short Duration Fund",
-      "r1": 5.79,
-      "r3": 7.37,
-      "r5": 6.48,
-      "r7": 7.22,
-      "r10": 7.27,
-      "sharpe": 0.491,
-      "std_dev": 0.0157,
-      "max_dd": -0.0346,
-      "nav_date": "22-Apr-2026",
-      "score": 10.0
+      "score": 9.99
     },
     {
       "profile": "A",
-      "name": "HDFC Flexi Cap Fund - Growth Plan",
+      "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
       "type": "Equity",
       "cat": "Flexi Cap Fund",
-      "r1": 3.69,
-      "r3": 20.47,
-      "r5": 20.68,
-      "r7": 16.89,
-      "r10": 16.42,
-      "sharpe": 0.495,
-      "std_dev": 0.2005,
-      "max_dd": -0.5992,
+      "r1": 5.01,
+      "r3": 18.55,
+      "r5": 17.42,
+      "r7": 19.64,
+      "r10": 18.05,
+      "sharpe": 0.963,
+      "std_dev": 0.1199,
+      "max_dd": -0.312,
       "nav_date": "22-Apr-2026",
-      "score": 6.95
+      "score": 9.22
     },
     {
       "profile": "A",
-      "name": "Nippon India Growth Mid Cap Fund-Growth Plan-Growth Option",
+      "name": "HDFC Mid Cap Fund - Growth Option - Direct Plan",
       "type": "Equity",
       "cat": "Mid Cap Fund",
-      "r1": 13.74,
-      "r3": 26.94,
-      "r5": 23.41,
-      "r7": 21.68,
-      "r10": 19.11,
-      "sharpe": 0.644,
-      "std_dev": 0.1958,
-      "max_dd": -0.6265,
+      "r1": 13.36,
+      "r3": 25.75,
+      "r5": 23.4,
+      "r7": 21.11,
+      "r10": 19.14,
+      "sharpe": 0.804,
+      "std_dev": 0.1572,
+      "max_dd": -0.3951,
       "nav_date": "22-Apr-2026",
       "score": 10.0
     },
@@ -381,7 +385,7 @@
       "std_dev": 0.1968,
       "max_dd": -0.6459,
       "nav_date": "22-Apr-2026",
-      "score": 7.57
+      "score": 6.72
     },
     {
       "profile": "A",
@@ -397,350 +401,350 @@
       "std_dev": 0.1539,
       "max_dd": -0.307,
       "nav_date": "22-Apr-2026",
-      "score": 9.86
+      "score": 10.0
     },
     {
       "profile": "A",
-      "name": "Nippon India Corporate Bond Fund - Growth Plan - Growth Option",
+      "name": "Aditya Birla Sun Life Corporate Bond Fund - Growth - Direct Plan",
       "type": "Debt",
       "cat": "Corporate Bond Fund",
-      "r1": 4.82,
-      "r3": 7.29,
-      "r5": 6.48,
-      "r7": 6.82,
-      "r10": 7.04,
-      "sharpe": 0.587,
-      "std_dev": 0.0092,
-      "max_dd": -0.0172,
+      "r1": 4.5,
+      "r3": 7.38,
+      "r5": 6.46,
+      "r7": 7.4,
+      "r10": 7.56,
+      "sharpe": 0.769,
+      "std_dev": 0.0138,
+      "max_dd": -0.0238,
       "nav_date": "22-Apr-2026",
       "score": 10.0
     }
   ],
   "backtest": {
     "C": {
-      "cagr": 8.6,
+      "cagr": 9.0,
       "max_dd": 0.0,
-      "sharpe": 0.51,
+      "sharpe": 0.66,
       "win_rate": 100.0,
       "n_years": 14,
       "start_year": 2013,
-      "final_nav": 319.36,
+      "final_nav": 332.74,
       "bt_rows": [
         {
           "year": 2013,
-          "port_nav": 105.9,
-          "port_ret": 5.9,
-          "regime": "equity",
-          "sg_ratio": 6.6
+          "port_nav": 105.86,
+          "port_ret": 5.86,
+          "regime": "gold",
+          "sg_ratio": 9.4
         },
         {
           "year": 2014,
-          "port_nav": 122.48,
-          "port_ret": 15.65,
+          "port_nav": 116.88,
+          "port_ret": 10.4,
+          "regime": "gold",
+          "sg_ratio": 10.1
+        },
+        {
+          "year": 2015,
+          "port_nav": 124.46,
+          "port_ret": 6.49,
+          "regime": "gold",
+          "sg_ratio": 9.8
+        },
+        {
+          "year": 2016,
+          "port_nav": 135.62,
+          "port_ret": 8.96,
           "regime": "equity",
           "sg_ratio": 8.9
         },
         {
-          "year": 2015,
-          "port_nav": 128.87,
-          "port_ret": 5.22,
-          "regime": "gold",
-          "sg_ratio": 11.4
-        },
-        {
-          "year": 2016,
-          "port_nav": 141.67,
-          "port_ret": 9.93,
-          "regime": "gold",
-          "sg_ratio": 11.5
-        },
-        {
           "year": 2017,
-          "port_nav": 152.11,
-          "port_ret": 7.37,
-          "regime": "gold",
-          "sg_ratio": 10.6
+          "port_nav": 148.55,
+          "port_ret": 9.54,
+          "regime": "equity",
+          "sg_ratio": 8.2
         },
         {
           "year": 2018,
-          "port_nav": 161.02,
-          "port_ret": 5.86,
-          "regime": "gold",
-          "sg_ratio": 12.7
+          "port_nav": 157.46,
+          "port_ret": 6.0,
+          "regime": "equity",
+          "sg_ratio": 8.7
         },
         {
           "year": 2019,
-          "port_nav": 178.07,
-          "port_ret": 10.59,
+          "port_nav": 175.03,
+          "port_ret": 11.16,
           "regime": "gold",
-          "sg_ratio": 12.6
+          "sg_ratio": 9.3
         },
         {
           "year": 2020,
-          "port_nav": 199.57,
-          "port_ret": 12.07,
-          "regime": "gold",
-          "sg_ratio": 11.8
+          "port_nav": 200.97,
+          "port_ret": 14.82,
+          "regime": "equity",
+          "sg_ratio": 8.1
         },
         {
           "year": 2021,
-          "port_nav": 209.39,
-          "port_ret": 4.92,
-          "regime": "gold",
-          "sg_ratio": 10.7
+          "port_nav": 220.72,
+          "port_ret": 9.83,
+          "regime": "equity",
+          "sg_ratio": 6.9
         },
         {
           "year": 2022,
-          "port_nav": 223.05,
-          "port_ret": 6.53,
-          "regime": "gold",
-          "sg_ratio": 13.3
+          "port_nav": 228.06,
+          "port_ret": 3.32,
+          "regime": "equity",
+          "sg_ratio": 8.4
         },
         {
           "year": 2023,
-          "port_nav": 244.01,
-          "port_ret": 9.39,
+          "port_nav": 250.58,
+          "port_ret": 9.87,
           "regime": "gold",
-          "sg_ratio": 12.6
+          "sg_ratio": 9.8
         },
         {
           "year": 2024,
-          "port_nav": 269.9,
-          "port_ret": 10.61,
+          "port_nav": 278.27,
+          "port_ret": 11.05,
           "regime": "gold",
-          "sg_ratio": 13.2
+          "sg_ratio": 10.2
         },
         {
           "year": 2025,
-          "port_nav": 315.47,
-          "port_ret": 16.88,
+          "port_nav": 324.33,
+          "port_ret": 16.55,
           "regime": "gold",
-          "sg_ratio": 10.8
+          "sg_ratio": 9.6
         },
         {
           "year": 2026,
-          "port_nav": 319.36,
-          "port_ret": 1.23,
-          "regime": "equity",
-          "sg_ratio": 6.8
+          "port_nav": 332.74,
+          "port_ret": 2.59,
+          "regime": "gold",
+          "sg_ratio": 9.5
         }
       ]
     },
     "M": {
-      "cagr": 11.7,
+      "cagr": 12.4,
       "max_dd": 0.0,
-      "sharpe": 0.56,
+      "sharpe": 0.66,
       "win_rate": 100.0,
       "n_years": 14,
       "start_year": 2013,
-      "final_nav": 469.94,
+      "final_nav": 511.54,
       "bt_rows": [
         {
           "year": 2013,
-          "port_nav": 100.98,
-          "port_ret": 0.98,
-          "regime": "equity",
-          "sg_ratio": 6.6
+          "port_nav": 100.54,
+          "port_ret": 0.54,
+          "regime": "gold",
+          "sg_ratio": 9.4
         },
         {
           "year": 2014,
-          "port_nav": 127.51,
-          "port_ret": 26.27,
+          "port_nav": 114.58,
+          "port_ret": 13.97,
+          "regime": "gold",
+          "sg_ratio": 10.1
+        },
+        {
+          "year": 2015,
+          "port_nav": 116.42,
+          "port_ret": 1.6,
+          "regime": "gold",
+          "sg_ratio": 9.8
+        },
+        {
+          "year": 2016,
+          "port_nav": 127.03,
+          "port_ret": 9.12,
           "regime": "equity",
           "sg_ratio": 8.9
         },
         {
-          "year": 2015,
-          "port_nav": 127.59,
-          "port_ret": 0.06,
-          "regime": "gold",
-          "sg_ratio": 11.4
-        },
-        {
-          "year": 2016,
-          "port_nav": 139.57,
-          "port_ret": 9.39,
-          "regime": "gold",
-          "sg_ratio": 11.5
-        },
-        {
           "year": 2017,
-          "port_nav": 154.52,
-          "port_ret": 10.71,
-          "regime": "gold",
-          "sg_ratio": 10.6
+          "port_nav": 150.41,
+          "port_ret": 18.4,
+          "regime": "equity",
+          "sg_ratio": 8.2
         },
         {
           "year": 2018,
-          "port_nav": 161.2,
-          "port_ret": 4.32,
-          "regime": "gold",
-          "sg_ratio": 12.7
+          "port_nav": 153.43,
+          "port_ret": 2.0,
+          "regime": "equity",
+          "sg_ratio": 8.7
         },
         {
           "year": 2019,
-          "port_nav": 184.45,
-          "port_ret": 14.42,
+          "port_nav": 176.0,
+          "port_ret": 14.72,
           "regime": "gold",
-          "sg_ratio": 12.6
+          "sg_ratio": 9.3
         },
         {
           "year": 2020,
-          "port_nav": 217.0,
-          "port_ret": 17.65,
-          "regime": "gold",
-          "sg_ratio": 11.8
+          "port_nav": 212.56,
+          "port_ret": 20.77,
+          "regime": "equity",
+          "sg_ratio": 8.1
         },
         {
           "year": 2021,
-          "port_nav": 232.37,
-          "port_ret": 7.08,
-          "regime": "gold",
-          "sg_ratio": 10.7
+          "port_nav": 253.07,
+          "port_ret": 19.06,
+          "regime": "equity",
+          "sg_ratio": 6.9
         },
         {
           "year": 2022,
-          "port_nav": 254.56,
-          "port_ret": 9.55,
-          "regime": "gold",
-          "sg_ratio": 13.3
+          "port_nav": 266.64,
+          "port_ret": 5.36,
+          "regime": "equity",
+          "sg_ratio": 8.4
         },
         {
           "year": 2023,
-          "port_nav": 293.52,
-          "port_ret": 15.3,
+          "port_nav": 308.51,
+          "port_ret": 15.71,
           "regime": "gold",
-          "sg_ratio": 12.6
+          "sg_ratio": 9.8
         },
         {
           "year": 2024,
-          "port_nav": 340.29,
-          "port_ret": 15.93,
+          "port_nav": 359.3,
+          "port_ret": 16.46,
           "regime": "gold",
-          "sg_ratio": 13.2
+          "sg_ratio": 10.2
         },
         {
           "year": 2025,
-          "port_nav": 456.74,
-          "port_ret": 34.22,
+          "port_nav": 482.38,
+          "port_ret": 34.26,
           "regime": "gold",
-          "sg_ratio": 10.8
+          "sg_ratio": 9.6
         },
         {
           "year": 2026,
-          "port_nav": 469.94,
-          "port_ret": 2.89,
-          "regime": "equity",
-          "sg_ratio": 6.8
+          "port_nav": 511.54,
+          "port_ret": 6.05,
+          "regime": "gold",
+          "sg_ratio": 9.5
         }
       ]
     },
     "A": {
-      "cagr": 13.1,
-      "max_dd": -0.0261,
-      "sharpe": 0.55,
+      "cagr": 13.5,
+      "max_dd": -0.0256,
+      "sharpe": 0.6,
       "win_rate": 85.7,
       "n_years": 14,
       "start_year": 2013,
-      "final_nav": 560.17,
+      "final_nav": 591.34,
       "bt_rows": [
         {
           "year": 2013,
-          "port_nav": 99.63,
-          "port_ret": -0.37,
-          "regime": "equity",
-          "sg_ratio": 6.6
+          "port_nav": 97.44,
+          "port_ret": -2.56,
+          "regime": "gold",
+          "sg_ratio": 9.4
         },
         {
           "year": 2014,
-          "port_nav": 131.96,
-          "port_ret": 32.45,
+          "port_nav": 112.37,
+          "port_ret": 15.33,
+          "regime": "gold",
+          "sg_ratio": 10.1
+        },
+        {
+          "year": 2015,
+          "port_nav": 110.85,
+          "port_ret": -1.35,
+          "regime": "gold",
+          "sg_ratio": 9.8
+        },
+        {
+          "year": 2016,
+          "port_nav": 117.76,
+          "port_ret": 6.23,
           "regime": "equity",
           "sg_ratio": 8.9
         },
         {
-          "year": 2015,
-          "port_nav": 128.51,
-          "port_ret": -2.61,
-          "regime": "gold",
-          "sg_ratio": 11.4
-        },
-        {
-          "year": 2016,
-          "port_nav": 138.82,
-          "port_ret": 8.02,
-          "regime": "gold",
-          "sg_ratio": 11.5
-        },
-        {
           "year": 2017,
-          "port_nav": 156.08,
-          "port_ret": 12.44,
-          "regime": "gold",
-          "sg_ratio": 10.6
+          "port_nav": 145.01,
+          "port_ret": 23.15,
+          "regime": "equity",
+          "sg_ratio": 8.2
         },
         {
           "year": 2018,
-          "port_nav": 162.63,
-          "port_ret": 4.2,
-          "regime": "gold",
-          "sg_ratio": 12.7
+          "port_nav": 146.43,
+          "port_ret": 0.98,
+          "regime": "equity",
+          "sg_ratio": 8.7
         },
         {
           "year": 2019,
-          "port_nav": 188.32,
-          "port_ret": 15.79,
+          "port_nav": 170.51,
+          "port_ret": 16.44,
           "regime": "gold",
-          "sg_ratio": 12.6
+          "sg_ratio": 9.3
         },
         {
           "year": 2020,
-          "port_nav": 224.06,
-          "port_ret": 18.98,
-          "regime": "gold",
-          "sg_ratio": 11.8
+          "port_nav": 203.2,
+          "port_ret": 19.17,
+          "regime": "equity",
+          "sg_ratio": 8.1
         },
         {
           "year": 2021,
-          "port_nav": 243.56,
-          "port_ret": 8.7,
-          "regime": "gold",
-          "sg_ratio": 10.7
+          "port_nav": 253.44,
+          "port_ret": 24.73,
+          "regime": "equity",
+          "sg_ratio": 6.9
         },
         {
           "year": 2022,
-          "port_nav": 271.31,
-          "port_ret": 11.4,
-          "regime": "gold",
-          "sg_ratio": 13.3
+          "port_nav": 272.7,
+          "port_ret": 7.6,
+          "regime": "equity",
+          "sg_ratio": 8.4
         },
         {
           "year": 2023,
-          "port_nav": 319.79,
-          "port_ret": 17.87,
+          "port_nav": 322.53,
+          "port_ret": 18.27,
           "regime": "gold",
-          "sg_ratio": 12.6
+          "sg_ratio": 9.8
         },
         {
           "year": 2024,
-          "port_nav": 379.43,
-          "port_ret": 18.65,
+          "port_nav": 383.88,
+          "port_ret": 19.02,
           "regime": "gold",
-          "sg_ratio": 13.2
+          "sg_ratio": 10.2
         },
         {
           "year": 2025,
-          "port_nav": 541.43,
-          "port_ret": 42.7,
+          "port_nav": 548.02,
+          "port_ret": 42.76,
           "regime": "gold",
-          "sg_ratio": 10.8
+          "sg_ratio": 9.6
         },
         {
           "year": 2026,
-          "port_nav": 560.17,
-          "port_ret": 3.46,
-          "regime": "equity",
-          "sg_ratio": 6.8
+          "port_nav": 591.34,
+          "port_ret": 7.9,
+          "regime": "gold",
+          "sg_ratio": 9.5
         }
       ]
     }
@@ -748,6 +752,110 @@
   "screener": [
     {
       "id": 1000,
+      "code": 118825,
+      "name": "Mirae Asset Large Cap Fund - Direct Plan - Growth",
+      "cat": "Large Cap Fund",
+      "type": "Equity",
+      "nav_latest": 125.743,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 3.78,
+      "r3": 13.57,
+      "r5": 12.63,
+      "r7": 12.92,
+      "r10": 14.3,
+      "sharpe": 0.492,
+      "std_dev": 0.1586,
+      "max_dd": -0.3744,
+      "sortino": 0.602,
+      "calmar": 0.382,
+      "win_rate": 92.9,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "score": 4.91
+    },
+    {
+      "id": 1001,
+      "code": 118989,
+      "name": "HDFC Mid Cap Fund - Growth Option - Direct Plan",
+      "cat": "Mid Cap Fund",
+      "type": "Equity",
+      "nav_latest": 221.614,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 13.36,
+      "r3": 25.75,
+      "r5": 23.4,
+      "r7": 21.11,
+      "r10": 19.14,
+      "sharpe": 0.804,
+      "std_dev": 0.1572,
+      "max_dd": -0.3951,
+      "sortino": 0.949,
+      "calmar": 0.484,
+      "win_rate": 85.7,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "score": 10.0
+    },
+    {
+      "id": 1002,
+      "code": 120505,
+      "name": "Axis Midcap Fund - Direct Plan - Growth",
+      "cat": "Mid Cap Fund",
+      "type": "Equity",
+      "nav_latest": 135.22,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 11.83,
+      "r3": 21.86,
+      "r5": 17.8,
+      "r7": 19.55,
+      "r10": 18.23,
+      "sharpe": null,
+      "std_dev": null,
+      "max_dd": -1.0,
+      "sortino": 0.263,
+      "calmar": 0.182,
+      "win_rate": 85.7,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "score": null
+    },
+    {
+      "id": 1003,
+      "code": 122639,
+      "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+      "cat": "Flexi Cap Fund",
+      "type": "Equity",
+      "nav_latest": 91.483,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 5.01,
+      "r3": 18.55,
+      "r5": 17.42,
+      "r7": 19.64,
+      "r10": 18.05,
+      "sharpe": 0.963,
+      "std_dev": 0.1199,
+      "max_dd": -0.312,
+      "sortino": 1.205,
+      "calmar": 0.579,
+      "win_rate": 85.7,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "score": 9.22
+    },
+    {
+      "id": 1004,
       "code": 100033,
       "name": "Aditya Birla Sun Life Large & Mid Cap Fund - Regular Growth",
       "cat": "Large & Mid Cap Fund",
@@ -770,10 +878,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.6
+      "score": 3.2
     },
     {
-      "id": 1001,
+      "id": 1005,
       "code": 100175,
       "name": "quant ELSS Tax Saver Fund - Growth Option - Regular Plan",
       "cat": "ELSS",
@@ -796,10 +904,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 8.75
+      "score": 7.77
     },
     {
-      "id": 1002,
+      "id": 1006,
       "code": 100177,
       "name": "quant Small Cap Fund - Growth - Regular Plan",
       "cat": "Small Cap Fund",
@@ -825,7 +933,7 @@
       "score": 0.0
     },
     {
-      "id": 1003,
+      "id": 1007,
       "code": 100219,
       "name": "JM Large Cap Fund (Regular) - Growth Option",
       "cat": "Large Cap Fund",
@@ -848,10 +956,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.33
+      "score": 2.96
     },
     {
-      "id": 1004,
+      "id": 1008,
       "code": 100254,
       "name": "JM Value Fund (Regular) - Growth Option",
       "cat": "Value Fund",
@@ -874,10 +982,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.82
+      "score": 4.28
     },
     {
-      "id": 1005,
+      "id": 1009,
       "code": 100313,
       "name": "LIC MF Flexi Cap Fund-Regular Plan-Growth",
       "cat": "Flexi Cap Fund",
@@ -903,7 +1011,7 @@
       "score": null
     },
     {
-      "id": 1006,
+      "id": 1010,
       "code": 100349,
       "name": "ICICI Prudential Large & Mid Cap Fund - Growth",
       "cat": "Large & Mid Cap Fund",
@@ -926,10 +1034,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.46
+      "score": 6.63
     },
     {
-      "id": 1007,
+      "id": 1011,
       "code": 100354,
       "name": "ICICI Prudential ELSS Tax Saver Fund - Growth",
       "cat": "ELSS",
@@ -952,10 +1060,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.11
+      "score": 4.53
     },
     {
-      "id": 1008,
+      "id": 1012,
       "code": 100377,
       "name": "Nippon India Growth Mid Cap Fund-Growth Plan-Growth Option",
       "cat": "Mid Cap Fund",
@@ -978,10 +1086,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 10.0
+      "score": 8.88
     },
     {
-      "id": 1009,
+      "id": 1013,
       "code": 100380,
       "name": "Nippon India Vision Large & Midcap Fund-GROWTH PLAN-Growth Option",
       "cat": "Large & Mid Cap Fund",
@@ -1004,10 +1112,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.65
+      "score": 5.01
     },
     {
-      "id": 1010,
+      "id": 1014,
       "code": 100471,
       "name": "Franklin India Large Cap Fund-Growth",
       "cat": "Large Cap Fund",
@@ -1030,10 +1138,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.26
+      "score": 2.9
     },
     {
-      "id": 1011,
+      "id": 1015,
       "code": 100473,
       "name": "Franklin India Mid Cap Fund-Growth",
       "cat": "Mid Cap Fund",
@@ -1056,10 +1164,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.6
+      "score": 5.86
     },
     {
-      "id": 1012,
+      "id": 1016,
       "code": 100475,
       "name": "Tata Large Cap Fund -Regular Plan - Growth Option",
       "cat": "Large Cap Fund",
@@ -1082,10 +1190,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.03
+      "score": 3.58
     },
     {
-      "id": 1013,
+      "id": 1017,
       "code": 100476,
       "name": "Taurus Flexi Cap Fund - Regular Plan - Growth",
       "cat": "Flexi Cap Fund",
@@ -1111,7 +1219,7 @@
       "score": null
     },
     {
-      "id": 1014,
+      "id": 1018,
       "code": 100477,
       "name": "Taurus Mid Cap Fund - Regular Plan - Growth",
       "cat": "Mid Cap Fund",
@@ -1137,7 +1245,7 @@
       "score": null
     },
     {
-      "id": 1015,
+      "id": 1019,
       "code": 100480,
       "name": "Taurus ELSS Tax Saver Fund - Regular Plan - Growth",
       "cat": "ELSS",
@@ -1163,7 +1271,7 @@
       "score": null
     },
     {
-      "id": 1016,
+      "id": 1020,
       "code": 100496,
       "name": "Templeton India Value Fund - Growth Plan",
       "cat": "Value Fund",
@@ -1186,10 +1294,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.75
+      "score": 5.11
     },
     {
-      "id": 1017,
+      "id": 1021,
       "code": 100520,
       "name": "Franklin India Flexi Cap Fund - Growth",
       "cat": "Flexi Cap Fund",
@@ -1212,10 +1320,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.45
+      "score": 4.84
     },
     {
-      "id": 1018,
+      "id": 1022,
       "code": 100526,
       "name": "Franklin India ELSS Tax Saver Fund-Growth",
       "cat": "ELSS",
@@ -1238,10 +1346,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.89
+      "score": 4.34
     },
     {
-      "id": 1019,
+      "id": 1023,
       "code": 100631,
       "name": "quant Multi Cap Fund-GROWTH OPTION - Regular Plan",
       "cat": "Multi Cap Fund",
@@ -1264,10 +1372,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.06
+      "score": 5.38
     },
     {
-      "id": 1020,
+      "id": 1024,
       "code": 100651,
       "name": "UTI Large Cap Fund - Regular Plan - Growth Option",
       "cat": "Large Cap Fund",
@@ -1290,10 +1398,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.21
+      "score": 2.85
     },
     {
-      "id": 1021,
+      "id": 1025,
       "code": 100664,
       "name": "UTI Large & Mid Cap Fund - Regular Plan - Growth Option",
       "cat": "Large & Mid Cap Fund",
@@ -1316,10 +1424,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.75
+      "score": 5.11
     },
     {
-      "id": 1022,
+      "id": 1026,
       "code": 100669,
       "name": "UTI - Flexi Cap Fund-Growth Option",
       "cat": "Flexi Cap Fund",
@@ -1345,7 +1453,7 @@
       "score": null
     },
     {
-      "id": 1023,
+      "id": 1027,
       "code": 100795,
       "name": "Sundaram Small Cap Fund Regular Plan - Growth",
       "cat": "Small Cap Fund",
@@ -1371,7 +1479,7 @@
       "score": null
     },
     {
-      "id": 1024,
+      "id": 1028,
       "code": 100821,
       "name": "UTI ELSS Tax Saver Fund - Regular Plan - Growth Option",
       "cat": "ELSS",
@@ -1394,10 +1502,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.72
+      "score": 3.3
     },
     {
-      "id": 1025,
+      "id": 1029,
       "code": 100865,
       "name": "LIC MF ELSS Tax Saver-Regular Plan-Growth",
       "cat": "ELSS",
@@ -1423,7 +1531,7 @@
       "score": null
     },
     {
-      "id": 1026,
+      "id": 1030,
       "code": 100998,
       "name": "HDFC Long Term Advantage Plan - Growth Plan",
       "cat": "ELSS",
@@ -1449,7 +1557,7 @@
       "win_rate": null
     },
     {
-      "id": 1027,
+      "id": 1031,
       "code": 101065,
       "name": "quant Mid Cap Fund - Growth Option - Regular Plan",
       "cat": "Mid Cap Fund",
@@ -1472,10 +1580,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 8.71
+      "score": 7.74
     },
     {
-      "id": 1028,
+      "id": 1032,
       "code": 101161,
       "name": "Nippon India Multi Cap Fund-Growth Plan-Growth Option",
       "cat": "Multi Cap Fund",
@@ -1498,10 +1606,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.57
+      "score": 6.72
     },
     {
-      "id": 1029,
+      "id": 1033,
       "code": 101209,
       "name": "Taurus Large Cap Fund - Regular Plan - Growth",
       "cat": "Large Cap Fund",
@@ -1527,7 +1635,7 @@
       "score": null
     },
     {
-      "id": 1030,
+      "id": 1034,
       "code": 101228,
       "name": "ICICI Prudential Multicap Fund - Growth",
       "cat": "Multi Cap Fund",
@@ -1550,10 +1658,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.85
+      "score": 6.08
     },
     {
-      "id": 1031,
+      "id": 1035,
       "code": 101539,
       "name": "Sundaram Mid Cap Fund Regular Plan - Growth",
       "cat": "Mid Cap Fund",
@@ -1579,7 +1687,7 @@
       "score": null
     },
     {
-      "id": 1032,
+      "id": 1036,
       "code": 101592,
       "name": "Aditya Birla Sun Life MIDCAP Fund-Growth",
       "cat": "Mid Cap Fund",
@@ -1602,10 +1710,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.44
+      "score": 5.72
     },
     {
-      "id": 1033,
+      "id": 1037,
       "code": 101594,
       "name": "HSBC Large Cap Fund - Regular Growth",
       "cat": "Large Cap Fund",
@@ -1628,10 +1736,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.97
+      "score": 3.53
     },
     {
-      "id": 1034,
+      "id": 1038,
       "code": 101635,
       "name": "DSP Large Cap Fund - Regular Plan - Growth",
       "cat": "Large Cap Fund",
@@ -1654,10 +1762,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.6
+      "score": 3.2
     },
     {
-      "id": 1035,
+      "id": 1039,
       "code": 101672,
       "name": "Tata Value Fund - Regular Plan -Growth Option",
       "cat": "Value Fund",
@@ -1680,10 +1788,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.86
+      "score": 5.2
     },
     {
-      "id": 1036,
+      "id": 1040,
       "code": 101762,
       "name": "HDFC Flexi Cap Fund - Growth Plan",
       "cat": "Flexi Cap Fund",
@@ -1706,10 +1814,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.95
+      "score": 6.17
     },
     {
-      "id": 1037,
+      "id": 1041,
       "code": 101764,
       "name": "HDFC Value Fund - Growth Plan",
       "cat": "Value Fund",
@@ -1732,10 +1840,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.38
+      "score": 5.67
     },
     {
-      "id": 1038,
+      "id": 1042,
       "code": 101824,
       "name": "Tata Large & Mid Cap Fund- Regular Plan - Growth Option",
       "cat": "Large & Mid Cap Fund",
@@ -1758,10 +1866,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.35
+      "score": 2.97
     },
     {
-      "id": 1039,
+      "id": 1043,
       "code": 101834,
       "name": "UTI - Master Equity Plan Unit Scheme",
       "cat": "ELSS",
@@ -1784,10 +1892,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 2.92
+      "score": 2.6
     },
     {
-      "id": 1040,
+      "id": 1044,
       "code": 101853,
       "name": "Sundaram Value Fund Regular Plan - Growth",
       "cat": "Value Fund",
@@ -1813,7 +1921,7 @@
       "score": null
     },
     {
-      "id": 1041,
+      "id": 1045,
       "code": 101922,
       "name": "CANARA ROBECO FLEXICAP FUND - REGULAR PLAN - GROWTH OPTION",
       "cat": "Flexi Cap Fund",
@@ -1839,7 +1947,7 @@
       "score": null
     },
     {
-      "id": 1042,
+      "id": 1046,
       "code": 101979,
       "name": "HDFC ELSS Tax saver - Growth Plan",
       "cat": "ELSS",
@@ -1862,10 +1970,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.92
+      "score": 5.26
     },
     {
-      "id": 1043,
+      "id": 1047,
       "code": 102000,
       "name": "HDFC Large Cap Fund - Growth Option - Regular Plan",
       "cat": "Large Cap Fund",
@@ -1888,10 +1996,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.93
+      "score": 3.49
     },
     {
-      "id": 1044,
+      "id": 1048,
       "code": 102020,
       "name": "Baroda BNP Paribas MULTI CAP FUND - Regular Plan - Growth Option",
       "cat": "Multi Cap Fund",
@@ -1914,10 +2022,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.62
+      "score": 4.99
     },
     {
-      "id": 1045,
+      "id": 1049,
       "code": 102252,
       "name": "HSBC Flexi Cap Fund - Regular Growth",
       "cat": "Flexi Cap Fund",
@@ -1940,10 +2048,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.48
+      "score": 4.87
     },
     {
-      "id": 1046,
+      "id": 1050,
       "code": 102328,
       "name": "Tata Mid Cap Fund Regular Plan- Growth Option",
       "cat": "Mid Cap Fund",
@@ -1966,10 +2074,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.7
+      "score": 6.84
     },
     {
-      "id": 1047,
+      "id": 1051,
       "code": 102394,
       "name": "UTI Mid Cap Fund-Growth Option",
       "cat": "Mid Cap Fund",
@@ -1992,10 +2100,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.16
+      "score": 5.47
     },
     {
-      "id": 1048,
+      "id": 1052,
       "code": 102414,
       "name": "SBI CONTRA FUND - REGULAR PLAN -GROWTH",
       "cat": "Contra Fund",
@@ -2018,10 +2126,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.1
+      "score": 6.31
     },
     {
-      "id": 1049,
+      "id": 1053,
       "code": 102528,
       "name": "ICICI Prudential MidCap Fund - Growth",
       "cat": "Mid Cap Fund",
@@ -2044,10 +2152,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.58
+      "score": 8.5
     },
     {
-      "id": 1050,
+      "id": 1054,
       "code": 102594,
       "name": "ICICI Prudential Value Fund (erstwhile Value Discovery Fund) - Growth",
       "cat": "Value Fund",
@@ -2070,10 +2178,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.43
+      "score": 6.59
     },
     {
-      "id": 1051,
+      "id": 1055,
       "code": 102756,
       "name": "SBI FOCUSED FUND - REGULAR PLAN -GROWTH",
       "cat": "Focused Fund",
@@ -2096,10 +2204,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.52
+      "score": 5.79
     },
     {
-      "id": 1052,
+      "id": 1056,
       "code": 102760,
       "name": "HDFC Focused Fund - GROWTH PLAN",
       "cat": "Focused Fund",
@@ -2122,10 +2230,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.63
+      "score": 5.89
     },
     {
-      "id": 1053,
+      "id": 1057,
       "code": 102874,
       "name": "Kotak-Small Cap Fund - Payout of Income Distribution cum capital withdrawal option",
       "cat": "Small Cap Fund",
@@ -2148,10 +2256,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.42
+      "score": 4.82
     },
     {
-      "id": 1054,
+      "id": 1058,
       "code": 102875,
       "name": "Kotak-Small Cap Fund - Growth",
       "cat": "Small Cap Fund",
@@ -2174,10 +2282,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.77
+      "score": 6.01
     },
     {
-      "id": 1055,
+      "id": 1059,
       "code": 102883,
       "name": "Franklin India Large & Mid Cap Fund - Growth Plan",
       "cat": "Large & Mid Cap Fund",
@@ -2200,10 +2308,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.07
+      "score": 3.62
     },
     {
-      "id": 1056,
+      "id": 1060,
       "code": 102920,
       "name": "CANARA ROBECO LARGE AND MID CAP FUND - REGULAR PLAN - GROWTH OPTION",
       "cat": "Large & Mid Cap Fund",
@@ -2226,10 +2334,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.29
+      "score": 4.69
     },
     {
-      "id": 1057,
+      "id": 1061,
       "code": 102941,
       "name": "SBI MIDCAP FUND - REGULAR PLAN - GROWTH",
       "cat": "Mid Cap Fund",
@@ -2252,10 +2360,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.9
+      "score": 5.24
     },
     {
-      "id": 1058,
+      "id": 1062,
       "code": 103024,
       "name": "SBI LARGE & MIDCAP FUND- REGULAR PLAN -Growth",
       "cat": "Large & Mid Cap Fund",
@@ -2278,10 +2386,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.79
+      "score": 6.03
     },
     {
-      "id": 1059,
+      "id": 1063,
       "code": 103040,
       "name": "Kotak Contra Fund - Regular Plan - Growth",
       "cat": "Contra Fund",
@@ -2304,10 +2412,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.96
+      "score": 6.18
     },
     {
-      "id": 1060,
+      "id": 1064,
       "code": 103085,
       "name": "Nippon India Value Fund- Growth Plan",
       "cat": "Value Fund",
@@ -2330,10 +2438,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.88
+      "score": 6.11
     },
     {
-      "id": 1061,
+      "id": 1065,
       "code": 103098,
       "name": "UTI Value Fund - Regular Plan - Growth Option",
       "cat": "Value Fund",
@@ -2356,10 +2464,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.49
+      "score": 4.87
     },
     {
-      "id": 1062,
+      "id": 1066,
       "code": 103166,
       "name": "Aditya Birla Sun Life Flexi Cap Fund - Growth - Regular Plan",
       "cat": "Flexi Cap Fund",
@@ -2382,10 +2490,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.41
+      "score": 4.8
     },
     {
-      "id": 1063,
+      "id": 1067,
       "code": 103174,
       "name": "Aditya Birla Sun Life Large Cap Fund-Growth",
       "cat": "Large Cap Fund",
@@ -2408,10 +2516,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.97
+      "score": 3.53
     },
     {
-      "id": 1064,
+      "id": 1068,
       "code": 103196,
       "name": "Nippon India ELSS Tax Saver Fund-Growth Plan-Growth Option",
       "cat": "ELSS",
@@ -2434,10 +2542,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.58
+      "score": 4.07
     },
     {
-      "id": 1065,
+      "id": 1069,
       "code": 103215,
       "name": "SBI Flexicap Fund - REGULAR PLAN -Growth Option",
       "cat": "Flexi Cap Fund",
@@ -2460,10 +2568,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.51
+      "score": 3.12
     },
     {
-      "id": 1066,
+      "id": 1070,
       "code": 103234,
       "name": "Kotak Large & Midcap Fund - Growth-Regular",
       "cat": "Large & Mid Cap Fund",
@@ -2486,10 +2594,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.52
+      "score": 5.79
     },
     {
-      "id": 1067,
+      "id": 1071,
       "code": 103309,
       "name": "Aditya Birla Sun Life Focused Fund -Growth Option",
       "cat": "Focused Fund",
@@ -2512,10 +2620,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.02
+      "score": 4.46
     },
     {
-      "id": 1068,
+      "id": 1072,
       "code": 103338,
       "name": "Kotak ELSS Tax Saver Fund-Payout of Income Distribution cum capital withdrawal option",
       "cat": "ELSS",
@@ -2538,10 +2646,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.05
+      "score": 2.71
     },
     {
-      "id": 1069,
+      "id": 1073,
       "code": 103339,
       "name": "Kotak ELSS Tax Saver Fund-Growth",
       "cat": "ELSS",
@@ -2564,10 +2672,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.92
+      "score": 4.37
     },
     {
-      "id": 1070,
+      "id": 1074,
       "code": 103360,
       "name": "Franklin India Small Cap Fund-Growth",
       "cat": "Small Cap Fund",
@@ -2590,10 +2698,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.32
+      "score": 6.5
     },
     {
-      "id": 1071,
+      "id": 1075,
       "code": 103504,
       "name": "SBI Large Cap FUND-REGULAR PLAN GROWTH",
       "cat": "Large Cap Fund",
@@ -2616,10 +2724,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.17
+      "score": 3.7
     },
     {
-      "id": 1072,
+      "id": 1076,
       "code": 103819,
       "name": "DSP Large & Mid Cap Fund - Regular Plan - Growth",
       "cat": "Large & Mid Cap Fund",
@@ -2642,10 +2750,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.23
+      "score": 5.54
     },
     {
-      "id": 1073,
+      "id": 1077,
       "code": 104481,
       "name": "DSP Midcap Fund - Regular Plan - Growth",
       "cat": "Mid Cap Fund",
@@ -2668,10 +2776,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.79
+      "score": 6.03
     },
     {
-      "id": 1074,
+      "id": 1078,
       "code": 104513,
       "name": "quant Large & Mid Cap Fund - Growth Option",
       "cat": "Large & Mid Cap Fund",
@@ -2697,7 +2805,7 @@
       "score": null
     },
     {
-      "id": 1075,
+      "id": 1079,
       "code": 104636,
       "name": "Invesco India ELSS Tax Saver Fund - Regular Plan - Growth",
       "cat": "ELSS",
@@ -2720,114 +2828,62 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.37
-    },
-    {
-      "id": 1076,
-      "code": 104637,
-      "name": "Nippon India Focused Fund -Growth Plan -Growth Option",
-      "cat": "Focused Fund",
-      "type": "Equity",
-      "nav_latest": 122.1436,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2006,
-      "r1": 5.83,
-      "r3": 15.88,
-      "r5": 14.43,
-      "r7": 14.49,
-      "r10": 14.34,
-      "sharpe": 0.441,
-      "std_dev": 0.1779,
-      "max_dd": -0.6214,
-      "sortino": 0.541,
-      "calmar": 0.231,
-      "win_rate": 80.0,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": 5.67
-    },
-    {
-      "id": 1077,
-      "code": 104772,
-      "name": "DSP ELSS Tax Saver Fund - Regular Plan - Growth",
-      "cat": "ELSS",
-      "type": "Equity",
-      "nav_latest": 138.94,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2007,
-      "r1": 2.25,
-      "r3": 19.41,
-      "r5": 16.52,
-      "r7": 16.45,
-      "r10": 15.69,
-      "sharpe": 0.496,
-      "std_dev": 0.1854,
-      "max_dd": -0.6509,
-      "sortino": 0.606,
-      "calmar": 0.241,
-      "win_rate": 80.0,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": 6.45
-    },
-    {
-      "id": 1078,
-      "code": 104908,
-      "name": "Kotak Midcap Fund - Regular Plan - Growth",
-      "cat": "Mid Cap Fund",
-      "type": "Equity",
-      "nav_latest": 139.52,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2007,
-      "r1": 14.99,
-      "r3": 22.58,
-      "r5": 19.68,
-      "r7": 20.22,
-      "r10": 18.06,
-      "sharpe": 0.637,
-      "std_dev": 0.1815,
-      "max_dd": -0.72,
-      "sortino": 0.759,
-      "calmar": 0.251,
-      "win_rate": 80.0,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": 9.2
-    },
-    {
-      "id": 1079,
-      "code": 105001,
-      "name": "Sundaram Large and Midcap Fund Regular Plan - Growth",
-      "cat": "Large & Mid Cap Fund",
-      "type": "Equity",
-      "nav_latest": 85.5558,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2007,
-      "r1": 5.66,
-      "r3": 16.8,
-      "r5": 15.06,
-      "r7": 13.97,
-      "r10": 14.56,
-      "sharpe": null,
-      "std_dev": null,
-      "max_dd": -1.0,
-      "sortino": 0.211,
-      "calmar": 0.146,
-      "win_rate": 75.0,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": null
+      "score": 3.88
     },
     {
       "id": 1080,
+      "code": 118560,
+      "name": "Franklin India Ultra Short Bond Fund - Super Institutional Plan - Direct - Growth",
+      "cat": "Ultra Short Duration Fund",
+      "type": "Debt",
+      "nav_latest": 34.2355,
+      "nav_date": "07-Aug-2022",
+      "live": false,
+      "score": 0.0,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "data_from": null,
+      "r1": null,
+      "r3": null,
+      "r5": null,
+      "r7": null,
+      "r10": null,
+      "sharpe": null,
+      "std_dev": null,
+      "max_dd": null,
+      "sortino": null,
+      "calmar": null,
+      "win_rate": null
+    },
+    {
+      "id": 1081,
+      "code": 119533,
+      "name": "Aditya Birla Sun Life Corporate Bond Fund - Growth - Direct Plan",
+      "cat": "Corporate Bond Fund",
+      "type": "Debt",
+      "nav_latest": 119.139,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 4.5,
+      "r3": 7.38,
+      "r5": 6.46,
+      "r7": 7.4,
+      "r10": 7.56,
+      "sharpe": 0.769,
+      "std_dev": 0.0138,
+      "max_dd": -0.0238,
+      "sortino": 0.752,
+      "calmar": 3.176,
+      "win_rate": 100.0,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "score": 10.0
+    },
+    {
+      "id": 1082,
       "code": 100038,
       "name": "Aditya Birla Sun Life Income Fund - Growth - Regular Plan",
       "cat": "Medium to Long Duration Fund",
@@ -2850,10 +2906,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1081,
+      "id": 1083,
       "code": 100078,
       "name": "DSP Bond Fund - Growth",
       "cat": "Medium Duration Fund",
@@ -2876,10 +2932,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1082,
+      "id": 1084,
       "code": 100087,
       "name": "DSP Savings Fund - Regular Plan - Growth",
       "cat": "Money Market Fund",
@@ -2905,7 +2961,7 @@
       "score": 9.96
     },
     {
-      "id": 1083,
+      "id": 1085,
       "code": 100124,
       "name": "HDFC Income Fund - Growth Option",
       "cat": "Medium to Long Duration Fund",
@@ -2928,10 +2984,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.95
+      "score": 9.94
     },
     {
-      "id": 1084,
+      "id": 1086,
       "code": 100223,
       "name": "JM Medium to Long Duration Fund (Regular) - Growth Option",
       "cat": "Medium to Long Duration Fund",
@@ -2957,7 +3013,7 @@
       "score": 9.92
     },
     {
-      "id": 1085,
+      "id": 1087,
       "code": 100292,
       "name": "Kotak Bond-Deposit-Growth",
       "cat": "Medium to Long Duration Fund",
@@ -2983,7 +3039,7 @@
       "win_rate": null
     },
     {
-      "id": 1086,
+      "id": 1088,
       "code": 100299,
       "name": "Kotak Bond Fund - Regular Plan Growth",
       "cat": "Medium to Long Duration Fund",
@@ -3009,7 +3065,7 @@
       "score": 9.95
     },
     {
-      "id": 1087,
+      "id": 1089,
       "code": 100315,
       "name": "LIC MF Medium to Long Duration Fund-Regular Plan-Growth",
       "cat": "Medium to Long Duration Fund",
@@ -3032,10 +3088,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1088,
+      "id": 1090,
       "code": 100387,
       "name": "Nippon India Medium to Long Duration  Fund - Growth Plan Growth Option",
       "cat": "Medium to Long Duration Fund",
@@ -3058,10 +3114,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1089,
+      "id": 1091,
       "code": 100418,
       "name": "Tata Income Fund -Regular Plan - Growth Option",
       "cat": "Medium to Long Duration Fund",
@@ -3087,7 +3143,7 @@
       "win_rate": null
     },
     {
-      "id": 1090,
+      "id": 1092,
       "code": 100528,
       "name": "Franklin India Corporate Debt Fund - Growth",
       "cat": "Corporate Bond Fund",
@@ -3110,10 +3166,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.99
+      "score": 9.98
     },
     {
-      "id": 1091,
+      "id": 1093,
       "code": 100603,
       "name": "Sundaram Medium Duration Fund (Formerly Known as Sundaram Medium Term Bond Fund) Regular Plan - Growth",
       "cat": "Medium Duration Fund",
@@ -3139,7 +3195,7 @@
       "score": null
     },
     {
-      "id": 1092,
+      "id": 1094,
       "code": 100604,
       "name": "Sundaram Medium Duration Fund (Formerly Known as Sundaram Medium Term Bond Fund) Regular Plan -Growth",
       "cat": "Medium Duration Fund",
@@ -3165,7 +3221,7 @@
       "win_rate": null
     },
     {
-      "id": 1093,
+      "id": 1095,
       "code": 100608,
       "name": "Sundaram Medium Duration Fund (Formerly Known as Sundaram Medium Term Bond Fund) Institutional Plan - Growth",
       "cat": "Medium Duration Fund",
@@ -3191,7 +3247,7 @@
       "win_rate": null
     },
     {
-      "id": 1094,
+      "id": 1096,
       "code": 100639,
       "name": "SBI Medium to Long Duration Fund-REGULAR PLAN-Growth",
       "cat": "Medium to Long Duration Fund",
@@ -3217,7 +3273,7 @@
       "score": 9.97
     },
     {
-      "id": 1095,
+      "id": 1097,
       "code": 100641,
       "name": "SBI ULTRA SHORT DURATION FUND - REGULAR PLAN - GROWTH",
       "cat": "Ultra Short Duration Fund",
@@ -3243,7 +3299,7 @@
       "score": 1.27
     },
     {
-      "id": 1096,
+      "id": 1098,
       "code": 100723,
       "name": "UTI MMF-Discontinued - Regular Plan -Growth",
       "cat": "Money Market Fund",
@@ -3269,7 +3325,7 @@
       "score": 1.26
     },
     {
-      "id": 1097,
+      "id": 1099,
       "code": 100741,
       "name": "UTI Medium to Long Duration Fund- Regular Plan - Growth",
       "cat": "Medium to Long Duration Fund",
@@ -3292,10 +3348,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.95
+      "score": 9.94
     },
     {
-      "id": 1098,
+      "id": 1100,
       "code": 100781,
       "name": "Sundaram Banking & PSU Fund (Formerly Known as Sundaram Banking and PSU Debt Fund) Retail Plan - Growth",
       "cat": "Banking and PSU Fund",
@@ -3321,7 +3377,7 @@
       "win_rate": null
     },
     {
-      "id": 1099,
+      "id": 1101,
       "code": 100784,
       "name": "Sundaram Banking & PSU Fund (Formerly Known as Sundaram Banking and PSU Debt Fund) Regular Plan - Growth",
       "cat": "Banking and PSU Fund",
@@ -3347,7 +3403,7 @@
       "score": null
     },
     {
-      "id": 1100,
+      "id": 1102,
       "code": 100789,
       "name": "Sundaram Corporate Bond Fund Regular Plan- Growth",
       "cat": "Corporate Bond Fund",
@@ -3373,7 +3429,7 @@
       "score": null
     },
     {
-      "id": 1101,
+      "id": 1103,
       "code": 100856,
       "name": "Nippon India Corporate Bond Fund - Growth Plan - Growth Option",
       "cat": "Corporate Bond Fund",
@@ -3396,10 +3452,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 10.0
+      "score": 9.99
     },
     {
-      "id": 1102,
+      "id": 1104,
       "code": 101221,
       "name": "ICICI Prudential Money Market Fund Retail Growth (erstwhile Cash Option)",
       "cat": "Money Market Fund",
@@ -3425,7 +3481,7 @@
       "win_rate": null
     },
     {
-      "id": 1103,
+      "id": 1105,
       "code": 101231,
       "name": "ICICI Prudential Short Term Fund-Institutional Growth",
       "cat": "Short Duration Fund",
@@ -3451,7 +3507,7 @@
       "win_rate": null
     },
     {
-      "id": 1104,
+      "id": 1106,
       "code": 101232,
       "name": "Franklin India Short-Term Income Plan-Growth",
       "cat": "Short Duration Fund",
@@ -3477,7 +3533,7 @@
       "win_rate": null
     },
     {
-      "id": 1105,
+      "id": 1107,
       "code": 101244,
       "name": "Franklin India Short-Term Income Plan-Institutional Plan - Growth",
       "cat": "Short Duration Fund",
@@ -3503,7 +3559,7 @@
       "win_rate": null
     },
     {
-      "id": 1106,
+      "id": 1108,
       "code": 101304,
       "name": "DSP Short Term Fund - Regular Plan - Growth",
       "cat": "Short Duration Fund",
@@ -3526,10 +3582,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.97
+      "score": 9.96
     },
     {
-      "id": 1107,
+      "id": 1109,
       "code": 101316,
       "name": "Aditya Birla Sun Life Savings Fund-Retail Growth",
       "cat": "Ultra Short Duration Fund",
@@ -3552,10 +3608,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.08
+      "score": 9.07
     },
     {
-      "id": 1108,
+      "id": 1110,
       "code": 101317,
       "name": "Aditya Birla Sun Life Savings Fund - Growth - Regular Plan",
       "cat": "Ultra Short Duration Fund",
@@ -3578,10 +3634,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.08
+      "score": 9.07
     },
     {
-      "id": 1109,
+      "id": 1111,
       "code": 101357,
       "name": "Franklin India Money Market Fund - Growth Option",
       "cat": "Money Market Fund",
@@ -3607,7 +3663,7 @@
       "score": 9.99
     },
     {
-      "id": 1110,
+      "id": 1112,
       "code": 101358,
       "name": "Franklin India Money Market Fund - Institutional Option - Growth",
       "cat": "Money Market Fund",
@@ -3633,7 +3689,7 @@
       "win_rate": null
     },
     {
-      "id": 1111,
+      "id": 1113,
       "code": 101372,
       "name": "Kotak Bond Short Term Plan-(Payout of Income Distribution cum capital withdrawal option)",
       "cat": "Short Duration Fund",
@@ -3659,7 +3715,7 @@
       "win_rate": null
     },
     {
-      "id": 1112,
+      "id": 1114,
       "code": 101373,
       "name": "Kotak Bond Short Term Plan-(Growth)",
       "cat": "Short Duration Fund",
@@ -3682,10 +3738,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.98
+      "score": 9.97
     },
     {
-      "id": 1113,
+      "id": 1115,
       "code": 101520,
       "name": "JM Short Term Fund - Regular Plan - Growth Option",
       "cat": "Short Duration Fund",
@@ -3711,7 +3767,7 @@
       "win_rate": null
     },
     {
-      "id": 1114,
+      "id": 1116,
       "code": 101521,
       "name": "JM Short Term Fund - Growth Option",
       "cat": "Short Duration Fund",
@@ -3737,7 +3793,7 @@
       "win_rate": null
     },
     {
-      "id": 1115,
+      "id": 1117,
       "code": 101548,
       "name": "Tata Short Term Bond Fund -Regular Plan- Growth Option",
       "cat": "Short Duration Fund",
@@ -3763,7 +3819,7 @@
       "score": null
     },
     {
-      "id": 1116,
+      "id": 1118,
       "code": 101588,
       "name": "CANARA ROBECO INCOME FUND - REGULAR PLAN - GROWTH OPTION",
       "cat": "Medium to Long Duration Fund",
@@ -3786,10 +3842,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.95
+      "score": 9.94
     },
     {
-      "id": 1117,
+      "id": 1119,
       "code": 101619,
       "name": "ICICI Prudential Savings Fund - Growth",
       "cat": "Low Duration Fund",
@@ -3812,10 +3868,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.08
+      "score": 9.07
     },
     {
-      "id": 1118,
+      "id": 1120,
       "code": 101665,
       "name": "Nippon India Short Duration  Fund-Growth Plan",
       "cat": "Short Duration Fund",
@@ -3841,7 +3897,7 @@
       "score": 9.98
     },
     {
-      "id": 1119,
+      "id": 1121,
       "code": 101685,
       "name": "HSBC Medium to Long Duration Fund - Regular Growth",
       "cat": "Medium to Long Duration Fund",
@@ -3867,7 +3923,7 @@
       "score": 9.94
     },
     {
-      "id": 1120,
+      "id": 1122,
       "code": 101703,
       "name": "Tata Medium Term Fund -Regular Plan - Growth Option",
       "cat": "Medium Duration Fund",
@@ -3893,7 +3949,7 @@
       "win_rate": null
     },
     {
-      "id": 1121,
+      "id": 1123,
       "code": 101758,
       "name": "ICICI Prudential Short Term Fund - Growth Option",
       "cat": "Short Duration Fund",
@@ -3916,10 +3972,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 10.0
+      "score": 9.99
     },
     {
-      "id": 1122,
+      "id": 1124,
       "code": 101830,
       "name": "LIC MF Low Duration Fund-Regular Plan-Growth",
       "cat": "Low Duration Fund",
@@ -3942,10 +3998,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1123,
+      "id": 1125,
       "code": 101844,
       "name": "Aditya Birla Sun Life Short Term Fund - Growth - Regular Plan",
       "cat": "Short Duration Fund",
@@ -3968,10 +4024,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.99
+      "score": 9.98
     },
     {
-      "id": 1124,
+      "id": 1126,
       "code": 101847,
       "name": "Tata Money Market Fund-Regular Plan - Growth Option",
       "cat": "Money Market Fund",
@@ -3994,10 +4050,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1125,
+      "id": 1127,
       "code": 101892,
       "name": "Kotak Money market Fund - (Monthly Payout of Income Distribution cum capital withdrawal option)",
       "cat": "Money Market Fund",
@@ -4023,7 +4079,7 @@
       "score": 0.64
     },
     {
-      "id": 1126,
+      "id": 1128,
       "code": 101893,
       "name": "Kotak Money Market Fund - (Growth)",
       "cat": "Money Market Fund",
@@ -4049,7 +4105,7 @@
       "score": 0.69
     },
     {
-      "id": 1127,
+      "id": 1129,
       "code": 101971,
       "name": "Aditya Birla Sun Life Money Manager Fund - Retail Growth",
       "cat": "Money Market Fund",
@@ -4072,10 +4128,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.14
+      "score": 9.13
     },
     {
-      "id": 1128,
+      "id": 1130,
       "code": 101976,
       "name": "Aditya Birla Sun Life Money Manager Fund - Growth",
       "cat": "Money Market Fund",
@@ -4098,10 +4154,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.14
+      "score": 9.13
     },
     {
-      "id": 1129,
+      "id": 1131,
       "code": 101989,
       "name": "HDFC Medium Term Debt Fund - Growth Option",
       "cat": "Medium Duration Fund",
@@ -4124,10 +4180,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.99
+      "score": 9.98
     },
     {
-      "id": 1130,
+      "id": 1132,
       "code": 101993,
       "name": "HDFC Money Market Fund - Growth Option",
       "cat": "Money Market Fund",
@@ -4150,10 +4206,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 0.71
+      "score": 0.7
     },
     {
-      "id": 1131,
+      "id": 1133,
       "code": 102053,
       "name": "SBI MEDIUM DURATION FUND - REGULAR PLAN - GROWTH",
       "cat": "Medium Duration Fund",
@@ -4179,7 +4235,7 @@
       "score": 9.98
     },
     {
-      "id": 1132,
+      "id": 1134,
       "code": 102452,
       "name": "HDFC Low Duration  Fund - Growth",
       "cat": "Low Duration Fund",
@@ -4205,7 +4261,7 @@
       "score": 9.98
     },
     {
-      "id": 1133,
+      "id": 1135,
       "code": 102503,
       "name": "SBI  SAVINGS FUND - REGULAR PLAN - GROWTH",
       "cat": "Money Market Fund",
@@ -4231,7 +4287,7 @@
       "score": 9.95
     },
     {
-      "id": 1134,
+      "id": 1136,
       "code": 102532,
       "name": "UTI Ultra Short Duration Fund - Regular Plan - Growth Option",
       "cat": "Ultra Short Duration Fund",
@@ -4257,7 +4313,7 @@
       "score": 0.22
     },
     {
-      "id": 1135,
+      "id": 1137,
       "code": 102540,
       "name": "UTI Low Duration Fund - Discontinued Growth Option",
       "cat": "Low Duration Fund",
@@ -4283,7 +4339,7 @@
       "score": 0.0
     },
     {
-      "id": 1136,
+      "id": 1138,
       "code": 102544,
       "name": "UTI Low Duration Fund - Regular Plan - Growth Option",
       "cat": "Low Duration Fund",
@@ -4309,7 +4365,7 @@
       "score": 9.96
     },
     {
-      "id": 1137,
+      "id": 1139,
       "code": 102591,
       "name": "Kotak Savings Fund -Growth",
       "cat": "Ultra Short Duration Fund",
@@ -4332,59 +4388,7 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.97
-    },
-    {
-      "id": 1138,
-      "code": 102592,
-      "name": "Kotak Savings Fund -Monthly Payout of Income Distribution cum capital withdrawal option",
-      "cat": "Ultra Short Duration Fund",
-      "type": "Debt",
-      "nav_latest": 10.7302,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2006,
-      "r1": 0.0,
-      "r3": -0.02,
-      "r5": 0.01,
-      "r7": 0.43,
-      "r10": 0.59,
-      "sharpe": -2.777,
-      "std_dev": 0.0213,
-      "max_dd": -0.0179,
-      "sortino": -1.263,
-      "calmar": 0.33,
-      "win_rate": 57.1,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": 9.82
-    },
-    {
-      "id": 1139,
-      "code": 102741,
-      "name": "ICICI Prudential Medium Term Bond Fund - Growth",
-      "cat": "Medium Duration Fund",
-      "type": "Debt",
-      "nav_latest": 47.2425,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2006,
-      "r1": 6.58,
-      "r3": 7.64,
-      "r5": 6.72,
-      "r7": 7.51,
-      "r10": 7.34,
-      "sharpe": 0.522,
-      "std_dev": 0.0161,
-      "max_dd": -0.0533,
-      "sortino": 0.421,
-      "calmar": 1.377,
-      "win_rate": 100.0,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": 10.0
+      "score": 9.96
     },
     {
       "id": 1140,
@@ -4410,7 +4414,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.38
+      "score": 9.51
     },
     {
       "id": 1141,
@@ -4436,7 +4440,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.37
+      "score": 9.51
     },
     {
       "id": 1142,
@@ -4462,7 +4466,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.22
+      "score": 9.35
     },
     {
       "id": 1143,
@@ -4488,7 +4492,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.15
+      "score": 9.28
     },
     {
       "id": 1144,
@@ -4514,7 +4518,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.86
+      "score": 10.0
     },
     {
       "id": 1145,
@@ -4540,7 +4544,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.38
+      "score": 9.51
     },
     {
       "id": 1146,
@@ -4566,7 +4570,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.51
+      "score": 9.65
     },
     {
       "id": 1147,
@@ -4618,7 +4622,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.84
+      "score": 9.99
     },
     {
       "id": 1149,
@@ -4644,7 +4648,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.84
+      "score": 9.99
     },
     {
       "id": 1150,
@@ -4670,7 +4674,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.15
+      "score": 9.28
     },
     {
       "id": 1151,
@@ -4696,7 +4700,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.85
+      "score": 10.0
     },
     {
       "id": 1152,
@@ -4722,7 +4726,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.84
+      "score": 9.98
     },
     {
       "id": 1153,
@@ -4774,7 +4778,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.85
+      "score": 9.99
     },
     {
       "id": 1155,
@@ -4826,10 +4830,36 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.81
+      "score": 9.95
     },
     {
       "id": 1157,
+      "code": 119780,
+      "name": "Kotak Gold Fund Payout of Income Distribution cum capital withdrawal option- Direct",
+      "cat": "FoF Domestic",
+      "type": "Gold",
+      "nav_latest": 60.961,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 50.85,
+      "r3": 34.64,
+      "r5": 24.4,
+      "r7": 23.79,
+      "r10": 16.93,
+      "sharpe": 0.674,
+      "std_dev": 0.1548,
+      "max_dd": -0.2626,
+      "sortino": 0.904,
+      "calmar": 0.645,
+      "win_rate": 71.4,
+      "sf": false,
+      "df": true,
+      "fp": false,
+      "score": 10.0
+    },
+    {
+      "id": 1158,
       "code": 133815,
       "name": "Kotak World Gold Fund - Standard Plan - Growth Option",
       "cat": "FoF Overseas",
@@ -4855,7 +4885,7 @@
       "win_rate": null
     },
     {
-      "id": 1158,
+      "id": 1159,
       "code": 140088,
       "name": "Nippon India ETF Gold BeES",
       "cat": "Gold ETF",
@@ -4878,38 +4908,116 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.34
-    },
-    {
-      "id": 1159,
-      "code": 150715,
-      "name": "UTI Gold ETF Fund of Fund - Regular Plan - Growth Opton",
-      "cat": "FoF Domestic",
-      "type": "Gold",
-      "nav_latest": 28.6242,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2022,
-      "r1": 51.59,
-      "r3": 34.57,
-      "r5": 35.44,
-      "r7": 35.44,
-      "r10": 35.44,
-      "sharpe": 1.546,
-      "std_dev": 0.1872,
-      "max_dd": -0.2361,
-      "sortino": 1.775,
-      "calmar": 1.501,
-      "win_rate": 100.0,
-      "sf": true,
-      "df": true,
-      "fp": true,
-      "score": 10.0
+      "score": 9.48
     }
   ],
   "funds": [
     {
       "id": 1000,
+      "code": 118825,
+      "name": "Mirae Asset Large Cap Fund - Direct Plan - Growth",
+      "cat": "Large Cap Fund",
+      "type": "Equity",
+      "nav_latest": 125.743,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 3.78,
+      "r3": 13.57,
+      "r5": 12.63,
+      "r7": 12.92,
+      "r10": 14.3,
+      "sharpe": 0.492,
+      "std_dev": 0.1586,
+      "max_dd": -0.3744,
+      "sortino": 0.602,
+      "calmar": 0.382,
+      "win_rate": 92.9,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "score": 4.91
+    },
+    {
+      "id": 1001,
+      "code": 118989,
+      "name": "HDFC Mid Cap Fund - Growth Option - Direct Plan",
+      "cat": "Mid Cap Fund",
+      "type": "Equity",
+      "nav_latest": 221.614,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 13.36,
+      "r3": 25.75,
+      "r5": 23.4,
+      "r7": 21.11,
+      "r10": 19.14,
+      "sharpe": 0.804,
+      "std_dev": 0.1572,
+      "max_dd": -0.3951,
+      "sortino": 0.949,
+      "calmar": 0.484,
+      "win_rate": 85.7,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "score": 10.0
+    },
+    {
+      "id": 1002,
+      "code": 120505,
+      "name": "Axis Midcap Fund - Direct Plan - Growth",
+      "cat": "Mid Cap Fund",
+      "type": "Equity",
+      "nav_latest": 135.22,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 11.83,
+      "r3": 21.86,
+      "r5": 17.8,
+      "r7": 19.55,
+      "r10": 18.23,
+      "sharpe": null,
+      "std_dev": null,
+      "max_dd": -1.0,
+      "sortino": 0.263,
+      "calmar": 0.182,
+      "win_rate": 85.7,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "score": null
+    },
+    {
+      "id": 1003,
+      "code": 122639,
+      "name": "Parag Parikh Flexi Cap Fund - Direct Plan - Growth",
+      "cat": "Flexi Cap Fund",
+      "type": "Equity",
+      "nav_latest": 91.483,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 5.01,
+      "r3": 18.55,
+      "r5": 17.42,
+      "r7": 19.64,
+      "r10": 18.05,
+      "sharpe": 0.963,
+      "std_dev": 0.1199,
+      "max_dd": -0.312,
+      "sortino": 1.205,
+      "calmar": 0.579,
+      "win_rate": 85.7,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "score": 9.22
+    },
+    {
+      "id": 1004,
       "code": 100033,
       "name": "Aditya Birla Sun Life Large & Mid Cap Fund - Regular Growth",
       "cat": "Large & Mid Cap Fund",
@@ -4932,10 +5040,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.6
+      "score": 3.2
     },
     {
-      "id": 1001,
+      "id": 1005,
       "code": 100175,
       "name": "quant ELSS Tax Saver Fund - Growth Option - Regular Plan",
       "cat": "ELSS",
@@ -4958,10 +5066,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 8.75
+      "score": 7.77
     },
     {
-      "id": 1002,
+      "id": 1006,
       "code": 100177,
       "name": "quant Small Cap Fund - Growth - Regular Plan",
       "cat": "Small Cap Fund",
@@ -4987,7 +5095,7 @@
       "score": 0.0
     },
     {
-      "id": 1003,
+      "id": 1007,
       "code": 100219,
       "name": "JM Large Cap Fund (Regular) - Growth Option",
       "cat": "Large Cap Fund",
@@ -5010,10 +5118,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.33
+      "score": 2.96
     },
     {
-      "id": 1004,
+      "id": 1008,
       "code": 100254,
       "name": "JM Value Fund (Regular) - Growth Option",
       "cat": "Value Fund",
@@ -5036,10 +5144,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.82
+      "score": 4.28
     },
     {
-      "id": 1005,
+      "id": 1009,
       "code": 100313,
       "name": "LIC MF Flexi Cap Fund-Regular Plan-Growth",
       "cat": "Flexi Cap Fund",
@@ -5065,7 +5173,7 @@
       "score": null
     },
     {
-      "id": 1006,
+      "id": 1010,
       "code": 100349,
       "name": "ICICI Prudential Large & Mid Cap Fund - Growth",
       "cat": "Large & Mid Cap Fund",
@@ -5088,10 +5196,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.46
+      "score": 6.63
     },
     {
-      "id": 1007,
+      "id": 1011,
       "code": 100354,
       "name": "ICICI Prudential ELSS Tax Saver Fund - Growth",
       "cat": "ELSS",
@@ -5114,10 +5222,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.11
+      "score": 4.53
     },
     {
-      "id": 1008,
+      "id": 1012,
       "code": 100377,
       "name": "Nippon India Growth Mid Cap Fund-Growth Plan-Growth Option",
       "cat": "Mid Cap Fund",
@@ -5140,10 +5248,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 10.0
+      "score": 8.88
     },
     {
-      "id": 1009,
+      "id": 1013,
       "code": 100380,
       "name": "Nippon India Vision Large & Midcap Fund-GROWTH PLAN-Growth Option",
       "cat": "Large & Mid Cap Fund",
@@ -5166,10 +5274,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.65
+      "score": 5.01
     },
     {
-      "id": 1010,
+      "id": 1014,
       "code": 100471,
       "name": "Franklin India Large Cap Fund-Growth",
       "cat": "Large Cap Fund",
@@ -5192,10 +5300,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.26
+      "score": 2.9
     },
     {
-      "id": 1011,
+      "id": 1015,
       "code": 100473,
       "name": "Franklin India Mid Cap Fund-Growth",
       "cat": "Mid Cap Fund",
@@ -5218,10 +5326,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.6
+      "score": 5.86
     },
     {
-      "id": 1012,
+      "id": 1016,
       "code": 100475,
       "name": "Tata Large Cap Fund -Regular Plan - Growth Option",
       "cat": "Large Cap Fund",
@@ -5244,10 +5352,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.03
+      "score": 3.58
     },
     {
-      "id": 1013,
+      "id": 1017,
       "code": 100476,
       "name": "Taurus Flexi Cap Fund - Regular Plan - Growth",
       "cat": "Flexi Cap Fund",
@@ -5273,7 +5381,7 @@
       "score": null
     },
     {
-      "id": 1014,
+      "id": 1018,
       "code": 100477,
       "name": "Taurus Mid Cap Fund - Regular Plan - Growth",
       "cat": "Mid Cap Fund",
@@ -5299,7 +5407,7 @@
       "score": null
     },
     {
-      "id": 1015,
+      "id": 1019,
       "code": 100480,
       "name": "Taurus ELSS Tax Saver Fund - Regular Plan - Growth",
       "cat": "ELSS",
@@ -5325,7 +5433,7 @@
       "score": null
     },
     {
-      "id": 1016,
+      "id": 1020,
       "code": 100496,
       "name": "Templeton India Value Fund - Growth Plan",
       "cat": "Value Fund",
@@ -5348,10 +5456,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.75
+      "score": 5.11
     },
     {
-      "id": 1017,
+      "id": 1021,
       "code": 100520,
       "name": "Franklin India Flexi Cap Fund - Growth",
       "cat": "Flexi Cap Fund",
@@ -5374,10 +5482,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.45
+      "score": 4.84
     },
     {
-      "id": 1018,
+      "id": 1022,
       "code": 100526,
       "name": "Franklin India ELSS Tax Saver Fund-Growth",
       "cat": "ELSS",
@@ -5400,10 +5508,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.89
+      "score": 4.34
     },
     {
-      "id": 1019,
+      "id": 1023,
       "code": 100631,
       "name": "quant Multi Cap Fund-GROWTH OPTION - Regular Plan",
       "cat": "Multi Cap Fund",
@@ -5426,10 +5534,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.06
+      "score": 5.38
     },
     {
-      "id": 1020,
+      "id": 1024,
       "code": 100651,
       "name": "UTI Large Cap Fund - Regular Plan - Growth Option",
       "cat": "Large Cap Fund",
@@ -5452,10 +5560,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.21
+      "score": 2.85
     },
     {
-      "id": 1021,
+      "id": 1025,
       "code": 100664,
       "name": "UTI Large & Mid Cap Fund - Regular Plan - Growth Option",
       "cat": "Large & Mid Cap Fund",
@@ -5478,10 +5586,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.75
+      "score": 5.11
     },
     {
-      "id": 1022,
+      "id": 1026,
       "code": 100669,
       "name": "UTI - Flexi Cap Fund-Growth Option",
       "cat": "Flexi Cap Fund",
@@ -5507,7 +5615,7 @@
       "score": null
     },
     {
-      "id": 1023,
+      "id": 1027,
       "code": 100795,
       "name": "Sundaram Small Cap Fund Regular Plan - Growth",
       "cat": "Small Cap Fund",
@@ -5533,7 +5641,7 @@
       "score": null
     },
     {
-      "id": 1024,
+      "id": 1028,
       "code": 100821,
       "name": "UTI ELSS Tax Saver Fund - Regular Plan - Growth Option",
       "cat": "ELSS",
@@ -5556,10 +5664,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.72
+      "score": 3.3
     },
     {
-      "id": 1025,
+      "id": 1029,
       "code": 100865,
       "name": "LIC MF ELSS Tax Saver-Regular Plan-Growth",
       "cat": "ELSS",
@@ -5585,7 +5693,7 @@
       "score": null
     },
     {
-      "id": 1026,
+      "id": 1030,
       "code": 100998,
       "name": "HDFC Long Term Advantage Plan - Growth Plan",
       "cat": "ELSS",
@@ -5611,7 +5719,7 @@
       "win_rate": null
     },
     {
-      "id": 1027,
+      "id": 1031,
       "code": 101065,
       "name": "quant Mid Cap Fund - Growth Option - Regular Plan",
       "cat": "Mid Cap Fund",
@@ -5634,10 +5742,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 8.71
+      "score": 7.74
     },
     {
-      "id": 1028,
+      "id": 1032,
       "code": 101161,
       "name": "Nippon India Multi Cap Fund-Growth Plan-Growth Option",
       "cat": "Multi Cap Fund",
@@ -5660,10 +5768,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.57
+      "score": 6.72
     },
     {
-      "id": 1029,
+      "id": 1033,
       "code": 101209,
       "name": "Taurus Large Cap Fund - Regular Plan - Growth",
       "cat": "Large Cap Fund",
@@ -5689,7 +5797,7 @@
       "score": null
     },
     {
-      "id": 1030,
+      "id": 1034,
       "code": 101228,
       "name": "ICICI Prudential Multicap Fund - Growth",
       "cat": "Multi Cap Fund",
@@ -5712,10 +5820,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.85
+      "score": 6.08
     },
     {
-      "id": 1031,
+      "id": 1035,
       "code": 101539,
       "name": "Sundaram Mid Cap Fund Regular Plan - Growth",
       "cat": "Mid Cap Fund",
@@ -5741,7 +5849,7 @@
       "score": null
     },
     {
-      "id": 1032,
+      "id": 1036,
       "code": 101592,
       "name": "Aditya Birla Sun Life MIDCAP Fund-Growth",
       "cat": "Mid Cap Fund",
@@ -5764,10 +5872,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.44
+      "score": 5.72
     },
     {
-      "id": 1033,
+      "id": 1037,
       "code": 101594,
       "name": "HSBC Large Cap Fund - Regular Growth",
       "cat": "Large Cap Fund",
@@ -5790,10 +5898,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.97
+      "score": 3.53
     },
     {
-      "id": 1034,
+      "id": 1038,
       "code": 101635,
       "name": "DSP Large Cap Fund - Regular Plan - Growth",
       "cat": "Large Cap Fund",
@@ -5816,10 +5924,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.6
+      "score": 3.2
     },
     {
-      "id": 1035,
+      "id": 1039,
       "code": 101672,
       "name": "Tata Value Fund - Regular Plan -Growth Option",
       "cat": "Value Fund",
@@ -5842,10 +5950,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.86
+      "score": 5.2
     },
     {
-      "id": 1036,
+      "id": 1040,
       "code": 101762,
       "name": "HDFC Flexi Cap Fund - Growth Plan",
       "cat": "Flexi Cap Fund",
@@ -5868,10 +5976,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.95
+      "score": 6.17
     },
     {
-      "id": 1037,
+      "id": 1041,
       "code": 101764,
       "name": "HDFC Value Fund - Growth Plan",
       "cat": "Value Fund",
@@ -5894,10 +6002,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.38
+      "score": 5.67
     },
     {
-      "id": 1038,
+      "id": 1042,
       "code": 101824,
       "name": "Tata Large & Mid Cap Fund- Regular Plan - Growth Option",
       "cat": "Large & Mid Cap Fund",
@@ -5920,10 +6028,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.35
+      "score": 2.97
     },
     {
-      "id": 1039,
+      "id": 1043,
       "code": 101834,
       "name": "UTI - Master Equity Plan Unit Scheme",
       "cat": "ELSS",
@@ -5946,10 +6054,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 2.92
+      "score": 2.6
     },
     {
-      "id": 1040,
+      "id": 1044,
       "code": 101853,
       "name": "Sundaram Value Fund Regular Plan - Growth",
       "cat": "Value Fund",
@@ -5975,7 +6083,7 @@
       "score": null
     },
     {
-      "id": 1041,
+      "id": 1045,
       "code": 101922,
       "name": "CANARA ROBECO FLEXICAP FUND - REGULAR PLAN - GROWTH OPTION",
       "cat": "Flexi Cap Fund",
@@ -6001,7 +6109,7 @@
       "score": null
     },
     {
-      "id": 1042,
+      "id": 1046,
       "code": 101979,
       "name": "HDFC ELSS Tax saver - Growth Plan",
       "cat": "ELSS",
@@ -6024,10 +6132,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.92
+      "score": 5.26
     },
     {
-      "id": 1043,
+      "id": 1047,
       "code": 102000,
       "name": "HDFC Large Cap Fund - Growth Option - Regular Plan",
       "cat": "Large Cap Fund",
@@ -6050,10 +6158,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.93
+      "score": 3.49
     },
     {
-      "id": 1044,
+      "id": 1048,
       "code": 102020,
       "name": "Baroda BNP Paribas MULTI CAP FUND - Regular Plan - Growth Option",
       "cat": "Multi Cap Fund",
@@ -6076,10 +6184,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.62
+      "score": 4.99
     },
     {
-      "id": 1045,
+      "id": 1049,
       "code": 102252,
       "name": "HSBC Flexi Cap Fund - Regular Growth",
       "cat": "Flexi Cap Fund",
@@ -6102,10 +6210,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.48
+      "score": 4.87
     },
     {
-      "id": 1046,
+      "id": 1050,
       "code": 102328,
       "name": "Tata Mid Cap Fund Regular Plan- Growth Option",
       "cat": "Mid Cap Fund",
@@ -6128,10 +6236,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.7
+      "score": 6.84
     },
     {
-      "id": 1047,
+      "id": 1051,
       "code": 102394,
       "name": "UTI Mid Cap Fund-Growth Option",
       "cat": "Mid Cap Fund",
@@ -6154,10 +6262,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.16
+      "score": 5.47
     },
     {
-      "id": 1048,
+      "id": 1052,
       "code": 102414,
       "name": "SBI CONTRA FUND - REGULAR PLAN -GROWTH",
       "cat": "Contra Fund",
@@ -6180,10 +6288,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.1
+      "score": 6.31
     },
     {
-      "id": 1049,
+      "id": 1053,
       "code": 102528,
       "name": "ICICI Prudential MidCap Fund - Growth",
       "cat": "Mid Cap Fund",
@@ -6206,10 +6314,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.58
+      "score": 8.5
     },
     {
-      "id": 1050,
+      "id": 1054,
       "code": 102594,
       "name": "ICICI Prudential Value Fund (erstwhile Value Discovery Fund) - Growth",
       "cat": "Value Fund",
@@ -6232,10 +6340,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.43
+      "score": 6.59
     },
     {
-      "id": 1051,
+      "id": 1055,
       "code": 102756,
       "name": "SBI FOCUSED FUND - REGULAR PLAN -GROWTH",
       "cat": "Focused Fund",
@@ -6258,10 +6366,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.52
+      "score": 5.79
     },
     {
-      "id": 1052,
+      "id": 1056,
       "code": 102760,
       "name": "HDFC Focused Fund - GROWTH PLAN",
       "cat": "Focused Fund",
@@ -6284,10 +6392,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.63
+      "score": 5.89
     },
     {
-      "id": 1053,
+      "id": 1057,
       "code": 102874,
       "name": "Kotak-Small Cap Fund - Payout of Income Distribution cum capital withdrawal option",
       "cat": "Small Cap Fund",
@@ -6310,10 +6418,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.42
+      "score": 4.82
     },
     {
-      "id": 1054,
+      "id": 1058,
       "code": 102875,
       "name": "Kotak-Small Cap Fund - Growth",
       "cat": "Small Cap Fund",
@@ -6336,10 +6444,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.77
+      "score": 6.01
     },
     {
-      "id": 1055,
+      "id": 1059,
       "code": 102883,
       "name": "Franklin India Large & Mid Cap Fund - Growth Plan",
       "cat": "Large & Mid Cap Fund",
@@ -6362,10 +6470,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.07
+      "score": 3.62
     },
     {
-      "id": 1056,
+      "id": 1060,
       "code": 102920,
       "name": "CANARA ROBECO LARGE AND MID CAP FUND - REGULAR PLAN - GROWTH OPTION",
       "cat": "Large & Mid Cap Fund",
@@ -6388,10 +6496,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.29
+      "score": 4.69
     },
     {
-      "id": 1057,
+      "id": 1061,
       "code": 102941,
       "name": "SBI MIDCAP FUND - REGULAR PLAN - GROWTH",
       "cat": "Mid Cap Fund",
@@ -6414,10 +6522,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.9
+      "score": 5.24
     },
     {
-      "id": 1058,
+      "id": 1062,
       "code": 103024,
       "name": "SBI LARGE & MIDCAP FUND- REGULAR PLAN -Growth",
       "cat": "Large & Mid Cap Fund",
@@ -6440,10 +6548,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.79
+      "score": 6.03
     },
     {
-      "id": 1059,
+      "id": 1063,
       "code": 103040,
       "name": "Kotak Contra Fund - Regular Plan - Growth",
       "cat": "Contra Fund",
@@ -6466,10 +6574,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.96
+      "score": 6.18
     },
     {
-      "id": 1060,
+      "id": 1064,
       "code": 103085,
       "name": "Nippon India Value Fund- Growth Plan",
       "cat": "Value Fund",
@@ -6492,10 +6600,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.88
+      "score": 6.11
     },
     {
-      "id": 1061,
+      "id": 1065,
       "code": 103098,
       "name": "UTI Value Fund - Regular Plan - Growth Option",
       "cat": "Value Fund",
@@ -6518,10 +6626,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.49
+      "score": 4.87
     },
     {
-      "id": 1062,
+      "id": 1066,
       "code": 103166,
       "name": "Aditya Birla Sun Life Flexi Cap Fund - Growth - Regular Plan",
       "cat": "Flexi Cap Fund",
@@ -6544,10 +6652,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.41
+      "score": 4.8
     },
     {
-      "id": 1063,
+      "id": 1067,
       "code": 103174,
       "name": "Aditya Birla Sun Life Large Cap Fund-Growth",
       "cat": "Large Cap Fund",
@@ -6570,10 +6678,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.97
+      "score": 3.53
     },
     {
-      "id": 1064,
+      "id": 1068,
       "code": 103196,
       "name": "Nippon India ELSS Tax Saver Fund-Growth Plan-Growth Option",
       "cat": "ELSS",
@@ -6596,10 +6704,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.58
+      "score": 4.07
     },
     {
-      "id": 1065,
+      "id": 1069,
       "code": 103215,
       "name": "SBI Flexicap Fund - REGULAR PLAN -Growth Option",
       "cat": "Flexi Cap Fund",
@@ -6622,10 +6730,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.51
+      "score": 3.12
     },
     {
-      "id": 1066,
+      "id": 1070,
       "code": 103234,
       "name": "Kotak Large & Midcap Fund - Growth-Regular",
       "cat": "Large & Mid Cap Fund",
@@ -6648,10 +6756,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.52
+      "score": 5.79
     },
     {
-      "id": 1067,
+      "id": 1071,
       "code": 103309,
       "name": "Aditya Birla Sun Life Focused Fund -Growth Option",
       "cat": "Focused Fund",
@@ -6674,10 +6782,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 5.02
+      "score": 4.46
     },
     {
-      "id": 1068,
+      "id": 1072,
       "code": 103338,
       "name": "Kotak ELSS Tax Saver Fund-Payout of Income Distribution cum capital withdrawal option",
       "cat": "ELSS",
@@ -6700,10 +6808,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 3.05
+      "score": 2.71
     },
     {
-      "id": 1069,
+      "id": 1073,
       "code": 103339,
       "name": "Kotak ELSS Tax Saver Fund-Growth",
       "cat": "ELSS",
@@ -6726,10 +6834,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.92
+      "score": 4.37
     },
     {
-      "id": 1070,
+      "id": 1074,
       "code": 103360,
       "name": "Franklin India Small Cap Fund-Growth",
       "cat": "Small Cap Fund",
@@ -6752,10 +6860,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 7.32
+      "score": 6.5
     },
     {
-      "id": 1071,
+      "id": 1075,
       "code": 103504,
       "name": "SBI Large Cap FUND-REGULAR PLAN GROWTH",
       "cat": "Large Cap Fund",
@@ -6778,10 +6886,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.17
+      "score": 3.7
     },
     {
-      "id": 1072,
+      "id": 1076,
       "code": 103819,
       "name": "DSP Large & Mid Cap Fund - Regular Plan - Growth",
       "cat": "Large & Mid Cap Fund",
@@ -6804,10 +6912,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.23
+      "score": 5.54
     },
     {
-      "id": 1073,
+      "id": 1077,
       "code": 104481,
       "name": "DSP Midcap Fund - Regular Plan - Growth",
       "cat": "Mid Cap Fund",
@@ -6830,10 +6938,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 6.79
+      "score": 6.03
     },
     {
-      "id": 1074,
+      "id": 1078,
       "code": 104513,
       "name": "quant Large & Mid Cap Fund - Growth Option",
       "cat": "Large & Mid Cap Fund",
@@ -6859,7 +6967,7 @@
       "score": null
     },
     {
-      "id": 1075,
+      "id": 1079,
       "code": 104636,
       "name": "Invesco India ELSS Tax Saver Fund - Regular Plan - Growth",
       "cat": "ELSS",
@@ -6882,114 +6990,62 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 4.37
-    },
-    {
-      "id": 1076,
-      "code": 104637,
-      "name": "Nippon India Focused Fund -Growth Plan -Growth Option",
-      "cat": "Focused Fund",
-      "type": "Equity",
-      "nav_latest": 122.1436,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2006,
-      "r1": 5.83,
-      "r3": 15.88,
-      "r5": 14.43,
-      "r7": 14.49,
-      "r10": 14.34,
-      "sharpe": 0.441,
-      "std_dev": 0.1779,
-      "max_dd": -0.6214,
-      "sortino": 0.541,
-      "calmar": 0.231,
-      "win_rate": 80.0,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": 5.67
-    },
-    {
-      "id": 1077,
-      "code": 104772,
-      "name": "DSP ELSS Tax Saver Fund - Regular Plan - Growth",
-      "cat": "ELSS",
-      "type": "Equity",
-      "nav_latest": 138.94,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2007,
-      "r1": 2.25,
-      "r3": 19.41,
-      "r5": 16.52,
-      "r7": 16.45,
-      "r10": 15.69,
-      "sharpe": 0.496,
-      "std_dev": 0.1854,
-      "max_dd": -0.6509,
-      "sortino": 0.606,
-      "calmar": 0.241,
-      "win_rate": 80.0,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": 6.45
-    },
-    {
-      "id": 1078,
-      "code": 104908,
-      "name": "Kotak Midcap Fund - Regular Plan - Growth",
-      "cat": "Mid Cap Fund",
-      "type": "Equity",
-      "nav_latest": 139.52,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2007,
-      "r1": 14.99,
-      "r3": 22.58,
-      "r5": 19.68,
-      "r7": 20.22,
-      "r10": 18.06,
-      "sharpe": 0.637,
-      "std_dev": 0.1815,
-      "max_dd": -0.72,
-      "sortino": 0.759,
-      "calmar": 0.251,
-      "win_rate": 80.0,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": 9.2
-    },
-    {
-      "id": 1079,
-      "code": 105001,
-      "name": "Sundaram Large and Midcap Fund Regular Plan - Growth",
-      "cat": "Large & Mid Cap Fund",
-      "type": "Equity",
-      "nav_latest": 85.5558,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2007,
-      "r1": 5.66,
-      "r3": 16.8,
-      "r5": 15.06,
-      "r7": 13.97,
-      "r10": 14.56,
-      "sharpe": null,
-      "std_dev": null,
-      "max_dd": -1.0,
-      "sortino": 0.211,
-      "calmar": 0.146,
-      "win_rate": 75.0,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": null
+      "score": 3.88
     },
     {
       "id": 1080,
+      "code": 118560,
+      "name": "Franklin India Ultra Short Bond Fund - Super Institutional Plan - Direct - Growth",
+      "cat": "Ultra Short Duration Fund",
+      "type": "Debt",
+      "nav_latest": 34.2355,
+      "nav_date": "07-Aug-2022",
+      "live": false,
+      "score": 0.0,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "data_from": null,
+      "r1": null,
+      "r3": null,
+      "r5": null,
+      "r7": null,
+      "r10": null,
+      "sharpe": null,
+      "std_dev": null,
+      "max_dd": null,
+      "sortino": null,
+      "calmar": null,
+      "win_rate": null
+    },
+    {
+      "id": 1081,
+      "code": 119533,
+      "name": "Aditya Birla Sun Life Corporate Bond Fund - Growth - Direct Plan",
+      "cat": "Corporate Bond Fund",
+      "type": "Debt",
+      "nav_latest": 119.139,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 4.5,
+      "r3": 7.38,
+      "r5": 6.46,
+      "r7": 7.4,
+      "r10": 7.56,
+      "sharpe": 0.769,
+      "std_dev": 0.0138,
+      "max_dd": -0.0238,
+      "sortino": 0.752,
+      "calmar": 3.176,
+      "win_rate": 100.0,
+      "sf": false,
+      "df": false,
+      "fp": false,
+      "score": 10.0
+    },
+    {
+      "id": 1082,
       "code": 100038,
       "name": "Aditya Birla Sun Life Income Fund - Growth - Regular Plan",
       "cat": "Medium to Long Duration Fund",
@@ -7012,10 +7068,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1081,
+      "id": 1083,
       "code": 100078,
       "name": "DSP Bond Fund - Growth",
       "cat": "Medium Duration Fund",
@@ -7038,10 +7094,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1082,
+      "id": 1084,
       "code": 100087,
       "name": "DSP Savings Fund - Regular Plan - Growth",
       "cat": "Money Market Fund",
@@ -7067,7 +7123,7 @@
       "score": 9.96
     },
     {
-      "id": 1083,
+      "id": 1085,
       "code": 100124,
       "name": "HDFC Income Fund - Growth Option",
       "cat": "Medium to Long Duration Fund",
@@ -7090,10 +7146,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.95
+      "score": 9.94
     },
     {
-      "id": 1084,
+      "id": 1086,
       "code": 100223,
       "name": "JM Medium to Long Duration Fund (Regular) - Growth Option",
       "cat": "Medium to Long Duration Fund",
@@ -7119,7 +7175,7 @@
       "score": 9.92
     },
     {
-      "id": 1085,
+      "id": 1087,
       "code": 100292,
       "name": "Kotak Bond-Deposit-Growth",
       "cat": "Medium to Long Duration Fund",
@@ -7145,7 +7201,7 @@
       "win_rate": null
     },
     {
-      "id": 1086,
+      "id": 1088,
       "code": 100299,
       "name": "Kotak Bond Fund - Regular Plan Growth",
       "cat": "Medium to Long Duration Fund",
@@ -7171,7 +7227,7 @@
       "score": 9.95
     },
     {
-      "id": 1087,
+      "id": 1089,
       "code": 100315,
       "name": "LIC MF Medium to Long Duration Fund-Regular Plan-Growth",
       "cat": "Medium to Long Duration Fund",
@@ -7194,10 +7250,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1088,
+      "id": 1090,
       "code": 100387,
       "name": "Nippon India Medium to Long Duration  Fund - Growth Plan Growth Option",
       "cat": "Medium to Long Duration Fund",
@@ -7220,10 +7276,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1089,
+      "id": 1091,
       "code": 100418,
       "name": "Tata Income Fund -Regular Plan - Growth Option",
       "cat": "Medium to Long Duration Fund",
@@ -7249,7 +7305,7 @@
       "win_rate": null
     },
     {
-      "id": 1090,
+      "id": 1092,
       "code": 100528,
       "name": "Franklin India Corporate Debt Fund - Growth",
       "cat": "Corporate Bond Fund",
@@ -7272,10 +7328,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.99
+      "score": 9.98
     },
     {
-      "id": 1091,
+      "id": 1093,
       "code": 100603,
       "name": "Sundaram Medium Duration Fund (Formerly Known as Sundaram Medium Term Bond Fund) Regular Plan - Growth",
       "cat": "Medium Duration Fund",
@@ -7301,7 +7357,7 @@
       "score": null
     },
     {
-      "id": 1092,
+      "id": 1094,
       "code": 100604,
       "name": "Sundaram Medium Duration Fund (Formerly Known as Sundaram Medium Term Bond Fund) Regular Plan -Growth",
       "cat": "Medium Duration Fund",
@@ -7327,7 +7383,7 @@
       "win_rate": null
     },
     {
-      "id": 1093,
+      "id": 1095,
       "code": 100608,
       "name": "Sundaram Medium Duration Fund (Formerly Known as Sundaram Medium Term Bond Fund) Institutional Plan - Growth",
       "cat": "Medium Duration Fund",
@@ -7353,7 +7409,7 @@
       "win_rate": null
     },
     {
-      "id": 1094,
+      "id": 1096,
       "code": 100639,
       "name": "SBI Medium to Long Duration Fund-REGULAR PLAN-Growth",
       "cat": "Medium to Long Duration Fund",
@@ -7379,7 +7435,7 @@
       "score": 9.97
     },
     {
-      "id": 1095,
+      "id": 1097,
       "code": 100641,
       "name": "SBI ULTRA SHORT DURATION FUND - REGULAR PLAN - GROWTH",
       "cat": "Ultra Short Duration Fund",
@@ -7405,7 +7461,7 @@
       "score": 1.27
     },
     {
-      "id": 1096,
+      "id": 1098,
       "code": 100723,
       "name": "UTI MMF-Discontinued - Regular Plan -Growth",
       "cat": "Money Market Fund",
@@ -7431,7 +7487,7 @@
       "score": 1.26
     },
     {
-      "id": 1097,
+      "id": 1099,
       "code": 100741,
       "name": "UTI Medium to Long Duration Fund- Regular Plan - Growth",
       "cat": "Medium to Long Duration Fund",
@@ -7454,10 +7510,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.95
+      "score": 9.94
     },
     {
-      "id": 1098,
+      "id": 1100,
       "code": 100781,
       "name": "Sundaram Banking & PSU Fund (Formerly Known as Sundaram Banking and PSU Debt Fund) Retail Plan - Growth",
       "cat": "Banking and PSU Fund",
@@ -7483,7 +7539,7 @@
       "win_rate": null
     },
     {
-      "id": 1099,
+      "id": 1101,
       "code": 100784,
       "name": "Sundaram Banking & PSU Fund (Formerly Known as Sundaram Banking and PSU Debt Fund) Regular Plan - Growth",
       "cat": "Banking and PSU Fund",
@@ -7509,7 +7565,7 @@
       "score": null
     },
     {
-      "id": 1100,
+      "id": 1102,
       "code": 100789,
       "name": "Sundaram Corporate Bond Fund Regular Plan- Growth",
       "cat": "Corporate Bond Fund",
@@ -7535,7 +7591,7 @@
       "score": null
     },
     {
-      "id": 1101,
+      "id": 1103,
       "code": 100856,
       "name": "Nippon India Corporate Bond Fund - Growth Plan - Growth Option",
       "cat": "Corporate Bond Fund",
@@ -7558,10 +7614,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 10.0
+      "score": 9.99
     },
     {
-      "id": 1102,
+      "id": 1104,
       "code": 101221,
       "name": "ICICI Prudential Money Market Fund Retail Growth (erstwhile Cash Option)",
       "cat": "Money Market Fund",
@@ -7587,7 +7643,7 @@
       "win_rate": null
     },
     {
-      "id": 1103,
+      "id": 1105,
       "code": 101231,
       "name": "ICICI Prudential Short Term Fund-Institutional Growth",
       "cat": "Short Duration Fund",
@@ -7613,7 +7669,7 @@
       "win_rate": null
     },
     {
-      "id": 1104,
+      "id": 1106,
       "code": 101232,
       "name": "Franklin India Short-Term Income Plan-Growth",
       "cat": "Short Duration Fund",
@@ -7639,7 +7695,7 @@
       "win_rate": null
     },
     {
-      "id": 1105,
+      "id": 1107,
       "code": 101244,
       "name": "Franklin India Short-Term Income Plan-Institutional Plan - Growth",
       "cat": "Short Duration Fund",
@@ -7665,7 +7721,7 @@
       "win_rate": null
     },
     {
-      "id": 1106,
+      "id": 1108,
       "code": 101304,
       "name": "DSP Short Term Fund - Regular Plan - Growth",
       "cat": "Short Duration Fund",
@@ -7688,10 +7744,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.97
+      "score": 9.96
     },
     {
-      "id": 1107,
+      "id": 1109,
       "code": 101316,
       "name": "Aditya Birla Sun Life Savings Fund-Retail Growth",
       "cat": "Ultra Short Duration Fund",
@@ -7714,10 +7770,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.08
+      "score": 9.07
     },
     {
-      "id": 1108,
+      "id": 1110,
       "code": 101317,
       "name": "Aditya Birla Sun Life Savings Fund - Growth - Regular Plan",
       "cat": "Ultra Short Duration Fund",
@@ -7740,10 +7796,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.08
+      "score": 9.07
     },
     {
-      "id": 1109,
+      "id": 1111,
       "code": 101357,
       "name": "Franklin India Money Market Fund - Growth Option",
       "cat": "Money Market Fund",
@@ -7769,7 +7825,7 @@
       "score": 9.99
     },
     {
-      "id": 1110,
+      "id": 1112,
       "code": 101358,
       "name": "Franklin India Money Market Fund - Institutional Option - Growth",
       "cat": "Money Market Fund",
@@ -7795,7 +7851,7 @@
       "win_rate": null
     },
     {
-      "id": 1111,
+      "id": 1113,
       "code": 101372,
       "name": "Kotak Bond Short Term Plan-(Payout of Income Distribution cum capital withdrawal option)",
       "cat": "Short Duration Fund",
@@ -7821,7 +7877,7 @@
       "win_rate": null
     },
     {
-      "id": 1112,
+      "id": 1114,
       "code": 101373,
       "name": "Kotak Bond Short Term Plan-(Growth)",
       "cat": "Short Duration Fund",
@@ -7844,10 +7900,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.98
+      "score": 9.97
     },
     {
-      "id": 1113,
+      "id": 1115,
       "code": 101520,
       "name": "JM Short Term Fund - Regular Plan - Growth Option",
       "cat": "Short Duration Fund",
@@ -7873,7 +7929,7 @@
       "win_rate": null
     },
     {
-      "id": 1114,
+      "id": 1116,
       "code": 101521,
       "name": "JM Short Term Fund - Growth Option",
       "cat": "Short Duration Fund",
@@ -7899,7 +7955,7 @@
       "win_rate": null
     },
     {
-      "id": 1115,
+      "id": 1117,
       "code": 101548,
       "name": "Tata Short Term Bond Fund -Regular Plan- Growth Option",
       "cat": "Short Duration Fund",
@@ -7925,7 +7981,7 @@
       "score": null
     },
     {
-      "id": 1116,
+      "id": 1118,
       "code": 101588,
       "name": "CANARA ROBECO INCOME FUND - REGULAR PLAN - GROWTH OPTION",
       "cat": "Medium to Long Duration Fund",
@@ -7948,10 +8004,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.95
+      "score": 9.94
     },
     {
-      "id": 1117,
+      "id": 1119,
       "code": 101619,
       "name": "ICICI Prudential Savings Fund - Growth",
       "cat": "Low Duration Fund",
@@ -7974,10 +8030,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.08
+      "score": 9.07
     },
     {
-      "id": 1118,
+      "id": 1120,
       "code": 101665,
       "name": "Nippon India Short Duration  Fund-Growth Plan",
       "cat": "Short Duration Fund",
@@ -8003,7 +8059,7 @@
       "score": 9.98
     },
     {
-      "id": 1119,
+      "id": 1121,
       "code": 101685,
       "name": "HSBC Medium to Long Duration Fund - Regular Growth",
       "cat": "Medium to Long Duration Fund",
@@ -8029,7 +8085,7 @@
       "score": 9.94
     },
     {
-      "id": 1120,
+      "id": 1122,
       "code": 101703,
       "name": "Tata Medium Term Fund -Regular Plan - Growth Option",
       "cat": "Medium Duration Fund",
@@ -8055,7 +8111,7 @@
       "win_rate": null
     },
     {
-      "id": 1121,
+      "id": 1123,
       "code": 101758,
       "name": "ICICI Prudential Short Term Fund - Growth Option",
       "cat": "Short Duration Fund",
@@ -8078,10 +8134,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 10.0
+      "score": 9.99
     },
     {
-      "id": 1122,
+      "id": 1124,
       "code": 101830,
       "name": "LIC MF Low Duration Fund-Regular Plan-Growth",
       "cat": "Low Duration Fund",
@@ -8104,10 +8160,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1123,
+      "id": 1125,
       "code": 101844,
       "name": "Aditya Birla Sun Life Short Term Fund - Growth - Regular Plan",
       "cat": "Short Duration Fund",
@@ -8130,10 +8186,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.99
+      "score": 9.98
     },
     {
-      "id": 1124,
+      "id": 1126,
       "code": 101847,
       "name": "Tata Money Market Fund-Regular Plan - Growth Option",
       "cat": "Money Market Fund",
@@ -8156,10 +8212,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.96
+      "score": 9.95
     },
     {
-      "id": 1125,
+      "id": 1127,
       "code": 101892,
       "name": "Kotak Money market Fund - (Monthly Payout of Income Distribution cum capital withdrawal option)",
       "cat": "Money Market Fund",
@@ -8185,7 +8241,7 @@
       "score": 0.64
     },
     {
-      "id": 1126,
+      "id": 1128,
       "code": 101893,
       "name": "Kotak Money Market Fund - (Growth)",
       "cat": "Money Market Fund",
@@ -8211,7 +8267,7 @@
       "score": 0.69
     },
     {
-      "id": 1127,
+      "id": 1129,
       "code": 101971,
       "name": "Aditya Birla Sun Life Money Manager Fund - Retail Growth",
       "cat": "Money Market Fund",
@@ -8234,10 +8290,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.14
+      "score": 9.13
     },
     {
-      "id": 1128,
+      "id": 1130,
       "code": 101976,
       "name": "Aditya Birla Sun Life Money Manager Fund - Growth",
       "cat": "Money Market Fund",
@@ -8260,10 +8316,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.14
+      "score": 9.13
     },
     {
-      "id": 1129,
+      "id": 1131,
       "code": 101989,
       "name": "HDFC Medium Term Debt Fund - Growth Option",
       "cat": "Medium Duration Fund",
@@ -8286,10 +8342,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.99
+      "score": 9.98
     },
     {
-      "id": 1130,
+      "id": 1132,
       "code": 101993,
       "name": "HDFC Money Market Fund - Growth Option",
       "cat": "Money Market Fund",
@@ -8312,10 +8368,10 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 0.71
+      "score": 0.7
     },
     {
-      "id": 1131,
+      "id": 1133,
       "code": 102053,
       "name": "SBI MEDIUM DURATION FUND - REGULAR PLAN - GROWTH",
       "cat": "Medium Duration Fund",
@@ -8341,7 +8397,7 @@
       "score": 9.98
     },
     {
-      "id": 1132,
+      "id": 1134,
       "code": 102452,
       "name": "HDFC Low Duration  Fund - Growth",
       "cat": "Low Duration Fund",
@@ -8367,7 +8423,7 @@
       "score": 9.98
     },
     {
-      "id": 1133,
+      "id": 1135,
       "code": 102503,
       "name": "SBI  SAVINGS FUND - REGULAR PLAN - GROWTH",
       "cat": "Money Market Fund",
@@ -8393,7 +8449,7 @@
       "score": 9.95
     },
     {
-      "id": 1134,
+      "id": 1136,
       "code": 102532,
       "name": "UTI Ultra Short Duration Fund - Regular Plan - Growth Option",
       "cat": "Ultra Short Duration Fund",
@@ -8419,7 +8475,7 @@
       "score": 0.22
     },
     {
-      "id": 1135,
+      "id": 1137,
       "code": 102540,
       "name": "UTI Low Duration Fund - Discontinued Growth Option",
       "cat": "Low Duration Fund",
@@ -8445,7 +8501,7 @@
       "score": 0.0
     },
     {
-      "id": 1136,
+      "id": 1138,
       "code": 102544,
       "name": "UTI Low Duration Fund - Regular Plan - Growth Option",
       "cat": "Low Duration Fund",
@@ -8471,7 +8527,7 @@
       "score": 9.96
     },
     {
-      "id": 1137,
+      "id": 1139,
       "code": 102591,
       "name": "Kotak Savings Fund -Growth",
       "cat": "Ultra Short Duration Fund",
@@ -8494,59 +8550,7 @@
       "sf": false,
       "df": false,
       "fp": false,
-      "score": 9.97
-    },
-    {
-      "id": 1138,
-      "code": 102592,
-      "name": "Kotak Savings Fund -Monthly Payout of Income Distribution cum capital withdrawal option",
-      "cat": "Ultra Short Duration Fund",
-      "type": "Debt",
-      "nav_latest": 10.7302,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2006,
-      "r1": 0.0,
-      "r3": -0.02,
-      "r5": 0.01,
-      "r7": 0.43,
-      "r10": 0.59,
-      "sharpe": -2.777,
-      "std_dev": 0.0213,
-      "max_dd": -0.0179,
-      "sortino": -1.263,
-      "calmar": 0.33,
-      "win_rate": 57.1,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": 9.82
-    },
-    {
-      "id": 1139,
-      "code": 102741,
-      "name": "ICICI Prudential Medium Term Bond Fund - Growth",
-      "cat": "Medium Duration Fund",
-      "type": "Debt",
-      "nav_latest": 47.2425,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2006,
-      "r1": 6.58,
-      "r3": 7.64,
-      "r5": 6.72,
-      "r7": 7.51,
-      "r10": 7.34,
-      "sharpe": 0.522,
-      "std_dev": 0.0161,
-      "max_dd": -0.0533,
-      "sortino": 0.421,
-      "calmar": 1.377,
-      "win_rate": 100.0,
-      "sf": false,
-      "df": false,
-      "fp": false,
-      "score": 10.0
+      "score": 9.96
     },
     {
       "id": 1140,
@@ -8572,7 +8576,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.38
+      "score": 9.51
     },
     {
       "id": 1141,
@@ -8598,7 +8602,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.37
+      "score": 9.51
     },
     {
       "id": 1142,
@@ -8624,7 +8628,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.22
+      "score": 9.35
     },
     {
       "id": 1143,
@@ -8650,7 +8654,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.15
+      "score": 9.28
     },
     {
       "id": 1144,
@@ -8676,7 +8680,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.86
+      "score": 10.0
     },
     {
       "id": 1145,
@@ -8702,7 +8706,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.38
+      "score": 9.51
     },
     {
       "id": 1146,
@@ -8728,7 +8732,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.51
+      "score": 9.65
     },
     {
       "id": 1147,
@@ -8780,7 +8784,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.84
+      "score": 9.99
     },
     {
       "id": 1149,
@@ -8806,7 +8810,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.84
+      "score": 9.99
     },
     {
       "id": 1150,
@@ -8832,7 +8836,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.15
+      "score": 9.28
     },
     {
       "id": 1151,
@@ -8858,7 +8862,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.85
+      "score": 10.0
     },
     {
       "id": 1152,
@@ -8884,7 +8888,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.84
+      "score": 9.98
     },
     {
       "id": 1153,
@@ -8936,7 +8940,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.85
+      "score": 9.99
     },
     {
       "id": 1155,
@@ -8988,10 +8992,36 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.81
+      "score": 9.95
     },
     {
       "id": 1157,
+      "code": 119780,
+      "name": "Kotak Gold Fund Payout of Income Distribution cum capital withdrawal option- Direct",
+      "cat": "FoF Domestic",
+      "type": "Gold",
+      "nav_latest": 60.961,
+      "nav_date": "22-Apr-2026",
+      "live": true,
+      "data_from": 2013,
+      "r1": 50.85,
+      "r3": 34.64,
+      "r5": 24.4,
+      "r7": 23.79,
+      "r10": 16.93,
+      "sharpe": 0.674,
+      "std_dev": 0.1548,
+      "max_dd": -0.2626,
+      "sortino": 0.904,
+      "calmar": 0.645,
+      "win_rate": 71.4,
+      "sf": false,
+      "df": true,
+      "fp": false,
+      "score": 10.0
+    },
+    {
+      "id": 1158,
       "code": 133815,
       "name": "Kotak World Gold Fund - Standard Plan - Growth Option",
       "cat": "FoF Overseas",
@@ -9017,7 +9047,7 @@
       "win_rate": null
     },
     {
-      "id": 1158,
+      "id": 1159,
       "code": 140088,
       "name": "Nippon India ETF Gold BeES",
       "cat": "Gold ETF",
@@ -9040,33 +9070,7 @@
       "sf": false,
       "df": true,
       "fp": false,
-      "score": 9.34
-    },
-    {
-      "id": 1159,
-      "code": 150715,
-      "name": "UTI Gold ETF Fund of Fund - Regular Plan - Growth Opton",
-      "cat": "FoF Domestic",
-      "type": "Gold",
-      "nav_latest": 28.6242,
-      "nav_date": "22-Apr-2026",
-      "live": true,
-      "data_from": 2022,
-      "r1": 51.59,
-      "r3": 34.57,
-      "r5": 35.44,
-      "r7": 35.44,
-      "r10": 35.44,
-      "sharpe": 1.546,
-      "std_dev": 0.1872,
-      "max_dd": -0.2361,
-      "sortino": 1.775,
-      "calmar": 1.501,
-      "win_rate": 100.0,
-      "sf": true,
-      "df": true,
-      "fp": true,
-      "score": 10.0
+      "score": 9.48
     }
   ]
 }

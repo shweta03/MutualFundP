@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-25T16:50:25.143381",
+  "generated_at": "2026-04-25T18:26:33.471755",
   "generated_date": "25 Apr 2026",
-  "generated_time": "16:38 IST",
+  "generated_time": "18:16 IST",
   "data_source": "AMFI India direct + mfapi.in \u2014 official NAV data",
   "live_funds": 520,
   "total_funds": 520,
@@ -66,12 +66,12 @@
       "debt": 0.8,
       "funds": [
         {
-          "id": 1257,
-          "name": "Parag Parikh Flexi Cap Fund - Regular Plan - Growth",
+          "id": 1515,
+          "name": "BANK OF INDIA MID & SMALL CAP EQUITY & DEBT FUND - REGULAR  PLAN  GROWTH",
           "type": "Equity",
-          "cat": "Flexi Cap Fund",
-          "score": 7.63,
-          "code": 122640
+          "cat": "Aggressive Hybrid Fund",
+          "score": 7.68,
+          "code": 139529
         },
         {
           "id": 1601,
@@ -82,20 +82,28 @@
           "code": 112368
         },
         {
-          "id": 1010,
-          "name": "ICICI Prudential Banking and PSU Debt Fund - Growth",
+          "id": 1117,
+          "name": "Aditya Birla Sun Life Short Term Fund - Growth - Regular Plan",
           "type": "Debt",
-          "cat": "Banking and PSU Fund",
+          "cat": "Short Duration Fund",
           "score": 9.96,
-          "code": 112342
+          "code": 101844
         },
         {
-          "id": 1013,
-          "name": "Kotak Banking and PSU Debt - Growth",
+          "id": 1029,
+          "name": "HDFC Corporate Bond Fund - Growth Option",
           "type": "Debt",
-          "cat": "Banking and PSU Fund",
+          "cat": "Corporate Bond Fund",
           "score": 9.96,
-          "code": 123690
+          "code": 113070
+        },
+        {
+          "id": 1048,
+          "name": "BANDHAN Low Duration Fund - Regular Plan - Growth",
+          "type": "Debt",
+          "cat": "Low Duration Fund",
+          "score": 9.95,
+          "code": 108632
         }
       ]
     },
@@ -113,6 +121,14 @@
           "code": 122640
         },
         {
+          "id": 1552,
+          "name": "Baroda BNP Paribas Balanced Advantage Fund-Regular Plan -Growth Option",
+          "type": "Equity",
+          "cat": "Dynamic Asset Allocation or Balanced Advantage",
+          "score": 6.2,
+          "code": 145387
+        },
+        {
           "id": 1388,
           "name": "Edelweiss Mid Cap Fund - Regular Plan - Growth Option",
           "type": "Equity",
@@ -129,20 +145,12 @@
           "code": 112368
         },
         {
-          "id": 1010,
-          "name": "ICICI Prudential Banking and PSU Debt Fund - Growth",
+          "id": 1117,
+          "name": "Aditya Birla Sun Life Short Term Fund - Growth - Regular Plan",
           "type": "Debt",
-          "cat": "Banking and PSU Fund",
+          "cat": "Short Duration Fund",
           "score": 9.96,
-          "code": 112342
-        },
-        {
-          "id": 1013,
-          "name": "Kotak Banking and PSU Debt - Growth",
-          "type": "Debt",
-          "cat": "Banking and PSU Fund",
-          "score": 9.96,
-          "code": 123690
+          "code": 101844
         }
       ]
     },
@@ -160,20 +168,20 @@
           "code": 122640
         },
         {
-          "id": 1388,
-          "name": "Edelweiss Mid Cap Fund - Regular Plan - Growth Option",
+          "id": 1433,
+          "name": "Mahindra Manulife Multi Cap Fund - Regular Plan - Growth",
           "type": "Equity",
-          "cat": "Mid Cap Fund",
-          "score": 8.37,
-          "code": 140225
+          "cat": "Multi Cap Fund",
+          "score": 7.19,
+          "code": 141224
         },
         {
-          "id": 1327,
-          "name": "Motilal Oswal Large and Midcap Fund - Regular Plan Growth",
+          "id": 1491,
+          "name": "DSP Value Fund - Regular Plan - Growth",
           "type": "Equity",
-          "cat": "Large & Mid Cap Fund",
-          "score": 8.18,
-          "code": 147701
+          "cat": "Value Fund",
+          "score": 7.89,
+          "code": 148594
         },
         {
           "id": 1601,
@@ -184,12 +192,12 @@
           "code": 112368
         },
         {
-          "id": 1010,
-          "name": "ICICI Prudential Banking and PSU Debt Fund - Growth",
+          "id": 1117,
+          "name": "Aditya Birla Sun Life Short Term Fund - Growth - Regular Plan",
           "type": "Debt",
-          "cat": "Banking and PSU Fund",
+          "cat": "Short Duration Fund",
           "score": 9.96,
-          "code": 112342
+          "code": 101844
         }
       ]
     }
@@ -197,21 +205,21 @@
   "portfolio_funds": [
     {
       "profile": "C",
-      "name": "Parag Parikh Flexi Cap Fund - Regular Plan - Growth",
+      "name": "BANK OF INDIA MID & SMALL CAP EQUITY & DEBT FUND - REGULAR  PLAN  GROWTH",
       "type": "Equity",
-      "cat": "Flexi Cap Fund",
-      "r1m": 3.04,
-      "r3m": -2.71,
-      "r1": 3.09,
-      "r3": 17.36,
-      "r5": 16.28,
-      "r7": 18.44,
-      "r10": 17.16,
-      "sharpe": 0.889,
-      "std_dev": 0.1199,
-      "max_dd": -0.3126,
+      "cat": "Aggressive Hybrid Fund",
+      "r1m": 8.83,
+      "r3m": 9.69,
+      "r1": 13.08,
+      "r3": 20.38,
+      "r5": 17.96,
+      "r7": 17.7,
+      "r10": null,
+      "sharpe": 0.777,
+      "std_dev": 0.1442,
+      "max_dd": -0.3783,
       "nav_date": "24-Apr-2026",
-      "score": 7.63
+      "score": 7.68
     },
     {
       "profile": "C",
@@ -233,39 +241,57 @@
     },
     {
       "profile": "C",
-      "name": "ICICI Prudential Banking and PSU Debt Fund - Growth",
+      "name": "Aditya Birla Sun Life Short Term Fund - Growth - Regular Plan",
       "type": "Debt",
-      "cat": "Banking and PSU Fund",
-      "r1m": 0.7,
-      "r3m": 1.07,
-      "r1": 5.05,
-      "r3": 7.11,
-      "r5": 6.33,
+      "cat": "Short Duration Fund",
+      "r1m": 0.67,
+      "r3m": 1.15,
+      "r1": 5.14,
+      "r3": 7.0,
+      "r5": 6.16,
       "r7": 6.98,
-      "r10": 7.16,
-      "sharpe": 0.43,
-      "std_dev": 0.0154,
-      "max_dd": -0.0291,
+      "r10": 7.08,
+      "sharpe": 0.413,
+      "std_dev": 0.0141,
+      "max_dd": -0.0281,
       "nav_date": "24-Apr-2026",
       "score": 9.96
     },
     {
       "profile": "C",
-      "name": "Kotak Banking and PSU Debt - Growth",
+      "name": "HDFC Corporate Bond Fund - Growth Option",
       "type": "Debt",
-      "cat": "Banking and PSU Fund",
-      "r1m": 0.63,
-      "r3m": 1.11,
-      "r1": 4.96,
-      "r3": 7.0,
-      "r5": 6.16,
-      "r7": 7.06,
-      "r10": 7.22,
-      "sharpe": 0.406,
-      "std_dev": 0.0177,
-      "max_dd": -0.0285,
+      "cat": "Corporate Bond Fund",
+      "r1m": 0.61,
+      "r3m": 0.85,
+      "r1": 4.02,
+      "r3": 7.02,
+      "r5": 6.07,
+      "r7": 7.1,
+      "r10": 7.3,
+      "sharpe": 0.484,
+      "std_dev": 0.0165,
+      "max_dd": -0.0401,
       "nav_date": "24-Apr-2026",
       "score": 9.96
+    },
+    {
+      "profile": "C",
+      "name": "BANDHAN Low Duration Fund - Regular Plan - Growth",
+      "type": "Debt",
+      "cat": "Low Duration Fund",
+      "r1m": 0.76,
+      "r3m": 1.55,
+      "r1": 5.97,
+      "r3": 6.9,
+      "r5": 5.9,
+      "r7": 6.17,
+      "r10": 6.58,
+      "sharpe": 0.132,
+      "std_dev": 0.0061,
+      "max_dd": -0.0123,
+      "nav_date": "24-Apr-2026",
+      "score": 9.95
     },
     {
       "profile": "M",
@@ -284,6 +310,24 @@
       "max_dd": -0.3126,
       "nav_date": "24-Apr-2026",
       "score": 7.63
+    },
+    {
+      "profile": "M",
+      "name": "Baroda BNP Paribas Balanced Advantage Fund-Regular Plan -Growth Option",
+      "type": "Equity",
+      "cat": "Dynamic Asset Allocation or Balanced Advantage",
+      "r1m": 4.21,
+      "r3m": 1.49,
+      "r1": 7.64,
+      "r3": 13.62,
+      "r5": 11.55,
+      "r7": 12.97,
+      "r10": null,
+      "sharpe": 0.589,
+      "std_dev": 0.1098,
+      "max_dd": -0.208,
+      "nav_date": "24-Apr-2026",
+      "score": 6.2
     },
     {
       "profile": "M",
@@ -323,37 +367,19 @@
     },
     {
       "profile": "M",
-      "name": "ICICI Prudential Banking and PSU Debt Fund - Growth",
+      "name": "Aditya Birla Sun Life Short Term Fund - Growth - Regular Plan",
       "type": "Debt",
-      "cat": "Banking and PSU Fund",
-      "r1m": 0.7,
-      "r3m": 1.07,
-      "r1": 5.05,
-      "r3": 7.11,
-      "r5": 6.33,
-      "r7": 6.98,
-      "r10": 7.16,
-      "sharpe": 0.43,
-      "std_dev": 0.0154,
-      "max_dd": -0.0291,
-      "nav_date": "24-Apr-2026",
-      "score": 9.96
-    },
-    {
-      "profile": "M",
-      "name": "Kotak Banking and PSU Debt - Growth",
-      "type": "Debt",
-      "cat": "Banking and PSU Fund",
-      "r1m": 0.63,
-      "r3m": 1.11,
-      "r1": 4.96,
+      "cat": "Short Duration Fund",
+      "r1m": 0.67,
+      "r3m": 1.15,
+      "r1": 5.14,
       "r3": 7.0,
       "r5": 6.16,
-      "r7": 7.06,
-      "r10": 7.22,
-      "sharpe": 0.406,
-      "std_dev": 0.0177,
-      "max_dd": -0.0285,
+      "r7": 6.98,
+      "r10": 7.08,
+      "sharpe": 0.413,
+      "std_dev": 0.0141,
+      "max_dd": -0.0281,
       "nav_date": "24-Apr-2026",
       "score": 9.96
     },
@@ -377,39 +403,39 @@
     },
     {
       "profile": "A",
-      "name": "Edelweiss Mid Cap Fund - Regular Plan - Growth Option",
+      "name": "Mahindra Manulife Multi Cap Fund - Regular Plan - Growth",
       "type": "Equity",
-      "cat": "Mid Cap Fund",
-      "r1m": 6.99,
-      "r3m": 3.4,
-      "r1": 11.77,
-      "r3": 25.75,
-      "r5": 21.45,
-      "r7": 21.56,
+      "cat": "Multi Cap Fund",
+      "r1m": 6.58,
+      "r3m": 3.23,
+      "r1": 9.01,
+      "r3": 20.8,
+      "r5": 18.48,
+      "r7": 18.76,
       "r10": null,
-      "sharpe": 0.868,
-      "std_dev": 0.1734,
-      "max_dd": -0.4114,
+      "sharpe": 0.712,
+      "std_dev": 0.1721,
+      "max_dd": -0.3453,
       "nav_date": "24-Apr-2026",
-      "score": 8.37
+      "score": 7.19
     },
     {
       "profile": "A",
-      "name": "Motilal Oswal Large and Midcap Fund - Regular Plan Growth",
+      "name": "DSP Value Fund - Regular Plan - Growth",
       "type": "Equity",
-      "cat": "Large & Mid Cap Fund",
-      "r1m": 10.97,
-      "r3m": 12.59,
-      "r1": 16.47,
-      "r3": 26.2,
-      "r5": 21.62,
+      "cat": "Value Fund",
+      "r1m": 4.59,
+      "r3m": 1.11,
+      "r1": 15.02,
+      "r3": 19.55,
+      "r5": 15.31,
       "r7": null,
       "r10": null,
-      "sharpe": 0.77,
-      "std_dev": 0.1962,
-      "max_dd": -0.3753,
-      "nav_date": "24-Apr-2026",
-      "score": 8.18
+      "sharpe": 0.806,
+      "std_dev": 0.1093,
+      "max_dd": -0.1679,
+      "nav_date": "23-Apr-2026",
+      "score": 7.89
     },
     {
       "profile": "A",
@@ -431,346 +457,346 @@
     },
     {
       "profile": "A",
-      "name": "ICICI Prudential Banking and PSU Debt Fund - Growth",
+      "name": "Aditya Birla Sun Life Short Term Fund - Growth - Regular Plan",
       "type": "Debt",
-      "cat": "Banking and PSU Fund",
-      "r1m": 0.7,
-      "r3m": 1.07,
-      "r1": 5.05,
-      "r3": 7.11,
-      "r5": 6.33,
+      "cat": "Short Duration Fund",
+      "r1m": 0.67,
+      "r3m": 1.15,
+      "r1": 5.14,
+      "r3": 7.0,
+      "r5": 6.16,
       "r7": 6.98,
-      "r10": 7.16,
-      "sharpe": 0.43,
-      "std_dev": 0.0154,
-      "max_dd": -0.0291,
+      "r10": 7.08,
+      "sharpe": 0.413,
+      "std_dev": 0.0141,
+      "max_dd": -0.0281,
       "nav_date": "24-Apr-2026",
       "score": 9.96
     }
   ],
   "backtest": {
     "C": {
-      "cagr": 8.7,
+      "cagr": 8.6,
       "max_dd": 0.0,
-      "sharpe": 0.56,
+      "sharpe": 0.57,
       "win_rate": 100.0,
       "n_years": 14,
       "start_year": 2013,
-      "final_nav": 322.53,
+      "final_nav": 317.28,
       "bt_rows": [
         {
           "year": 2013,
-          "port_nav": 104.89,
-          "port_ret": 4.89,
+          "port_nav": 106.35,
+          "port_ret": 6.35,
           "regime": "gold",
           "sg_ratio": 9.4
         },
         {
           "year": 2014,
-          "port_nav": 115.66,
-          "port_ret": 10.27,
+          "port_nav": 115.69,
+          "port_ret": 8.78,
           "regime": "gold",
           "sg_ratio": 10.1
         },
         {
           "year": 2015,
-          "port_nav": 122.89,
-          "port_ret": 6.25,
+          "port_nav": 123.1,
+          "port_ret": 6.4,
           "regime": "gold",
           "sg_ratio": 9.8
         },
         {
           "year": 2016,
-          "port_nav": 135.31,
-          "port_ret": 10.1,
+          "port_nav": 133.56,
+          "port_ret": 8.5,
           "regime": "equity",
           "sg_ratio": 8.9
         },
         {
           "year": 2017,
-          "port_nav": 147.12,
-          "port_ret": 8.73,
+          "port_nav": 148.87,
+          "port_ret": 11.46,
           "regime": "equity",
           "sg_ratio": 8.2
         },
         {
           "year": 2018,
-          "port_nav": 154.91,
-          "port_ret": 5.3,
+          "port_nav": 154.47,
+          "port_ret": 3.76,
           "regime": "equity",
           "sg_ratio": 8.7
         },
         {
           "year": 2019,
-          "port_nav": 174.32,
-          "port_ret": 12.53,
+          "port_nav": 170.26,
+          "port_ret": 10.22,
           "regime": "gold",
           "sg_ratio": 9.3
         },
         {
           "year": 2020,
-          "port_nav": 198.58,
-          "port_ret": 13.92,
+          "port_nav": 193.77,
+          "port_ret": 13.81,
           "regime": "equity",
           "sg_ratio": 8.1
         },
         {
           "year": 2021,
-          "port_nav": 217.02,
-          "port_ret": 9.29,
+          "port_nav": 213.5,
+          "port_ret": 10.19,
           "regime": "equity",
           "sg_ratio": 6.9
         },
         {
           "year": 2022,
-          "port_nav": 223.38,
-          "port_ret": 2.93,
+          "port_nav": 220.21,
+          "port_ret": 3.14,
           "regime": "equity",
           "sg_ratio": 8.4
         },
         {
           "year": 2023,
-          "port_nav": 244.8,
-          "port_ret": 9.59,
+          "port_nav": 240.76,
+          "port_ret": 9.33,
           "regime": "gold",
           "sg_ratio": 9.8
         },
         {
           "year": 2024,
-          "port_nav": 270.45,
-          "port_ret": 10.48,
+          "port_nav": 266.22,
+          "port_ret": 10.57,
           "regime": "gold",
           "sg_ratio": 10.2
         },
         {
           "year": 2025,
-          "port_nav": 315.06,
-          "port_ret": 16.49,
+          "port_nav": 308.18,
+          "port_ret": 15.76,
           "regime": "gold",
           "sg_ratio": 9.6
         },
         {
           "year": 2026,
-          "port_nav": 322.53,
-          "port_ret": 2.37,
+          "port_nav": 317.28,
+          "port_ret": 2.95,
           "regime": "gold",
           "sg_ratio": 9.5
         }
       ]
     },
     "M": {
-      "cagr": 11.8,
+      "cagr": 11.6,
       "max_dd": 0.0,
-      "sharpe": 0.56,
+      "sharpe": 0.57,
       "win_rate": 100.0,
       "n_years": 14,
       "start_year": 2013,
-      "final_nav": 477.11,
+      "final_nav": 465.97,
       "bt_rows": [
         {
           "year": 2013,
-          "port_nav": 100.29,
-          "port_ret": 0.29,
+          "port_nav": 101.44,
+          "port_ret": 1.44,
           "regime": "gold",
           "sg_ratio": 9.4
         },
         {
           "year": 2014,
-          "port_nav": 111.22,
-          "port_ret": 10.89,
+          "port_nav": 113.02,
+          "port_ret": 11.41,
           "regime": "gold",
           "sg_ratio": 10.1
         },
         {
           "year": 2015,
-          "port_nav": 113.06,
-          "port_ret": 1.66,
+          "port_nav": 114.78,
+          "port_ret": 1.56,
           "regime": "gold",
           "sg_ratio": 9.8
         },
         {
           "year": 2016,
-          "port_nav": 120.67,
+          "port_nav": 122.51,
           "port_ret": 6.73,
           "regime": "equity",
           "sg_ratio": 8.9
         },
         {
           "year": 2017,
-          "port_nav": 144.32,
-          "port_ret": 19.6,
+          "port_nav": 146.29,
+          "port_ret": 19.41,
           "regime": "equity",
           "sg_ratio": 8.2
         },
         {
           "year": 2018,
-          "port_nav": 144.91,
-          "port_ret": 0.41,
+          "port_nav": 148.95,
+          "port_ret": 1.82,
           "regime": "equity",
           "sg_ratio": 8.7
         },
         {
           "year": 2019,
-          "port_nav": 167.72,
-          "port_ret": 15.75,
+          "port_nav": 171.27,
+          "port_ret": 14.99,
           "regime": "gold",
           "sg_ratio": 9.3
         },
         {
           "year": 2020,
-          "port_nav": 202.87,
-          "port_ret": 20.95,
+          "port_nav": 207.22,
+          "port_ret": 20.99,
           "regime": "equity",
           "sg_ratio": 8.1
         },
         {
           "year": 2021,
-          "port_nav": 244.39,
-          "port_ret": 20.47,
+          "port_nav": 240.65,
+          "port_ret": 16.14,
           "regime": "equity",
           "sg_ratio": 6.9
         },
         {
           "year": 2022,
-          "port_nav": 251.4,
-          "port_ret": 2.87,
+          "port_nav": 249.46,
+          "port_ret": 3.66,
           "regime": "equity",
           "sg_ratio": 8.4
         },
         {
           "year": 2023,
-          "port_nav": 288.89,
-          "port_ret": 14.91,
+          "port_nav": 284.04,
+          "port_ret": 13.86,
           "regime": "gold",
           "sg_ratio": 9.8
         },
         {
           "year": 2024,
-          "port_nav": 337.93,
-          "port_ret": 16.98,
+          "port_nav": 329.5,
+          "port_ret": 16.01,
           "regime": "gold",
           "sg_ratio": 10.2
         },
         {
           "year": 2025,
-          "port_nav": 452.25,
-          "port_ret": 33.83,
+          "port_nav": 441.46,
+          "port_ret": 33.98,
           "regime": "gold",
           "sg_ratio": 9.6
         },
         {
           "year": 2026,
-          "port_nav": 477.11,
-          "port_ret": 5.5,
+          "port_nav": 465.97,
+          "port_ret": 5.55,
           "regime": "gold",
           "sg_ratio": 9.5
         }
       ]
     },
     "A": {
-      "cagr": 13.0,
-      "max_dd": -0.0167,
-      "sharpe": 0.54,
-      "win_rate": 78.6,
+      "cagr": 12.4,
+      "max_dd": -0.0143,
+      "sharpe": 0.51,
+      "win_rate": 85.7,
       "n_years": 14,
       "start_year": 2013,
-      "final_nav": 556.85,
+      "final_nav": 510.65,
       "bt_rows": [
         {
           "year": 2013,
-          "port_nav": 98.33,
-          "port_ret": -1.67,
+          "port_nav": 98.57,
+          "port_ret": -1.43,
           "regime": "gold",
           "sg_ratio": 9.4
         },
         {
           "year": 2014,
-          "port_nav": 109.43,
-          "port_ret": 11.3,
+          "port_nav": 109.87,
+          "port_ret": 11.46,
           "regime": "gold",
           "sg_ratio": 10.1
         },
         {
           "year": 2015,
-          "port_nav": 108.74,
-          "port_ret": -0.64,
+          "port_nav": 109.11,
+          "port_ret": -0.69,
           "regime": "gold",
           "sg_ratio": 9.8
         },
         {
           "year": 2016,
-          "port_nav": 114.72,
-          "port_ret": 5.5,
+          "port_nav": 116.53,
+          "port_ret": 6.8,
           "regime": "equity",
           "sg_ratio": 8.9
         },
         {
           "year": 2017,
-          "port_nav": 142.51,
-          "port_ret": 24.23,
+          "port_nav": 132.9,
+          "port_ret": 14.05,
           "regime": "equity",
           "sg_ratio": 8.2
         },
         {
           "year": 2018,
-          "port_nav": 140.23,
-          "port_ret": -1.6,
+          "port_nav": 133.3,
+          "port_ret": 0.3,
           "regime": "equity",
           "sg_ratio": 8.7
         },
         {
           "year": 2019,
-          "port_nav": 164.05,
-          "port_ret": 16.99,
+          "port_nav": 157.37,
+          "port_ret": 18.06,
           "regime": "gold",
           "sg_ratio": 9.3
         },
         {
           "year": 2020,
-          "port_nav": 199.15,
-          "port_ret": 21.4,
+          "port_nav": 192.22,
+          "port_ret": 22.14,
           "regime": "equity",
           "sg_ratio": 8.1
         },
         {
           "year": 2021,
-          "port_nav": 248.35,
-          "port_ret": 24.7,
+          "port_nav": 236.77,
+          "port_ret": 23.17,
           "regime": "equity",
           "sg_ratio": 6.9
         },
         {
           "year": 2022,
-          "port_nav": 256.3,
-          "port_ret": 3.2,
+          "port_nav": 242.27,
+          "port_ret": 2.32,
           "regime": "equity",
           "sg_ratio": 8.4
         },
         {
           "year": 2023,
-          "port_nav": 301.6,
-          "port_ret": 17.67,
+          "port_nav": 282.58,
+          "port_ret": 16.64,
           "regime": "gold",
           "sg_ratio": 9.8
         },
         {
           "year": 2024,
-          "port_nav": 365.3,
-          "port_ret": 21.12,
+          "port_nav": 333.1,
+          "port_ret": 17.88,
           "regime": "gold",
           "sg_ratio": 10.2
         },
         {
           "year": 2025,
-          "port_nav": 517.77,
-          "port_ret": 41.74,
+          "port_nav": 476.02,
+          "port_ret": 42.91,
           "regime": "gold",
           "sg_ratio": 9.6
         },
         {
           "year": 2026,
-          "port_nav": 556.85,
-          "port_ret": 7.55,
+          "port_nav": 510.65,
+          "port_ret": 7.28,
           "regime": "gold",
           "sg_ratio": 9.5
         }

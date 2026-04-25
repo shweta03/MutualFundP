@@ -67,8 +67,7 @@ EXCLUDE_KEYWORDS = [
     "series iv", "series v", "series vi", "series vii", "series viii",
     "fixed term", "ftf", "capital protection", "unclaimed", "discontinued",
     "eco plan", "wealth plan", "retail plan", "super institutional",
-    "interval fund", "close ended", " - direct", "direct plan",
-    "idcw", " dividend", "bonus option",
+    "interval fund", "close ended", "bonus option",
 ]
 
 # Profile definitions
@@ -218,11 +217,15 @@ def cagr(df, years):
 
 def absolute_return(df, months):
     """
-    Absolute return over N months (not annualised).
-    Used for 1M and 3M — matches Angel One / Moneycontrol display.
-    Formula: (end_NAV / start_NAV - 1) × 100
+    Absolute return over N months — NOT annualised.
+    Matches Angel One / Moneycontrol for 1M and 3M.
+    
+    Tolerance: start NAV must be within ±15 days of target date.
+    This prevents funds with limited history from showing inflated returns
+    (e.g. a fund launched 13 months ago would show a ~13M return as 1Y).
     """
-    today = pd.Timestamp(date.today())
+    today      = pd.Timestamp(date.today())
+    tolerance  = pd.Timedelta(days=15)     # ±15 days acceptable for monthly
 
     end_sub = df[df["date"] <= today]
     if end_sub.empty:
@@ -230,15 +233,59 @@ def absolute_return(df, months):
     end_nav = end_sub["nav"].iloc[-1]
 
     start_target = today - pd.DateOffset(months=months)
-    start_sub = df[df["date"] <= start_target]
+    start_sub    = df[df["date"] <= start_target]
     if start_sub.empty:
         return None
-    start_nav = start_sub["nav"].iloc[-1]
+
+    start_nav  = start_sub["nav"].iloc[-1]
+    start_date = start_sub["date"].iloc[-1]
+
+    # Validate: found date must be within tolerance of target
+    if abs((start_date - start_target).days) > tolerance.days:
+        return None
 
     if start_nav <= 0:
         return None
 
     return round((end_nav / start_nav - 1) * 100, 2)
+
+
+def cagr(df, years):
+    """
+    Annualised CAGR over N years — anchored on date.today().
+    Matches Moneycontrol / Angel One / AMFI standard.
+
+    Tolerance: start NAV must be within ±45 days of target date.
+    This prevents funds with limited history showing inflated multi-year returns.
+    For example a fund with only 3.5Y of data should return None for 5Y, not
+    use its oldest available NAV and call it a 5Y return.
+    """
+    today     = pd.Timestamp(date.today())
+    tolerance = 45   # days — generous for weekends and holidays
+
+    end_sub = df[df["date"] <= today]
+    if end_sub.empty:
+        return None
+    end_nav  = end_sub["nav"].iloc[-1]
+    end_date = end_sub["date"].iloc[-1]
+
+    start_target = today - pd.DateOffset(years=years)
+    start_sub    = df[df["date"] <= start_target]
+    if len(start_sub) < 5:
+        return None
+
+    start_nav  = start_sub["nav"].iloc[-1]
+    start_date = start_sub["date"].iloc[-1]
+
+    # Validate: found start date must be within tolerance of target
+    if abs((start_date - start_target).days) > tolerance:
+        return None
+
+    actual_years = (end_date - start_date).days / 365.25
+    if actual_years < 0.75 or start_nav <= 0:
+        return None
+
+    return round(((end_nav / start_nav) ** (1 / actual_years) - 1) * 100, 2)
 
 
 def compute_metrics(df):
@@ -849,9 +896,24 @@ def main():
         return amfi_cat
 
     def is_valid_fund(name, amfi_cat):
+        """
+        Return True only for Regular Plan Growth funds.
+        Universal rule: 'direct' anywhere in the name = direct plan.
+        No legitimate regular plan fund contains the word 'direct'.
+        """
         n = name.lower()
-        if any(k in n for k in EXCLUDE_KEYWORDS): return False
-        if "close ended" in amfi_cat.lower():     return False
+        # Universal direct plan rejection — catches ALL variants:
+        # "- Direct", "(Direct)", "Direct Plan", "Direct-Growth", etc.
+        if "direct" in n:
+            return False
+        # IDCW / dividend payouts
+        if "idcw" in n or " dividend" in n:
+            return False
+        # Junk fund types
+        if any(k in n for k in EXCLUDE_KEYWORDS):
+            return False
+        if "close ended" in amfi_cat.lower():
+            return False
         return True
 
     def is_nav_fresh(nav_date_str):

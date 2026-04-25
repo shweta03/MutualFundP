@@ -53,7 +53,8 @@ EQUITY_SUBCATS = [
     "flexi cap", "large cap", "mid cap", "small cap",
     "large & mid cap", "multi cap", "focused fund",
     "contra fund", "value fund", "elss",
-    "balanced advantage", "dynamic asset allocation", "aggressive hybrid",
+    "balanced advantage", "dynamic asset allocation",
+    "aggressive hybrid",          # covers Conservative Hybrid-style funds
 ]
 DEBT_SUBCATS = [
     "short duration", "corporate bond", "banking and psu",
@@ -460,14 +461,39 @@ def normalize_scores(funds):
 
 def select_portfolio_funds(scored_funds, profile_key):
     """
-    Pick best-scoring funds per asset type for each profile.
-    Conservative:  1 Flexi Cap equity + 1 Gold ETF + 2 best Debt
-    Moderate:      1 Flexi + 1 Mid Cap + 1 Gold ETF + 2 Debt
-    Aggressive:    1 Flexi + 1 Mid Cap + 1 extra Equity + 1 Gold ETF + 1 Debt
-    All funds must have score > 0 and be live.
+    Select exactly 5 funds per profile based on MintingM score.
+    Spec (from product definition):
+
+    CONSERVATIVE  (80% Debt / 20% Equity):
+      1. Best Balanced Advantage OR Aggressive Hybrid fund    [Equity bucket]
+      2. Best Gold ETF                                        [Gold bucket]
+      3. Best Short Duration debt fund                        [Debt]
+      4. Best Corporate Bond OR Banking & PSU fund            [Debt]
+      5. Best Low Duration OR second Short Duration fund      [Debt]
+
+    MODERATE  (60% Equity / 40% Debt):
+      1. Best Flexi Cap fund                                  [Equity]
+      2. Best Balanced Advantage OR Dynamic Asset Alloc fund  [Equity]
+      3. Best Mid Cap fund                                    [Equity]
+      4. Best Gold ETF                                        [Gold]
+      5. Best Short Duration OR Corporate Bond debt fund      [Debt]
+
+    AGGRESSIVE  (80% Equity / 20% Debt):
+      1. Best Flexi Cap fund                                  [Equity]
+      2. Best Multi Cap fund                                  [Equity]
+      3. Best Value OR Contra fund                            [Equity]
+      4. Best Gold ETF                                        [Gold]
+      5. Best Short Duration OR Corporate Bond debt fund      [Debt]
+
+    Rules:
+    - All funds must have live=True, score > 0, _has_5y=True
+    - No AMC duplication for equity funds (different fund houses preferred)
+    - Gold: prefer ETF over FoF
     """
-    def top(asset_type, keywords, n, exclude_ids=None):
-        exclude_ids = exclude_ids or []
+    def top(asset_type, keywords, n=1, exclude_ids=None, exclude_amcs=None):
+        """Get top n funds by MintingM score from given asset_type + category keywords."""
+        exclude_ids  = exclude_ids  or []
+        exclude_amcs = exclude_amcs or []
         pool = [
             f for f in scored_funds
             if f.get("type") == asset_type
@@ -475,30 +501,104 @@ def select_portfolio_funds(scored_funds, profile_key):
             and f.get("score", 0) > 0
             and f["id"] not in exclude_ids
             and any(kw.lower() in f.get("cat", "").lower() for kw in keywords)
+            # Avoid same AMC for equity picks (first word of fund name = AMC indicator)
+            and (not exclude_amcs or f["name"].split()[0] not in exclude_amcs)
         ]
         pool.sort(key=lambda x: x.get("score", 0), reverse=True)
         return pool[:n]
 
-    # Gold: prefer ETF over FoF
-    gold = top("Gold", ["Gold ETF"], 1) or top("Gold", ["Gold"], 1)
+    def amc(fund):
+        """Extract AMC shortname from fund name (first meaningful word)."""
+        return fund["name"].split()[0] if fund else None
+
+    picks = []
 
     if profile_key == "C":
-        eq_picks  = top("Equity", ["Flexi Cap", "Large Cap"], 1)
-        dt_picks  = top("Debt", ["Short Duration", "Corporate Bond", "Banking & PSU", "Banking and PSU"], 2)
-    elif profile_key == "M":
-        flexi     = top("Equity", ["Flexi Cap", "Large Cap"], 1)
-        mid       = top("Equity", ["Mid Cap"], 1, [f["id"] for f in flexi])
-        eq_picks  = flexi + mid
-        dt_picks  = top("Debt", ["Short Duration", "Corporate Bond", "Banking & PSU", "Banking and PSU"], 2)
-    else:  # A
-        flexi     = top("Equity", ["Flexi Cap", "Large Cap"], 1)
-        mid       = top("Equity", ["Mid Cap"], 1, [f["id"] for f in flexi])
-        extra     = top("Equity", ["Flexi Cap", "Large & Mid", "Multi Cap"], 1,
-                        [f["id"] for f in flexi + mid])
-        eq_picks  = flexi + mid + extra
-        dt_picks  = top("Debt", ["Short Duration", "Corporate Bond", "Banking & PSU", "Banking and PSU"], 1)
+        # Slot 1: Balanced Advantage or Aggressive Hybrid (lowest volatility equity)
+        eq1 = top("Equity", ["Balanced Advantage", "Dynamic Asset", "Aggressive Hybrid"], 1)
+        picks += eq1
 
-    all_picks = eq_picks + gold + dt_picks
+        # Slot 2: Gold ETF
+        gold = top("Gold", ["Gold ETF"], 1) or top("Gold", ["Gold"], 1)
+        picks += gold
+
+        # Slot 3: Best Short Duration debt
+        dt1 = top("Debt", ["Short Duration"], 1)
+        picks += dt1
+
+        # Slot 4: Best Corporate Bond or Banking & PSU (different AMC from dt1)
+        used_amcs = [amc(f) for f in dt1 if f]
+        dt2 = (top("Debt", ["Corporate Bond"], 1, [f["id"] for f in picks], used_amcs) or
+               top("Debt", ["Banking & PSU", "Banking and PSU"], 1, [f["id"] for f in picks], used_amcs))
+        picks += dt2
+
+        # Slot 5: Low Duration (different AMC from above)
+        used_amcs = [amc(f) for f in dt1 + dt2 if f]
+        dt3 = top("Debt", ["Low Duration"], 1, [f["id"] for f in picks], used_amcs)
+        if not dt3:
+            dt3 = top("Debt", ["Short Duration", "Corporate Bond", "Banking & PSU"], 1,
+                      [f["id"] for f in picks])
+        picks += dt3
+
+    elif profile_key == "M":
+        # Slot 1: Best Flexi Cap
+        eq1 = top("Equity", ["Flexi Cap"], 1)
+        picks += eq1
+
+        # Slot 2: Balanced Advantage (at fund manager's discretion — dynamic equity)
+        used_amcs = [amc(f) for f in eq1 if f]
+        eq2 = (top("Equity", ["Balanced Advantage", "Dynamic Asset"], 1,
+                   [f["id"] for f in picks], used_amcs))
+        picks += eq2
+
+        # Slot 3: Mid Cap (different AMC from eq1 and eq2)
+        used_amcs = [amc(f) for f in eq1 + eq2 if f]
+        eq3 = top("Equity", ["Mid Cap", "Large & Mid Cap"], 1,
+                  [f["id"] for f in picks], used_amcs)
+        picks += eq3
+
+        # Slot 4: Gold ETF
+        gold = top("Gold", ["Gold ETF"], 1) or top("Gold", ["Gold"], 1)
+        picks += gold
+
+        # Slot 5: Best Debt (Short Duration or Corporate Bond)
+        dt1 = (top("Debt", ["Short Duration"], 1, [f["id"] for f in picks]) or
+               top("Debt", ["Corporate Bond"], 1, [f["id"] for f in picks]))
+        picks += dt1
+
+    else:  # A — Aggressive
+        # Slot 1: Best Flexi Cap
+        eq1 = top("Equity", ["Flexi Cap"], 1)
+        picks += eq1
+
+        # Slot 2: Multi Cap (SEBI mandates 25% each large/mid/small — genuine diversification)
+        used_amcs = [amc(f) for f in eq1 if f]
+        eq2 = top("Equity", ["Multi Cap"], 1, [f["id"] for f in picks], used_amcs)
+        if not eq2:
+            eq2 = top("Equity", ["Large & Mid Cap", "Focused Fund"], 1,
+                      [f["id"] for f in picks], used_amcs)
+        picks += eq2
+
+        # Slot 3: Value or Contra (contrarian style — uncorrelated to growth bias of slots 1 & 2)
+        used_amcs = [amc(f) for f in eq1 + eq2 if f]
+        eq3 = (top("Equity", ["Value Fund", "Contra Fund"], 1,
+                   [f["id"] for f in picks], used_amcs))
+        if not eq3:
+            eq3 = top("Equity", ["Flexi Cap", "Large Cap"], 1,
+                      [f["id"] for f in picks], used_amcs)
+        picks += eq3
+
+        # Slot 4: Gold ETF
+        gold = top("Gold", ["Gold ETF"], 1) or top("Gold", ["Gold"], 1)
+        picks += gold
+
+        # Slot 5: Best Debt (single fund = max rebalancing efficiency)
+        dt1 = (top("Debt", ["Short Duration"], 1, [f["id"] for f in picks]) or
+               top("Debt", ["Corporate Bond"], 1, [f["id"] for f in picks]))
+        picks += dt1
+
+    # Remove any None/empty that slipped through
+    picks = [f for f in picks if f]
 
     return [
         {
@@ -509,7 +609,7 @@ def select_portfolio_funds(scored_funds, profile_key):
             "score": f["score"],
             "code":  f["code"],
         }
-        for f in all_picks
+        for f in picks
     ]
 
 

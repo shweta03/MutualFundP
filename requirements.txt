@@ -2,7 +2,3 @@ requests==2.31.0
 pandas==2.2.2
 numpy==1.26.4
 yfinance==0.2.54
-python-dateutil==2.9.0
-git add runtime.txt
-git commit -m "Pin Python to 3.11 for CI/CD builds"
-git push

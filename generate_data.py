@@ -71,11 +71,14 @@ EXCLUDE_KEYWORDS = [
     "interval fund", "close ended", "bonus option",
 ]
 
-# Profile definitions
+# Profile definitions — weights must add to 1.0
+# Aggressive: 90% equity + 10% gold + 0% debt
+# Moderate:   55% equity + 25% gold + 20% debt
+# Conservative: 30% equity + 35% gold + 35% debt
 PROFILES = {
-    "C": {"eq": 0.20, "debt": 0.80, "label": "Conservative"},
-    "M": {"eq": 0.60, "debt": 0.40, "label": "Moderate"},
-    "A": {"eq": 0.80, "debt": 0.20, "label": "Aggressive"},
+    "C": {"eq": 0.30, "gold": 0.35, "debt": 0.35, "label": "Conservative"},
+    "M": {"eq": 0.55, "gold": 0.25, "debt": 0.20, "label": "Moderate"},
+    "A": {"eq": 0.90, "gold": 0.10, "debt": 0.00, "label": "Aggressive"},
 }
 
 # ─────────────────────────────────────────────
@@ -459,155 +462,224 @@ def normalize_scores(funds):
 # STEP 6 — AUTO-SELECT PORTFOLIO FUNDS BY SCORE
 # ─────────────────────────────────────────────
 
-def select_portfolio_funds(scored_funds, profile_key):
+def tag_funds(funds_raw, nifty_1y, nifty_3y, nifty_5y):
     """
-    Select exactly 5 funds per profile based on MintingM score.
-    Spec (from product definition):
-
-    CONSERVATIVE  (80% Debt / 20% Equity):
-      1. Best Balanced Advantage OR Aggressive Hybrid fund    [Equity bucket]
-      2. Best Gold ETF                                        [Gold bucket]
-      3. Best Short Duration debt fund                        [Debt]
-      4. Best Corporate Bond OR Banking & PSU fund            [Debt]
-      5. Best Low Duration OR second Short Duration fund      [Debt]
-
-    MODERATE  (60% Equity / 40% Debt):
-      1. Best Flexi Cap fund                                  [Equity]
-      2. Best Balanced Advantage OR Dynamic Asset Alloc fund  [Equity]
-      3. Best Mid Cap fund                                    [Equity]
-      4. Best Gold ETF                                        [Gold]
-      5. Best Short Duration OR Corporate Bond debt fund      [Debt]
-
-    AGGRESSIVE  (80% Equity / 20% Debt):
-      1. Best Flexi Cap fund                                  [Equity]
-      2. Best Multi Cap fund                                  [Equity]
-      3. Best Value OR Contra fund                            [Equity]
-      4. Best Gold ETF                                        [Gold]
-      5. Best Short Duration OR Corporate Bond debt fund      [Debt]
-
-    Rules:
-    - All funds must have live=True, score > 0, _has_5y=True
-    - No AMC duplication for equity funds (different fund houses preferred)
-    - Gold: prefer ETF over FoF
+    Tag each fund with:
+      momentum     = 1Y return > Nifty 50 1Y return
+      mean_rev     = 1Y return < Nifty 50 1Y BUT 3Y AND 5Y > Nifty benchmarks
+      international = fund has overseas allocation in mandate
+    These tags are written into the fund JSON and displayed as badges in the screener.
     """
-    def top(asset_type, keywords, n=1, exclude_ids=None, exclude_amcs=None):
-        """Get top n funds by MintingM score from given asset_type + category keywords."""
+    # Funds with overseas allocation not evident from name — hardcoded
+    INTL_CODES = {
+        122640,   # Parag Parikh Flexi Cap — 15-20% overseas
+        147946,   # Mirae Asset Emerging Bluechip (some intl exposure)
+    }
+
+    # Keywords that signal international mandate in fund name
+    INTL_KEYWORDS = [
+        "overseas", "international", "global", "world",
+        "nasdaq", "n100", "s&p", "us equity", "us fund",
+        "hang seng", "europe", "emerging market", "emerg mkt",
+        "feeder", "fof overseas",
+    ]
+
+    for f in funds_raw:
+        r1  = f.get("r1")
+        r3  = f.get("r3")
+        r5  = f.get("r5")
+
+        # Momentum: 1Y above Nifty
+        if r1 is not None and nifty_1y is not None:
+            f["momentum"] = bool(r1 > nifty_1y)
+        else:
+            f["momentum"] = False
+
+        # Mean reversion: 1Y below Nifty BUT 3Y and 5Y above Nifty
+        mr = False
+        if (r1 is not None and nifty_1y is not None and r1 < nifty_1y):
+            r3_ok = (r3 is not None and nifty_3y is not None and r3 > nifty_3y)
+            r5_ok = (r5 is not None and nifty_5y is not None and r5 > nifty_5y)
+            mr = bool(r3_ok and r5_ok)
+        f["mean_rev"] = mr
+
+        # International flag
+        name_lower = f.get("name", "").lower()
+        f["international"] = bool(
+            f.get("code") in INTL_CODES or
+            any(kw in name_lower for kw in INTL_KEYWORDS)
+        )
+
+    return funds_raw
+
+
+def select_portfolio_funds(scored_funds, profile_key, nifty_1y, nifty_3y, nifty_5y):
+    """
+    Select exactly 5 funds per profile.
+    Uses Nifty 50 returns as benchmark for momentum/mean-reversion classification.
+
+    AGGRESSIVE  (90% equity / 10% gold / 0% debt):
+      Slot 1: Mid Cap        — momentum  (1Y > Nifty 1Y)
+      Slot 2: Small Cap      — momentum  (1Y > Nifty 1Y)
+      Slot 3: Large Cap / Flexi Cap — momentum (1Y > Nifty 1Y, different AMC)
+      Slot 4: Value / Contra — mean reversion (1Y < Nifty BUT 3Y/5Y strong)
+      Slot 5: Gold ETF
+
+    MODERATE  (55% equity / 25% gold / 20% debt):
+      Slot 1: Flexi Cap / Multi Cap — momentum (1Y > Nifty 1Y)
+      Slot 2: Any equity            — mean reversion (1Y < Nifty, 3Y/5Y strong, diff AMC)
+      Slot 3: Balanced Adv / Aggressive Hybrid — best MintingM score
+      Slot 4: Gold ETF
+      Slot 5: Short Duration / Corporate Bond debt
+
+    CONSERVATIVE  (30% equity / 35% gold / 35% debt):
+      Slot 1: Aggressive Hybrid / Balanced Adv — mean reversion (stable, lower vol)
+      Slot 2: Gold ETF
+      Slot 3: Short Duration debt
+      Slot 4: Corporate Bond / Banking & PSU   (different AMC from slot 3)
+      Slot 5: Low Duration                     (different AMC from slots 3 & 4)
+    """
+
+    def top(asset_type, keywords, n=1, exclude_ids=None, exclude_amcs=None,
+            require_momentum=False, require_mean_rev=False):
+        """Get top n funds by MintingM score with optional momentum/mean_rev filter."""
         exclude_ids  = exclude_ids  or []
         exclude_amcs = exclude_amcs or []
         pool = [
             f for f in scored_funds
-            if f.get("type") == asset_type
-            and f.get("live", False)
-            and f.get("score", 0) > 0
-            and f["id"] not in exclude_ids
+            if f.get("type")       == asset_type
+            and f.get("live",   False)
+            and f.get("score",  0) > 0
+            and f["id"]            not in exclude_ids
             and any(kw.lower() in f.get("cat", "").lower() for kw in keywords)
-            # Avoid same AMC for equity picks (first word of fund name = AMC indicator)
             and (not exclude_amcs or f["name"].split()[0] not in exclude_amcs)
+            and (not require_momentum  or f.get("momentum",  False))
+            and (not require_mean_rev  or f.get("mean_rev",  False))
         ]
         pool.sort(key=lambda x: x.get("score", 0), reverse=True)
+        # If momentum/mean_rev filter yields nothing, fall back without it
+        if not pool and (require_momentum or require_mean_rev):
+            pool = [
+                f for f in scored_funds
+                if f.get("type")   == asset_type
+                and f.get("live",  False)
+                and f.get("score", 0) > 0
+                and f["id"]        not in exclude_ids
+                and any(kw.lower() in f.get("cat", "").lower() for kw in keywords)
+                and (not exclude_amcs or f["name"].split()[0] not in exclude_amcs)
+            ]
+            pool.sort(key=lambda x: x.get("score", 0), reverse=True)
         return pool[:n]
 
     def amc(fund):
-        """Extract AMC shortname from fund name (first meaningful word)."""
         return fund["name"].split()[0] if fund else None
+
+    def ids(lst):
+        return [f["id"] for f in lst if f]
+
+    def amcs(lst):
+        return [amc(f) for f in lst if f]
 
     picks = []
 
-    if profile_key == "C":
-        # Slot 1: Balanced Advantage or Aggressive Hybrid (lowest volatility equity)
-        eq1 = top("Equity", ["Balanced Advantage", "Dynamic Asset", "Aggressive Hybrid"], 1)
-        picks += eq1
+    if profile_key == "A":
+        # Slot 1 — Mid Cap momentum
+        s1 = top("Equity", ["Mid Cap"], 1,
+                 require_momentum=True)
+        picks += s1
 
-        # Slot 2: Gold ETF
-        gold = top("Gold", ["Gold ETF"], 1) or top("Gold", ["Gold"], 1)
-        picks += gold
+        # Slot 2 — Small Cap momentum (different AMC)
+        s2 = top("Equity", ["Small Cap"], 1,
+                 exclude_ids=ids(picks), exclude_amcs=amcs(s1),
+                 require_momentum=True)
+        picks += s2
 
-        # Slot 3: Best Short Duration debt
-        dt1 = top("Debt", ["Short Duration"], 1)
-        picks += dt1
+        # Slot 3 — Large Cap or Flexi Cap momentum (different AMC from s1, s2)
+        s3 = top("Equity", ["Large Cap", "Flexi Cap"], 1,
+                 exclude_ids=ids(picks), exclude_amcs=amcs(s1 + s2),
+                 require_momentum=True)
+        picks += s3
 
-        # Slot 4: Best Corporate Bond or Banking & PSU (different AMC from dt1)
-        used_amcs = [amc(f) for f in dt1 if f]
-        dt2 = (top("Debt", ["Corporate Bond"], 1, [f["id"] for f in picks], used_amcs) or
-               top("Debt", ["Banking & PSU", "Banking and PSU"], 1, [f["id"] for f in picks], used_amcs))
-        picks += dt2
+        # Slot 4 — Value or Contra mean reversion (different AMC)
+        s4 = top("Equity", ["Value Fund", "Contra Fund"], 1,
+                 exclude_ids=ids(picks), exclude_amcs=amcs(s1 + s2 + s3),
+                 require_mean_rev=True)
+        picks += s4
 
-        # Slot 5: Low Duration (different AMC from above)
-        used_amcs = [amc(f) for f in dt1 + dt2 if f]
-        dt3 = top("Debt", ["Low Duration"], 1, [f["id"] for f in picks], used_amcs)
-        if not dt3:
-            dt3 = top("Debt", ["Short Duration", "Corporate Bond", "Banking & PSU"], 1,
-                      [f["id"] for f in picks])
-        picks += dt3
+        # Slot 5 — Gold ETF
+        s5 = top("Gold", ["Gold ETF"], 1) or top("Gold", ["Gold"], 1)
+        picks += s5
 
     elif profile_key == "M":
-        # Slot 1: Best Flexi Cap
-        eq1 = top("Equity", ["Flexi Cap"], 1)
-        picks += eq1
+        # Slot 1 — Flexi Cap or Multi Cap momentum
+        s1 = top("Equity", ["Flexi Cap", "Multi Cap"], 1,
+                 require_momentum=True)
+        picks += s1
 
-        # Slot 2: Balanced Advantage (at fund manager's discretion — dynamic equity)
-        used_amcs = [amc(f) for f in eq1 if f]
-        eq2 = (top("Equity", ["Balanced Advantage", "Dynamic Asset"], 1,
-                   [f["id"] for f in picks], used_amcs))
-        picks += eq2
+        # Slot 2 — Any equity mean reversion (different AMC)
+        s2 = top("Equity", ["Flexi Cap", "Multi Cap", "Large Cap",
+                             "Mid Cap", "Large & Mid Cap"], 1,
+                 exclude_ids=ids(picks), exclude_amcs=amcs(s1),
+                 require_mean_rev=True)
+        picks += s2
 
-        # Slot 3: Mid Cap (different AMC from eq1 and eq2)
-        used_amcs = [amc(f) for f in eq1 + eq2 if f]
-        eq3 = top("Equity", ["Mid Cap", "Large & Mid Cap"], 1,
-                  [f["id"] for f in picks], used_amcs)
-        picks += eq3
+        # Slot 3 — Balanced Advantage or Aggressive Hybrid (best score, diff AMC)
+        s3 = top("Equity", ["Balanced Advantage", "Dynamic Asset", "Aggressive Hybrid"], 1,
+                 exclude_ids=ids(picks), exclude_amcs=amcs(s1 + s2))
+        picks += s3
 
-        # Slot 4: Gold ETF
-        gold = top("Gold", ["Gold ETF"], 1) or top("Gold", ["Gold"], 1)
-        picks += gold
+        # Slot 4 — Gold ETF
+        s4 = top("Gold", ["Gold ETF"], 1) or top("Gold", ["Gold"], 1)
+        picks += s4
 
-        # Slot 5: Best Debt (Short Duration or Corporate Bond)
-        dt1 = (top("Debt", ["Short Duration"], 1, [f["id"] for f in picks]) or
-               top("Debt", ["Corporate Bond"], 1, [f["id"] for f in picks]))
-        picks += dt1
+        # Slot 5 — Debt: Short Duration or Corporate Bond
+        s5 = (top("Debt", ["Short Duration"], 1, exclude_ids=ids(picks)) or
+              top("Debt", ["Corporate Bond"],  1, exclude_ids=ids(picks)))
+        picks += s5
 
-    else:  # A — Aggressive
-        # Slot 1: Best Flexi Cap
-        eq1 = top("Equity", ["Flexi Cap"], 1)
-        picks += eq1
+    else:  # C — Conservative
+        # Slot 1 — Aggressive Hybrid / Balanced Adv — mean reversion preferred
+        s1 = top("Equity", ["Aggressive Hybrid", "Balanced Advantage", "Dynamic Asset"], 1,
+                 require_mean_rev=True)
+        picks += s1
 
-        # Slot 2: Multi Cap (SEBI mandates 25% each large/mid/small — genuine diversification)
-        used_amcs = [amc(f) for f in eq1 if f]
-        eq2 = top("Equity", ["Multi Cap"], 1, [f["id"] for f in picks], used_amcs)
-        if not eq2:
-            eq2 = top("Equity", ["Large & Mid Cap", "Focused Fund"], 1,
-                      [f["id"] for f in picks], used_amcs)
-        picks += eq2
+        # Slot 2 — Gold ETF
+        s2 = top("Gold", ["Gold ETF"], 1) or top("Gold", ["Gold"], 1)
+        picks += s2
 
-        # Slot 3: Value or Contra (contrarian style — uncorrelated to growth bias of slots 1 & 2)
-        used_amcs = [amc(f) for f in eq1 + eq2 if f]
-        eq3 = (top("Equity", ["Value Fund", "Contra Fund"], 1,
-                   [f["id"] for f in picks], used_amcs))
-        if not eq3:
-            eq3 = top("Equity", ["Flexi Cap", "Large Cap"], 1,
-                      [f["id"] for f in picks], used_amcs)
-        picks += eq3
+        # Slot 3 — Short Duration debt
+        s3 = top("Debt", ["Short Duration"], 1, exclude_ids=ids(picks))
+        picks += s3
 
-        # Slot 4: Gold ETF
-        gold = top("Gold", ["Gold ETF"], 1) or top("Gold", ["Gold"], 1)
-        picks += gold
+        # Slot 4 — Corporate Bond or Banking & PSU (different AMC from s3)
+        s4 = (top("Debt", ["Corporate Bond"], 1,
+                  exclude_ids=ids(picks), exclude_amcs=amcs(s3)) or
+              top("Debt", ["Banking & PSU", "Banking and PSU"], 1,
+                  exclude_ids=ids(picks), exclude_amcs=amcs(s3)))
+        picks += s4
 
-        # Slot 5: Best Debt (single fund = max rebalancing efficiency)
-        dt1 = (top("Debt", ["Short Duration"], 1, [f["id"] for f in picks]) or
-               top("Debt", ["Corporate Bond"], 1, [f["id"] for f in picks]))
-        picks += dt1
+        # Slot 5 — Low Duration (different AMC from s3 + s4)
+        s5 = top("Debt", ["Low Duration"], 1,
+                 exclude_ids=ids(picks), exclude_amcs=amcs(s3 + s4))
+        if not s5:
+            s5 = top("Debt", ["Short Duration", "Corporate Bond", "Banking & PSU"], 1,
+                     exclude_ids=ids(picks))
+        picks += s5
 
-    # Remove any None/empty that slipped through
+    # Clean up any None/empty
     picks = [f for f in picks if f]
 
     return [
         {
-            "id":    f["id"],
-            "name":  f["name"],
-            "type":  f["type"],
-            "cat":   f["cat"],
-            "score": f["score"],
-            "code":  f["code"],
+            "id":         f["id"],
+            "name":       f["name"],
+            "type":       f["type"],
+            "cat":        f["cat"],
+            "score":      f["score"],
+            "code":       f["code"],
+            "momentum":   f.get("momentum", False),
+            "mean_rev":   f.get("mean_rev",  False),
+            "international": f.get("international", False),
         }
         for f in picks
     ]
@@ -1117,8 +1189,11 @@ def main():
             "df":          score_info["df"],
             "fp":          score_info["fp"],
             "_annual_rets":metrics.get("_annual_rets", {}),
-            # Flag funds with 5Y+ history — eligible for portfolio selection
             "_has_5y":     years_available >= 5,
+            # Placeholders — filled by tag_funds() after Nifty data is fetched
+            "momentum":    False,
+            "mean_rev":    False,
+            "international": False,
         })
         fund_id_counter += 1
 
@@ -1137,11 +1212,40 @@ def main():
     current_sg, sg_history = get_sg_ratio_and_history()
     gold_active = current_sg > GOLD_THRESHOLD
 
-    # ── 6. Nifty annual returns ───────────────────────────
+    # ── 6. Nifty benchmarks (1Y/3Y/5Y) for momentum tagging ─
     nifty_annual = get_nifty_annual()
+    print("\n📈 Fetching Nifty benchmark returns for momentum signal...")
+    try:
+        nifty_hist = yf.Ticker("^NSEI").history(start="2010-01-01")["Close"].dropna()
+        nifty_hist.index = nifty_hist.index.tz_localize(None)
+        today_ts = pd.Timestamp(date.today())
 
-    # ── 7. Portfolio selection ────────────────────────────
-    # Only pick from funds with 5Y+ history for reliability
+        def nifty_cagr(years):
+            end_sub   = nifty_hist[nifty_hist.index <= today_ts]
+            start_tgt = today_ts - pd.DateOffset(years=years)
+            start_sub = nifty_hist[nifty_hist.index <= start_tgt]
+            if end_sub.empty or start_sub.empty: return None
+            e, s = float(end_sub.iloc[-1]), float(start_sub.iloc[-1])
+            act_y = (end_sub.index[-1] - start_sub.index[-1]).days / 365.25
+            return round(((e/s)**(1/act_y)-1)*100, 2) if act_y > 0.5 else None
+
+        nifty_1y = nifty_cagr(1)
+        nifty_3y = nifty_cagr(3)
+        nifty_5y = nifty_cagr(5)
+        print(f"   Nifty 1Y: {nifty_1y}% | 3Y: {nifty_3y}% | 5Y: {nifty_5y}%")
+    except Exception as e:
+        print(f"   ⚠ Nifty benchmark fetch failed: {e} — using fallback")
+        nifty_1y, nifty_3y, nifty_5y = 8.8, 14.0, 12.5  # conservative fallback
+
+    # ── 7. Tag funds with momentum / mean_rev / international ─
+    print("🏷  Tagging funds (momentum / mean reversion / international)...")
+    funds_raw = tag_funds(funds_raw, nifty_1y, nifty_3y, nifty_5y)
+    momentum_count  = sum(1 for f in funds_raw if f.get("momentum"))
+    mean_rev_count  = sum(1 for f in funds_raw if f.get("mean_rev"))
+    intl_count      = sum(1 for f in funds_raw if f.get("international"))
+    print(f"   Momentum: {momentum_count} | Mean reversion: {mean_rev_count} | International: {intl_count}")
+
+    # ── 8. Portfolio selection ────────────────────────────
     print("\n🎯 Selecting portfolio funds (5Y+ history only)...")
     portfolio_eligible = [f for f in funds_raw if f.get("live") and f.get("_has_5y")]
     all_live = [f for f in funds_raw if f.get("live")]
@@ -1149,17 +1253,22 @@ def main():
     portfolio_selection = {}
 
     for profile_key, prof in PROFILES.items():
-        picks = select_portfolio_funds(portfolio_eligible, profile_key)
+        picks = select_portfolio_funds(
+            portfolio_eligible, profile_key,
+            nifty_1y, nifty_3y, nifty_5y
+        )
         portfolio_selection[profile_key] = {
             "profile": profile_key,
             "eq":      prof["eq"],
+            "gold":    prof["gold"],
             "debt":    prof["debt"],
             "funds":   picks,
         }
         names = [f["name"].split("-")[0].strip()[:22] for f in picks]
-        print(f"   {profile_key} ({prof['label']}): {names}")
+        tags  = ["M" if f.get("momentum") else ("MR" if f.get("mean_rev") else "—") for f in picks]
+        print(f"   {profile_key} ({prof['label']}): {list(zip(names, tags))}")
 
-    # ── 8. Backtesting ────────────────────────────────────
+    # ── 9. Backtesting ────────────────────────────────────
     print("\n🔢 Running backtests...")
     backtest = {}
     for profile_key, prof in PROFILES.items():

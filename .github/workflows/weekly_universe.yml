@@ -1,0 +1,35 @@
+name: Weekly Universe Expansion
+
+on:
+  schedule:
+    # 19:30 UTC Sunday = 1:00 AM IST Monday — mfapi low traffic
+    - cron: "30 19 * * 0"
+  workflow_dispatch:   # allow manual trigger
+
+jobs:
+  expand-universe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests pandas python-dateutil
+
+      - name: Run universe expander
+        run: python generate_universe.py
+
+      - name: Commit updated data.json
+        run: |
+          git config user.name  "MintingM Bot"
+          git config user.email "bot@mintingm.in"
+          git add data.json
+          git diff --staged --quiet || git commit -m "🌐 Universe expansion $(date +'%d %b %Y')"
+          git push

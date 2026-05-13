@@ -1,10 +1,11 @@
-name: Weekly Universe Expansion
+name: Daily Universe Expansion (All Funds)
 
 on:
   schedule:
-    # 19:30 UTC Sunday = 1:00 AM IST Monday — mfapi low traffic
-    - cron: "30 19 * * 0"
-  workflow_dispatch:   # allow manual trigger
+    # 22:00 UTC = 3:30 AM IST — runs after File 1 completes, still low traffic
+    # Runs Monday-Saturday, skip Sunday
+    - cron: "0 22 * * 1-6"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -12,7 +13,7 @@ permissions:
 jobs:
   expand-universe:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Checkout repo
@@ -36,5 +37,5 @@ jobs:
           git config user.name  "MintingM Bot"
           git config user.email "bot@mintingm.in"
           git add data.json
-          git diff --staged --quiet || git commit -m "🌐 Universe expansion $(date +'%d %b %Y')"
+          git diff --staged --quiet || git commit -m "🌐 Universe expansion $(TZ='Asia/Kolkata' date +'%d %b %Y %H:%M IST')"
           git push

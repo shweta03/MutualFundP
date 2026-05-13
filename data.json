@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-05-13T14:51:37.037030",
+  "generated_at": "2026-05-13T15:32:41.886837",
   "generated_date": "13 May 2026",
-  "generated_time": "14:43 IST",
+  "generated_time": "15:24 IST",
   "data_source": "AMFI India direct + mfapi.in \u2014 official NAV data",
   "live_funds": 1188,
   "total_funds": 1188,
   "gold_threshold": 9.0,
-  "sg_ratio": 5.16,
+  "sg_ratio": 5.17,
   "gold_active": false,
   "sg_history": {
     "2003": 9.6,
@@ -32,7 +32,7 @@
     "2023": 13.2,
     "2024": 10.8,
     "2025": 6.8,
-    "2026": 5.16
+    "2026": 5.17
   },
   "nifty_annual": {
     "2008": -51.8,
@@ -659,329 +659,287 @@
   ],
   "backtest": {
     "C": {
-      "cagr": 6.0,
-      "max_dd": -0.0035,
-      "sharpe": -0.11,
+      "cagr": 9.4,
+      "max_dd": -0.0181,
+      "sharpe": 0.39,
       "win_rate": 92.9,
       "n_years": 14,
       "start_year": 2013,
-      "final_nav": 225.55,
+      "final_nav": 351.85,
       "bt_rows": [
         {
           "year": 2013,
-          "port_nav": 103.0,
-          "port_ret": 3.0,
-          "regime": "equity",
-          "sg_ratio": 6.6
+          "port_nav": 100.33,
+          "port_ret": 0.33,
+          "regime": "equity"
         },
         {
           "year": 2014,
-          "port_nav": 113.45,
-          "port_ret": 10.15,
-          "regime": "equity",
-          "sg_ratio": 8.9
+          "port_nav": 112.88,
+          "port_ret": 12.51,
+          "regime": "equity"
         },
         {
           "year": 2015,
-          "port_nav": 113.92,
-          "port_ret": 0.41,
-          "regime": "gold",
-          "sg_ratio": 11.4
+          "port_nav": 110.84,
+          "port_ret": -1.81,
+          "regime": "equity"
         },
         {
           "year": 2016,
-          "port_nav": 120.47,
-          "port_ret": 5.75,
-          "regime": "gold",
-          "sg_ratio": 11.5
+          "port_nav": 119.7,
+          "port_ret": 7.99,
+          "regime": "equity"
         },
         {
           "year": 2017,
-          "port_nav": 127.59,
-          "port_ret": 5.91,
-          "regime": "gold",
-          "sg_ratio": 10.6
+          "port_nav": 134.86,
+          "port_ret": 12.66,
+          "regime": "equity"
         },
         {
           "year": 2018,
-          "port_nav": 132.7,
-          "port_ret": 4.0,
-          "regime": "gold",
-          "sg_ratio": 12.7
+          "port_nav": 141.98,
+          "port_ret": 5.28,
+          "regime": "equity"
         },
         {
           "year": 2019,
-          "port_nav": 144.22,
-          "port_ret": 8.68,
-          "regime": "gold",
-          "sg_ratio": 12.6
+          "port_nav": 161.69,
+          "port_ret": 13.88,
+          "regime": "equity"
         },
         {
           "year": 2020,
-          "port_nav": 158.41,
-          "port_ret": 9.84,
-          "regime": "gold",
-          "sg_ratio": 11.8
+          "port_nav": 187.24,
+          "port_ret": 15.8,
+          "regime": "equity"
         },
         {
           "year": 2021,
-          "port_nav": 161.99,
-          "port_ret": 2.26,
-          "regime": "gold",
-          "sg_ratio": 10.7
+          "port_nav": 198.56,
+          "port_ret": 6.05,
+          "regime": "equity"
         },
         {
           "year": 2022,
-          "port_nav": 167.46,
-          "port_ret": 3.38,
-          "regime": "gold",
-          "sg_ratio": 13.3
+          "port_nav": 207.63,
+          "port_ret": 4.57,
+          "regime": "equity"
         },
         {
           "year": 2023,
-          "port_nav": 176.67,
-          "port_ret": 5.5,
-          "regime": "gold",
-          "sg_ratio": 12.6
+          "port_nav": 230.67,
+          "port_ret": 11.1,
+          "regime": "equity"
         },
         {
           "year": 2024,
-          "port_nav": 192.61,
-          "port_ret": 9.02,
-          "regime": "gold",
-          "sg_ratio": 13.2
+          "port_nav": 270.38,
+          "port_ret": 17.21,
+          "regime": "equity"
         },
         {
           "year": 2025,
-          "port_nav": 226.34,
-          "port_ret": 17.51,
-          "regime": "gold",
-          "sg_ratio": 10.8
+          "port_nav": 344.21,
+          "port_ret": 27.31,
+          "regime": "equity"
         },
         {
           "year": 2026,
-          "port_nav": 225.55,
-          "port_ret": -0.35,
-          "regime": "equity",
-          "sg_ratio": 6.8
+          "port_nav": 351.85,
+          "port_ret": 2.22,
+          "regime": "equity"
         }
       ]
     },
     "M": {
-      "cagr": 9.2,
-      "max_dd": -0.0098,
-      "sharpe": 0.34,
+      "cagr": 13.1,
+      "max_dd": -0.0185,
+      "sharpe": 0.6,
       "win_rate": 92.9,
       "n_years": 14,
       "start_year": 2013,
-      "final_nav": 344.47,
+      "final_nav": 557.52,
       "bt_rows": [
         {
           "year": 2013,
-          "port_nav": 101.41,
-          "port_ret": 1.41,
-          "regime": "equity",
-          "sg_ratio": 6.6
+          "port_nav": 101.17,
+          "port_ret": 1.17,
+          "regime": "equity"
         },
         {
           "year": 2014,
-          "port_nav": 122.76,
-          "port_ret": 21.06,
-          "regime": "equity",
-          "sg_ratio": 8.9
+          "port_nav": 130.66,
+          "port_ret": 29.15,
+          "regime": "equity"
         },
         {
           "year": 2015,
-          "port_nav": 121.56,
-          "port_ret": -0.98,
-          "regime": "gold",
-          "sg_ratio": 11.4
+          "port_nav": 134.54,
+          "port_ret": 2.97,
+          "regime": "equity"
         },
         {
           "year": 2016,
-          "port_nav": 129.48,
-          "port_ret": 6.51,
-          "regime": "gold",
-          "sg_ratio": 11.5
+          "port_nav": 142.21,
+          "port_ret": 5.7,
+          "regime": "equity"
         },
         {
           "year": 2017,
-          "port_nav": 141.08,
-          "port_ret": 8.96,
-          "regime": "gold",
-          "sg_ratio": 10.6
+          "port_nav": 173.27,
+          "port_ret": 21.84,
+          "regime": "equity"
         },
         {
           "year": 2018,
-          "port_nav": 144.84,
-          "port_ret": 2.66,
-          "regime": "gold",
-          "sg_ratio": 12.7
+          "port_nav": 170.06,
+          "port_ret": -1.85,
+          "regime": "equity"
         },
         {
           "year": 2019,
-          "port_nav": 161.55,
-          "port_ret": 11.54,
-          "regime": "gold",
-          "sg_ratio": 12.6
+          "port_nav": 188.54,
+          "port_ret": 10.86,
+          "regime": "equity"
         },
         {
           "year": 2020,
-          "port_nav": 188.42,
-          "port_ret": 16.63,
-          "regime": "gold",
-          "sg_ratio": 11.8
+          "port_nav": 230.27,
+          "port_ret": 22.14,
+          "regime": "equity"
         },
         {
           "year": 2021,
-          "port_nav": 202.74,
-          "port_ret": 7.6,
-          "regime": "gold",
-          "sg_ratio": 10.7
+          "port_nav": 294.19,
+          "port_ret": 27.76,
+          "regime": "equity"
         },
         {
           "year": 2022,
-          "port_nav": 212.23,
-          "port_ret": 4.68,
-          "regime": "gold",
-          "sg_ratio": 13.3
+          "port_nav": 301.98,
+          "port_ret": 2.65,
+          "regime": "equity"
         },
         {
           "year": 2023,
-          "port_nav": 232.01,
-          "port_ret": 9.32,
-          "regime": "gold",
-          "sg_ratio": 12.6
+          "port_nav": 370.79,
+          "port_ret": 22.79,
+          "regime": "equity"
         },
         {
           "year": 2024,
-          "port_nav": 266.28,
-          "port_ret": 14.77,
-          "regime": "gold",
-          "sg_ratio": 13.2
+          "port_nav": 466.54,
+          "port_ret": 25.82,
+          "regime": "equity"
         },
         {
           "year": 2025,
-          "port_nav": 341.53,
-          "port_ret": 28.26,
-          "regime": "gold",
-          "sg_ratio": 10.8
+          "port_nav": 550.13,
+          "port_ret": 17.92,
+          "regime": "equity"
         },
         {
           "year": 2026,
-          "port_nav": 344.47,
-          "port_ret": 0.86,
-          "regime": "equity",
-          "sg_ratio": 6.8
+          "port_nav": 557.52,
+          "port_ret": 1.34,
+          "regime": "equity"
         }
       ]
     },
     "A": {
-      "cagr": 12.2,
-      "max_dd": -0.0495,
-      "sharpe": 0.45,
-      "win_rate": 85.7,
+      "cagr": 14.4,
+      "max_dd": -0.0492,
+      "sharpe": 0.49,
+      "win_rate": 78.6,
       "n_years": 14,
       "start_year": 2013,
-      "final_nav": 500.57,
+      "final_nav": 654.25,
       "bt_rows": [
         {
           "year": 2013,
-          "port_nav": 98.54,
-          "port_ret": -1.46,
-          "regime": "equity",
-          "sg_ratio": 6.6
+          "port_nav": 101.52,
+          "port_ret": 1.52,
+          "regime": "equity"
         },
         {
           "year": 2014,
-          "port_nav": 124.12,
-          "port_ret": 25.95,
-          "regime": "equity",
-          "sg_ratio": 8.9
+          "port_nav": 139.68,
+          "port_ret": 37.58,
+          "regime": "equity"
         },
         {
           "year": 2015,
-          "port_nav": 117.98,
-          "port_ret": -4.95,
-          "regime": "gold",
-          "sg_ratio": 11.4
+          "port_nav": 143.74,
+          "port_ret": 2.91,
+          "regime": "equity"
         },
         {
           "year": 2016,
-          "port_nav": 127.15,
-          "port_ret": 7.78,
-          "regime": "gold",
-          "sg_ratio": 11.5
+          "port_nav": 147.94,
+          "port_ret": 2.92,
+          "regime": "equity"
         },
         {
           "year": 2017,
-          "port_nav": 143.3,
-          "port_ret": 12.7,
-          "regime": "gold",
-          "sg_ratio": 10.6
+          "port_nav": 194.89,
+          "port_ret": 31.73,
+          "regime": "equity"
         },
         {
           "year": 2018,
-          "port_nav": 147.89,
-          "port_ret": 3.2,
-          "regime": "gold",
-          "sg_ratio": 12.7
+          "port_nav": 185.3,
+          "port_ret": -4.92,
+          "regime": "equity"
         },
         {
           "year": 2019,
-          "port_nav": 170.27,
-          "port_ret": 15.13,
-          "regime": "gold",
-          "sg_ratio": 12.6
+          "port_nav": 195.0,
+          "port_ret": 5.23,
+          "regime": "equity"
         },
         {
           "year": 2020,
-          "port_nav": 214.13,
-          "port_ret": 25.76,
-          "regime": "gold",
-          "sg_ratio": 11.8
+          "port_nav": 253.25,
+          "port_ret": 29.87,
+          "regime": "equity"
         },
         {
           "year": 2021,
-          "port_nav": 233.69,
-          "port_ret": 9.13,
-          "regime": "gold",
-          "sg_ratio": 10.7
+          "port_nav": 348.59,
+          "port_ret": 37.65,
+          "regime": "equity"
         },
         {
           "year": 2022,
-          "port_nav": 248.93,
-          "port_ret": 6.52,
-          "regime": "gold",
-          "sg_ratio": 13.3
+          "port_nav": 346.28,
+          "port_ret": -0.66,
+          "regime": "equity"
         },
         {
           "year": 2023,
-          "port_nav": 282.52,
-          "port_ret": 13.5,
-          "regime": "gold",
-          "sg_ratio": 12.6
+          "port_nav": 467.28,
+          "port_ret": 34.95,
+          "regime": "equity"
         },
         {
           "year": 2024,
-          "port_nav": 340.74,
-          "port_ret": 20.61,
-          "regime": "gold",
-          "sg_ratio": 13.2
+          "port_nav": 608.66,
+          "port_ret": 30.25,
+          "regime": "equity"
         },
         {
           "year": 2025,
-          "port_nav": 495.13,
-          "port_ret": 45.31,
-          "regime": "gold",
-          "sg_ratio": 10.8
+          "port_nav": 668.97,
+          "port_ret": 9.91,
+          "regime": "equity"
         },
         {
           "year": 2026,
-          "port_nav": 500.57,
-          "port_ret": 1.1,
-          "regime": "equity",
-          "sg_ratio": 6.8
+          "port_nav": 654.25,
+          "port_ret": -2.2,
+          "regime": "equity"
         }
       ]
     }

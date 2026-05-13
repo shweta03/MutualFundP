@@ -1,61 +1,41 @@
-name: Daily Data Refresh
+name: Daily Data Refresh (Scored Funds)
 
 on:
   schedule:
-    # 06:30 UTC = 12:00 PM IST
-    # AMFI publishes NAVs between 9–11 PM IST the previous night
-    # By 12 PM next day, all NAVs are confirmed stable and available
-    - cron: "30 6 * * 1-5"    # weekdays Mon–Fri
-    - cron: "30 6 * * 6"      # Saturday (catches Friday's final NAV)
-  workflow_dispatch:           # manual trigger from GitHub UI anytime
+    # 20:00 UTC = 1:30 AM IST — AMFI data fresh, mfapi low traffic
+    # Runs Monday-Saturday, skip Sunday
+    - cron: "0 20 * * 1-6"
+  workflow_dispatch:
 
 permissions:
-  contents: write              # needed to commit data.json back to repo
+  contents: write
 
 jobs:
-  refresh-data:
+  refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
     steps:
-      # ── 1. Checkout repo ──────────────────────────────────
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # ── 2. Set up Python ─────────────────────────────────
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-          cache: pip
 
-      # ── 3. Install dependencies ───────────────────────────
       - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
+        run: pip install requests pandas numpy yfinance python-dateutil beautifulsoup4
 
-      # ── 4. Run data engine ────────────────────────────────
-      - name: Generate data files
+      - name: Run data pipeline
         run: python generate_data.py
 
-      # ── 5. Commit & push updated JSON files ───────────────
       - name: Commit data files
         run: |
           git config user.name  "MintingM Bot"
           git config user.email "bot@mintingm.in"
-          git add data.json vix_data.json breadth_data.json
-          # Only commit if files actually changed
-          git diff --staged --quiet || git commit -m "📊 Data refresh $(date +'%d %b %Y %H:%M IST')"
+          git add data.json vix_data.json
+          git diff --staged --quiet || git commit -m "📊 Data refresh $(TZ='Asia/Kolkata' date +'%d %b %Y %H:%M IST')"
           git push
-
-      # ── 6. Notify on failure (optional — add your email) ──
-      - name: Report failure
-        if: failure()
-        run: |
-          echo "❌ Data refresh failed on $(date)"
-          echo "Check the Actions log for details"
-          # To get email alerts: go to GitHub Settings → Notifications
-          # GitHub sends email automatically on workflow failure

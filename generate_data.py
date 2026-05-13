@@ -14,7 +14,7 @@ Output files (same schema your index.html expects):
   vix_data.json   → Nifty/VIX percentile + Nifty 50 history
   breadth_data.json → Nifty 500 breadth (stocks above 200 SMA)
 """
-
+#v2
 import requests
 import json
 import time
@@ -1031,6 +1031,14 @@ def get_fund_annual_return(fund_annual_rets, year):
     return fund_annual_rets.get(year)
 
 
+def _avg_monthly(funds, month):
+    """Average monthly return across funds for a given month key."""
+    rets = [f.get("_monthly_rets", {}).get(month)
+            for f in funds
+            if f.get("_monthly_rets", {}).get(month) is not None]
+    return sum(rets) / len(rets) if rets else None
+
+
 def run_backtest(profile_key, eq_ratio, debt_ratio, sg_history,
                  eq_funds, dt_funds, gold_funds):
     """
@@ -1125,16 +1133,36 @@ def run_backtest(profile_key, eq_ratio, debt_ratio, sg_history,
     port_cagr = round(((nav / 100) ** (1 / n) - 1) * 100, 1)
     rets      = [r["port_ret"] for r in rows]
 
-    # Max drawdown from NAV series
-    navs  = [100.0] + [r["port_nav"] for r in rows]
-    peak  = 100.0
-    max_dd = 0.0
-    for v in navs:
-        if v > peak:
-            peak = v
-        dd = (v - peak) / peak
-        if dd < max_dd:
-            max_dd = dd
+    # Max drawdown from MONTHLY NAV series (accurate intra-year drawdowns)
+    # Build portfolio monthly NAV using weighted monthly returns of all funds
+    all_funds_bt = eq_funds + dt_funds + gold_funds
+    # Get all months available across all funds
+    all_months = set()
+    for f in all_funds_bt:
+        all_months.update(f.get("_monthly_rets", {}).keys())
+    all_months = sorted(m for m in all_months if m[:4] >= str(START_YEAR))
+
+    if len(all_months) >= 12:
+        # Compute weighted portfolio monthly returns
+        gold_ratio = 1.0 - eq_ratio - debt_ratio
+        mnav = 100.0; mpeak = 100.0; max_dd = 0.0
+        for month in all_months:
+            eq_mret  = _avg_monthly(eq_funds,   month) or 0
+            dt_mret  = _avg_monthly(dt_funds,   month) or 0
+            gld_mret = _avg_monthly(gold_funds, month) or 0
+            port_mret = eq_ratio * eq_mret + gold_ratio * gld_mret + debt_ratio * dt_mret
+            mnav *= (1 + port_mret / 100)
+            if mnav > mpeak: mpeak = mnav
+            dd = (mnav - mpeak) / mpeak
+            if dd < max_dd: max_dd = dd
+    else:
+        # Fallback to annual if not enough monthly data
+        navs  = [100.0] + [r["port_nav"] for r in rows]
+        peak  = 100.0; max_dd = 0.0
+        for v in navs:
+            if v > peak: peak = v
+            dd = (v - peak) / peak
+            if dd < max_dd: max_dd = dd
 
     ann_std  = float(np.std(rets)) / 100
     sharpe   = round(((port_cagr / 100) - RISK_FREE_RATE) / ann_std, 2) if ann_std > 0 else 0
@@ -1473,19 +1501,27 @@ def main():
 
         score_info = compute_raw_score(metrics, asset_type)
 
-        # Extract last 12 months of end-of-month NAVs (from existing history — no extra API call)
+        # Extract end-of-month NAVs (last 24 months for display + full history for MaxDD)
         monthly_nav = {}
+        monthly_rets_full = {}  # full monthly return history for portfolio MaxDD
         try:
             today_ts = pd.Timestamp(date.today())
-            for m in range(1, 13):
-                # Go back m months from today
+            # Last 24 months for display
+            for m in range(1, 25):
                 target = today_ts - pd.DateOffset(months=m)
-                # Find last NAV on or before end of that month
                 month_end = target.replace(day=1) + pd.DateOffset(months=1) - pd.Timedelta(days=1)
                 sub = hist[hist["date"] <= month_end]
                 if not sub.empty:
                     month_key = month_end.strftime("%Y-%m")
                     monthly_nav[month_key] = round(float(sub["nav"].iloc[-1]), 4)
+            # Full monthly returns history (for accurate MaxDD in backtest)
+            hist_sorted = hist.sort_values("date").copy()
+            hist_sorted["month"] = hist_sorted["date"].dt.to_period("M")
+            monthly_last = hist_sorted.groupby("month")["nav"].last()
+            monthly_ret = monthly_last.pct_change().dropna()
+            for period, ret in monthly_ret.items():
+                if not (ret != ret):  # skip NaN
+                    monthly_rets_full[str(period)] = round(float(ret) * 100, 4)
         except Exception:
             pass
 
@@ -1501,7 +1537,8 @@ def main():
             "live":        True,
             "data_from":   int(hist["date"].iloc[0].year),
             "new_fund":    years_available < 3,
-            "monthly_nav": monthly_nav,            # last 12 months end-of-month NAV
+            "monthly_nav": monthly_nav,            # last 24 months end-of-month NAV
+            "_monthly_rets": monthly_rets_full,    # full monthly returns for MaxDD
             "r1m":         metrics["r1m"],
             "r3m":         metrics["r3m"],
             "r1":          metrics["r1"],

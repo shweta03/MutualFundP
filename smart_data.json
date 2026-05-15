@@ -1,1 +1,1987 @@
-
+{
+  "generated_at": "2026-05-15T09:59:23.475754",
+  "regime": "NORMAL",
+  "trigger_count": 0,
+  "signals": {
+    "nifty_pe": {
+      "value": null,
+      "threshold": 24.0,
+      "fired": false
+    },
+    "shiller_cape": {
+      "value": null,
+      "threshold": 30.0,
+      "fired": false
+    },
+    "sg_ratio": {
+      "value": 5.37,
+      "threshold": 9.0,
+      "fired": false
+    }
+  },
+  "current_allocation": [
+    {
+      "bucket": "developed",
+      "pct": 15.0,
+      "market": "Japan",
+      "fund_name": "Motilal Oswal S&P 500 Index Fund",
+      "fund_code": 148382
+    },
+    {
+      "bucket": "emerging",
+      "pct": 20.0,
+      "market": "Korea",
+      "fund_name": "Edelweiss MSCI Emerging Markets Equity ETF FoF",
+      "fund_code": 135800
+    },
+    {
+      "bucket": "india",
+      "pct": 20.0,
+      "market": "india",
+      "fund_name": "Motilal Oswal Large and Midcap Fund - Regular Plan Growth",
+      "fund_code": 147701
+    },
+    {
+      "bucket": "gold",
+      "pct": 20.0,
+      "market": "gold",
+      "fund_name": "Edelweiss Gold ETF",
+      "fund_code": 147624
+    },
+    {
+      "bucket": "silver",
+      "pct": 5.0,
+      "market": "silver",
+      "fund_name": "Mirae Asset Silver ETF FoF",
+      "fund_code": 151014
+    },
+    {
+      "bucket": "debt",
+      "pct": 20.0,
+      "market": "debt",
+      "fund_name": "Franklin India Corporate Debt Fund - Growth",
+      "fund_code": 100528
+    }
+  ],
+  "current_dev_winner": "Japan",
+  "current_em_winner": "Korea",
+  "annual_winners": {
+    "developed": {
+      "2000": {
+        "winner": "France",
+        "return": -0.54,
+        "rankings": [
+          {
+            "market": "France",
+            "return": -0.54
+          },
+          {
+            "market": "Germany",
+            "return": -7.54
+          },
+          {
+            "market": "USA_SP500",
+            "return": -10.14
+          },
+          {
+            "market": "UK",
+            "return": -10.21
+          },
+          {
+            "market": "Japan",
+            "return": -27.19
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": -39.29
+          }
+        ]
+      },
+      "2001": {
+        "winner": "USA_SP500",
+        "return": -13.04,
+        "rankings": [
+          {
+            "market": "USA_SP500",
+            "return": -13.04
+          },
+          {
+            "market": "UK",
+            "return": -16.15
+          },
+          {
+            "market": "Germany",
+            "return": -19.79
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": -21.05
+          },
+          {
+            "market": "France",
+            "return": -21.97
+          },
+          {
+            "market": "Japan",
+            "return": -23.52
+          }
+        ]
+      },
+      "2002": {
+        "winner": "Japan",
+        "return": -18.63,
+        "rankings": [
+          {
+            "market": "Japan",
+            "return": -18.63
+          },
+          {
+            "market": "USA_SP500",
+            "return": -23.37
+          },
+          {
+            "market": "UK",
+            "return": -24.48
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": -31.53
+          },
+          {
+            "market": "France",
+            "return": -33.75
+          },
+          {
+            "market": "Germany",
+            "return": -43.94
+          }
+        ]
+      },
+      "2003": {
+        "winner": "USA_NASDAQ",
+        "return": 50.01,
+        "rankings": [
+          {
+            "market": "USA_NASDAQ",
+            "return": 50.01
+          },
+          {
+            "market": "Germany",
+            "return": 37.08
+          },
+          {
+            "market": "USA_SP500",
+            "return": 26.38
+          },
+          {
+            "market": "Japan",
+            "return": 24.45
+          },
+          {
+            "market": "France",
+            "return": 16.12
+          },
+          {
+            "market": "UK",
+            "return": 13.62
+          }
+        ]
+      },
+      "2004": {
+        "winner": "USA_SP500",
+        "return": 3.67,
+        "rankings": [
+          {
+            "market": "USA_SP500",
+            "return": 3.67
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 3.29
+          },
+          {
+            "market": "Japan",
+            "return": 2.35
+          },
+          {
+            "market": "UK",
+            "return": 2.29
+          },
+          {
+            "market": "France",
+            "return": 2.16
+          },
+          {
+            "market": "Germany",
+            "return": 2.1
+          }
+        ]
+      },
+      "2005": {
+        "winner": "Japan",
+        "return": 45.62,
+        "rankings": [
+          {
+            "market": "Japan",
+            "return": 45.62
+          },
+          {
+            "market": "Germany",
+            "return": 31.95
+          },
+          {
+            "market": "France",
+            "return": 28.13
+          },
+          {
+            "market": "UK",
+            "return": 21.19
+          },
+          {
+            "market": "USA_SP500",
+            "return": 6.95
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 5.26
+          }
+        ]
+      },
+      "2006": {
+        "winner": "Germany",
+        "return": 19.46,
+        "rankings": [
+          {
+            "market": "Germany",
+            "return": 19.46
+          },
+          {
+            "market": "France",
+            "return": 15.1
+          },
+          {
+            "market": "USA_SP500",
+            "return": 11.27
+          },
+          {
+            "market": "UK",
+            "return": 8.42
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 7.26
+          },
+          {
+            "market": "Japan",
+            "return": 4.71
+          }
+        ]
+      },
+      "2007": {
+        "winner": "Germany",
+        "return": 8.97,
+        "rankings": [
+          {
+            "market": "Germany",
+            "return": 8.97
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": -2.14
+          },
+          {
+            "market": "UK",
+            "return": -7.51
+          },
+          {
+            "market": "USA_SP500",
+            "return": -7.74
+          },
+          {
+            "market": "France",
+            "return": -9.72
+          },
+          {
+            "market": "Japan",
+            "return": -20.81
+          }
+        ]
+      },
+      "2008": {
+        "winner": "UK",
+        "return": -15.89,
+        "rankings": [
+          {
+            "market": "UK",
+            "return": -15.89
+          },
+          {
+            "market": "USA_SP500",
+            "return": -24.66
+          },
+          {
+            "market": "Germany",
+            "return": -26.97
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": -27.18
+          },
+          {
+            "market": "Japan",
+            "return": -29.12
+          },
+          {
+            "market": "France",
+            "return": -29.8
+          }
+        ]
+      },
+      "2009": {
+        "winner": "USA_NASDAQ",
+        "return": 38.9,
+        "rankings": [
+          {
+            "market": "USA_NASDAQ",
+            "return": 38.9
+          },
+          {
+            "market": "Germany",
+            "return": 19.56
+          },
+          {
+            "market": "USA_SP500",
+            "return": 19.18
+          },
+          {
+            "market": "France",
+            "return": 18.09
+          },
+          {
+            "market": "UK",
+            "return": 17.84
+          },
+          {
+            "market": "Japan",
+            "return": 14.92
+          }
+        ]
+      },
+      "2010": {
+        "winner": "USA_NASDAQ",
+        "return": 12.9,
+        "rankings": [
+          {
+            "market": "USA_NASDAQ",
+            "return": 12.9
+          },
+          {
+            "market": "Germany",
+            "return": 12.08
+          },
+          {
+            "market": "USA_SP500",
+            "return": 8.92
+          },
+          {
+            "market": "UK",
+            "return": 5.26
+          },
+          {
+            "market": "France",
+            "return": -5.53
+          },
+          {
+            "market": "Japan",
+            "return": -6.33
+          }
+        ]
+      },
+      "2011": {
+        "winner": "USA_SP500",
+        "return": 18.27,
+        "rankings": [
+          {
+            "market": "USA_SP500",
+            "return": 18.27
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 16.15
+          },
+          {
+            "market": "UK",
+            "return": 11.71
+          },
+          {
+            "market": "Germany",
+            "return": 0.9
+          },
+          {
+            "market": "Japan",
+            "return": -2.23
+          },
+          {
+            "market": "France",
+            "return": -2.95
+          }
+        ]
+      },
+      "2012": {
+        "winner": "Germany",
+        "return": 33.33,
+        "rankings": [
+          {
+            "market": "Germany",
+            "return": 33.33
+          },
+          {
+            "market": "Japan",
+            "return": 27.01
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 19.74
+          },
+          {
+            "market": "France",
+            "return": 18.36
+          },
+          {
+            "market": "USA_SP500",
+            "return": 17.16
+          },
+          {
+            "market": "UK",
+            "return": 9.34
+          }
+        ]
+      },
+      "2013": {
+        "winner": "Japan",
+        "return": 76.83,
+        "rankings": [
+          {
+            "market": "Japan",
+            "return": 76.83
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 56.07
+          },
+          {
+            "market": "USA_SP500",
+            "return": 46.23
+          },
+          {
+            "market": "Germany",
+            "return": 41.59
+          },
+          {
+            "market": "France",
+            "return": 33.89
+          },
+          {
+            "market": "UK",
+            "return": 29.12
+          }
+        ]
+      },
+      "2014": {
+        "winner": "USA_NASDAQ",
+        "return": 16.33,
+        "rankings": [
+          {
+            "market": "USA_NASDAQ",
+            "return": 16.33
+          },
+          {
+            "market": "USA_SP500",
+            "return": 14.27
+          },
+          {
+            "market": "Japan",
+            "return": 9.89
+          },
+          {
+            "market": "Germany",
+            "return": 5.31
+          },
+          {
+            "market": "France",
+            "return": 2.03
+          },
+          {
+            "market": "UK",
+            "return": -0.2
+          }
+        ]
+      },
+      "2015": {
+        "winner": "Germany",
+        "return": 14.88,
+        "rankings": [
+          {
+            "market": "Germany",
+            "return": 14.88
+          },
+          {
+            "market": "France",
+            "return": 14.78
+          },
+          {
+            "market": "Japan",
+            "return": 14.37
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 10.86
+          },
+          {
+            "market": "USA_SP500",
+            "return": 4.09
+          },
+          {
+            "market": "UK",
+            "return": -0.32
+          }
+        ]
+      },
+      "2016": {
+        "winner": "UK",
+        "return": 16.97,
+        "rankings": [
+          {
+            "market": "UK",
+            "return": 16.97
+          },
+          {
+            "market": "USA_SP500",
+            "return": 11.97
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 9.89
+          },
+          {
+            "market": "Germany",
+            "return": 9.25
+          },
+          {
+            "market": "France",
+            "return": 6.27
+          },
+          {
+            "market": "Japan",
+            "return": 2.66
+          }
+        ]
+      },
+      "2017": {
+        "winner": "USA_NASDAQ",
+        "return": 20.93,
+        "rankings": [
+          {
+            "market": "USA_NASDAQ",
+            "return": 20.93
+          },
+          {
+            "market": "USA_SP500",
+            "return": 12.62
+          },
+          {
+            "market": "Japan",
+            "return": 12.31
+          },
+          {
+            "market": "Germany",
+            "return": 6.1
+          },
+          {
+            "market": "France",
+            "return": 3.03
+          },
+          {
+            "market": "UK",
+            "return": 1.5
+          }
+        ]
+      },
+      "2018": {
+        "winner": "USA_NASDAQ",
+        "return": 4.91,
+        "rankings": [
+          {
+            "market": "USA_NASDAQ",
+            "return": 4.91
+          },
+          {
+            "market": "USA_SP500",
+            "return": 2.34
+          },
+          {
+            "market": "France",
+            "return": -2.81
+          },
+          {
+            "market": "Japan",
+            "return": -4.04
+          },
+          {
+            "market": "UK",
+            "return": -4.48
+          },
+          {
+            "market": "Germany",
+            "return": -10.78
+          }
+        ]
+      },
+      "2019": {
+        "winner": "USA_NASDAQ",
+        "return": 37.91,
+        "rankings": [
+          {
+            "market": "USA_NASDAQ",
+            "return": 37.91
+          },
+          {
+            "market": "USA_SP500",
+            "return": 31.44
+          },
+          {
+            "market": "France",
+            "return": 28.88
+          },
+          {
+            "market": "Germany",
+            "return": 27.97
+          },
+          {
+            "market": "Japan",
+            "return": 20.54
+          },
+          {
+            "market": "UK",
+            "return": 14.33
+          }
+        ]
+      },
+      "2020": {
+        "winner": "USA_NASDAQ",
+        "return": 47.31,
+        "rankings": [
+          {
+            "market": "USA_NASDAQ",
+            "return": 47.31
+          },
+          {
+            "market": "USA_SP500",
+            "return": 19.23
+          },
+          {
+            "market": "Japan",
+            "return": 18.98
+          },
+          {
+            "market": "Germany",
+            "return": 6.19
+          },
+          {
+            "market": "France",
+            "return": -4.76
+          },
+          {
+            "market": "UK",
+            "return": -12.15
+          }
+        ]
+      },
+      "2021": {
+        "winner": "France",
+        "return": 31.14,
+        "rankings": [
+          {
+            "market": "France",
+            "return": 31.14
+          },
+          {
+            "market": "USA_SP500",
+            "return": 29.14
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 23.54
+          },
+          {
+            "market": "Germany",
+            "return": 17.84
+          },
+          {
+            "market": "UK",
+            "return": 16.33
+          },
+          {
+            "market": "Japan",
+            "return": 6.77
+          }
+        ]
+      },
+      "2022": {
+        "winner": "UK",
+        "return": 12.3,
+        "rankings": [
+          {
+            "market": "UK",
+            "return": 12.3
+          },
+          {
+            "market": "Japan",
+            "return": 0.87
+          },
+          {
+            "market": "France",
+            "return": 0.72
+          },
+          {
+            "market": "Germany",
+            "return": -2.45
+          },
+          {
+            "market": "USA_SP500",
+            "return": -10.35
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": -25.55
+          }
+        ]
+      },
+      "2023": {
+        "winner": "USA_NASDAQ",
+        "return": 42.5,
+        "rankings": [
+          {
+            "market": "USA_NASDAQ",
+            "return": 42.5
+          },
+          {
+            "market": "Japan",
+            "return": 27.42
+          },
+          {
+            "market": "USA_SP500",
+            "return": 23.43
+          },
+          {
+            "market": "Germany",
+            "return": 19.54
+          },
+          {
+            "market": "France",
+            "return": 15.77
+          },
+          {
+            "market": "UK",
+            "return": 3.11
+          }
+        ]
+      },
+      "2024": {
+        "winner": "USA_NASDAQ",
+        "return": 34.09,
+        "rankings": [
+          {
+            "market": "USA_NASDAQ",
+            "return": 34.09
+          },
+          {
+            "market": "USA_SP500",
+            "return": 28.53
+          },
+          {
+            "market": "Japan",
+            "return": 24.26
+          },
+          {
+            "market": "Germany",
+            "return": 23.88
+          },
+          {
+            "market": "UK",
+            "return": 10.16
+          },
+          {
+            "market": "France",
+            "return": 1.99
+          }
+        ]
+      },
+      "2025": {
+        "winner": "Japan",
+        "return": 32.04,
+        "rankings": [
+          {
+            "market": "Japan",
+            "return": 32.04
+          },
+          {
+            "market": "Germany",
+            "return": 28.72
+          },
+          {
+            "market": "UK",
+            "return": 27.16
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 25.95
+          },
+          {
+            "market": "USA_SP500",
+            "return": 21.79
+          },
+          {
+            "market": "France",
+            "return": 15.54
+          }
+        ]
+      },
+      "2026": {
+        "winner": "Japan",
+        "return": 30.38,
+        "rankings": [
+          {
+            "market": "Japan",
+            "return": 30.38
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 22.48
+          },
+          {
+            "market": "USA_SP500",
+            "return": 17.12
+          },
+          {
+            "market": "UK",
+            "return": 10.06
+          },
+          {
+            "market": "Germany",
+            "return": 4.89
+          },
+          {
+            "market": "France",
+            "return": 4.55
+          }
+        ]
+      }
+    },
+    "emerging": {
+      "2000": {
+        "winner": "Brazil",
+        "return": -10.72,
+        "rankings": [
+          {
+            "market": "Brazil",
+            "return": -10.72
+          },
+          {
+            "market": "HongKong",
+            "return": -11.0
+          },
+          {
+            "market": "Mexico",
+            "return": -20.73
+          },
+          {
+            "market": "Taiwan",
+            "return": -43.85
+          },
+          {
+            "market": "Korea",
+            "return": -50.92
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2001": {
+        "winner": "Korea",
+        "return": 37.47,
+        "rankings": [
+          {
+            "market": "Korea",
+            "return": 37.47
+          },
+          {
+            "market": "Taiwan",
+            "return": 17.02
+          },
+          {
+            "market": "Mexico",
+            "return": 12.74
+          },
+          {
+            "market": "Brazil",
+            "return": -11.02
+          },
+          {
+            "market": "HongKong",
+            "return": -24.5
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2002": {
+        "winner": "Mexico",
+        "return": -3.85,
+        "rankings": [
+          {
+            "market": "Mexico",
+            "return": -3.85
+          },
+          {
+            "market": "Korea",
+            "return": -9.54
+          },
+          {
+            "market": "Brazil",
+            "return": -17.01
+          },
+          {
+            "market": "HongKong",
+            "return": -18.21
+          },
+          {
+            "market": "Taiwan",
+            "return": -19.79
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2003": {
+        "winner": "Brazil",
+        "return": 97.34,
+        "rankings": [
+          {
+            "market": "Brazil",
+            "return": 97.34
+          },
+          {
+            "market": "Mexico",
+            "return": 43.55
+          },
+          {
+            "market": "HongKong",
+            "return": 34.92
+          },
+          {
+            "market": "Taiwan",
+            "return": 32.3
+          },
+          {
+            "market": "Korea",
+            "return": 29.19
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2004": {
+        "winner": "Mexico",
+        "return": 39.71,
+        "rankings": [
+          {
+            "market": "Mexico",
+            "return": 39.71
+          },
+          {
+            "market": "Brazil",
+            "return": 12.06
+          },
+          {
+            "market": "HongKong",
+            "return": 7.63
+          },
+          {
+            "market": "Korea",
+            "return": 5.12
+          },
+          {
+            "market": "Taiwan",
+            "return": -0.86
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2005": {
+        "winner": "Korea",
+        "return": 59.87,
+        "rankings": [
+          {
+            "market": "Korea",
+            "return": 59.87
+          },
+          {
+            "market": "Mexico",
+            "return": 43.1
+          },
+          {
+            "market": "Brazil",
+            "return": 32.62
+          },
+          {
+            "market": "Taiwan",
+            "return": 10.75
+          },
+          {
+            "market": "HongKong",
+            "return": 8.55
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2006": {
+        "winner": "Mexico",
+        "return": 45.49,
+        "rankings": [
+          {
+            "market": "Mexico",
+            "return": 45.49
+          },
+          {
+            "market": "HongKong",
+            "return": 31.43
+          },
+          {
+            "market": "Brazil",
+            "return": 30.18
+          },
+          {
+            "market": "Taiwan",
+            "return": 17.01
+          },
+          {
+            "market": "Korea",
+            "return": 1.84
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2007": {
+        "winner": "Brazil",
+        "return": 28.01,
+        "rankings": [
+          {
+            "market": "Brazil",
+            "return": 28.01
+          },
+          {
+            "market": "HongKong",
+            "return": 24.14
+          },
+          {
+            "market": "Korea",
+            "return": 17.85
+          },
+          {
+            "market": "Mexico",
+            "return": -0.48
+          },
+          {
+            "market": "Taiwan",
+            "return": -3.11
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2008": {
+        "winner": "Mexico",
+        "return": -7.2,
+        "rankings": [
+          {
+            "market": "Mexico",
+            "return": -7.2
+          },
+          {
+            "market": "Korea",
+            "return": -27.41
+          },
+          {
+            "market": "Brazil",
+            "return": -28.01
+          },
+          {
+            "market": "Taiwan",
+            "return": -33.9
+          },
+          {
+            "market": "HongKong",
+            "return": -36.64
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2009": {
+        "winner": "Brazil",
+        "return": 76.33,
+        "rankings": [
+          {
+            "market": "Brazil",
+            "return": 76.33
+          },
+          {
+            "market": "Taiwan",
+            "return": 72.16
+          },
+          {
+            "market": "HongKong",
+            "return": 46.76
+          },
+          {
+            "market": "Korea",
+            "return": 44.47
+          },
+          {
+            "market": "Mexico",
+            "return": 38.55
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2010": {
+        "winner": "Korea",
+        "return": 17.71,
+        "rankings": [
+          {
+            "market": "Korea",
+            "return": 17.71
+          },
+          {
+            "market": "Mexico",
+            "return": 14.98
+          },
+          {
+            "market": "Taiwan",
+            "return": 5.82
+          },
+          {
+            "market": "HongKong",
+            "return": 1.71
+          },
+          {
+            "market": "Brazil",
+            "return": -2.42
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2011": {
+        "winner": "Mexico",
+        "return": 14.67,
+        "rankings": [
+          {
+            "market": "Mexico",
+            "return": 14.67
+          },
+          {
+            "market": "Korea",
+            "return": 5.29
+          },
+          {
+            "market": "Brazil",
+            "return": -3.14
+          },
+          {
+            "market": "HongKong",
+            "return": -5.35
+          },
+          {
+            "market": "Taiwan",
+            "return": -6.77
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2012": {
+        "winner": "HongKong",
+        "return": 26.97,
+        "rankings": [
+          {
+            "market": "HongKong",
+            "return": 26.97
+          },
+          {
+            "market": "Mexico",
+            "return": 21.78
+          },
+          {
+            "market": "Korea",
+            "return": 13.0
+          },
+          {
+            "market": "Taiwan",
+            "return": 12.47
+          },
+          {
+            "market": "Brazil",
+            "return": 10.95
+          },
+          {
+            "market": "SouthAfrica",
+            "return": NaN
+          }
+        ]
+      },
+      "2013": {
+        "winner": "SouthAfrica",
+        "return": 32.97,
+        "rankings": [
+          {
+            "market": "SouthAfrica",
+            "return": 32.97
+          },
+          {
+            "market": "Taiwan",
+            "return": 26.2
+          },
+          {
+            "market": "HongKong",
+            "return": 16.07
+          },
+          {
+            "market": "Korea",
+            "return": 13.64
+          },
+          {
+            "market": "Mexico",
+            "return": 10.91
+          },
+          {
+            "market": "Brazil",
+            "return": -4.65
+          }
+        ]
+      },
+      "2014": {
+        "winner": "Taiwan",
+        "return": 10.87,
+        "rankings": [
+          {
+            "market": "Taiwan",
+            "return": 10.87
+          },
+          {
+            "market": "SouthAfrica",
+            "return": 10.38
+          },
+          {
+            "market": "HongKong",
+            "return": 3.9
+          },
+          {
+            "market": "Mexico",
+            "return": 3.03
+          },
+          {
+            "market": "Brazil",
+            "return": -0.4
+          },
+          {
+            "market": "Korea",
+            "return": -2.3
+          }
+        ]
+      },
+      "2015": {
+        "winner": "Korea",
+        "return": 7.36,
+        "rankings": [
+          {
+            "market": "Korea",
+            "return": 7.36
+          },
+          {
+            "market": "SouthAfrica",
+            "return": 6.8
+          },
+          {
+            "market": "Mexico",
+            "return": 4.45
+          },
+          {
+            "market": "HongKong",
+            "return": -2.65
+          },
+          {
+            "market": "Taiwan",
+            "return": -6.06
+          },
+          {
+            "market": "Brazil",
+            "return": -9.1
+          }
+        ]
+      },
+      "2016": {
+        "winner": "Brazil",
+        "return": 42.02,
+        "rankings": [
+          {
+            "market": "Brazil",
+            "return": 42.02
+          },
+          {
+            "market": "Taiwan",
+            "return": 13.45
+          },
+          {
+            "market": "Mexico",
+            "return": 8.56
+          },
+          {
+            "market": "Korea",
+            "return": 5.62
+          },
+          {
+            "market": "HongKong",
+            "return": 2.63
+          },
+          {
+            "market": "SouthAfrica",
+            "return": 2.14
+          }
+        ]
+      },
+      "2017": {
+        "winner": "HongKong",
+        "return": 28.24,
+        "rankings": [
+          {
+            "market": "HongKong",
+            "return": 28.24
+          },
+          {
+            "market": "Brazil",
+            "return": 19.63
+          },
+          {
+            "market": "Korea",
+            "return": 14.83
+          },
+          {
+            "market": "SouthAfrica",
+            "return": 10.78
+          },
+          {
+            "market": "Taiwan",
+            "return": 8.46
+          },
+          {
+            "market": "Mexico",
+            "return": 1.97
+          }
+        ]
+      },
+      "2018": {
+        "winner": "Brazil",
+        "return": 25.56,
+        "rankings": [
+          {
+            "market": "Brazil",
+            "return": 25.56
+          },
+          {
+            "market": "Taiwan",
+            "return": -0.24
+          },
+          {
+            "market": "SouthAfrica",
+            "return": -3.27
+          },
+          {
+            "market": "HongKong",
+            "return": -5.71
+          },
+          {
+            "market": "Mexico",
+            "return": -7.91
+          },
+          {
+            "market": "Korea",
+            "return": -9.72
+          }
+        ]
+      },
+      "2019": {
+        "winner": "Brazil",
+        "return": 34.57,
+        "rankings": [
+          {
+            "market": "Brazil",
+            "return": 34.57
+          },
+          {
+            "market": "Taiwan",
+            "return": 25.78
+          },
+          {
+            "market": "HongKong",
+            "return": 11.24
+          },
+          {
+            "market": "SouthAfrica",
+            "return": 10.39
+          },
+          {
+            "market": "Korea",
+            "return": 9.81
+          },
+          {
+            "market": "Mexico",
+            "return": 6.64
+          }
+        ]
+      },
+      "2020": {
+        "winner": "Korea",
+        "return": 34.09,
+        "rankings": [
+          {
+            "market": "Korea",
+            "return": 34.09
+          },
+          {
+            "market": "Taiwan",
+            "return": 25.94
+          },
+          {
+            "market": "SouthAfrica",
+            "return": 6.73
+          },
+          {
+            "market": "Brazil",
+            "return": 5.51
+          },
+          {
+            "market": "Mexico",
+            "return": 3.8
+          },
+          {
+            "market": "HongKong",
+            "return": -0.93
+          }
+        ]
+      },
+      "2021": {
+        "winner": "SouthAfrica",
+        "return": 26.27,
+        "rankings": [
+          {
+            "market": "SouthAfrica",
+            "return": 26.27
+          },
+          {
+            "market": "Taiwan",
+            "return": 25.86
+          },
+          {
+            "market": "Mexico",
+            "return": 23.03
+          },
+          {
+            "market": "Korea",
+            "return": 5.46
+          },
+          {
+            "market": "Brazil",
+            "return": -10.58
+          },
+          {
+            "market": "HongKong",
+            "return": -12.55
+          }
+        ]
+      },
+      "2022": {
+        "winner": "Brazil",
+        "return": 16.82,
+        "rankings": [
+          {
+            "market": "Brazil",
+            "return": 16.82
+          },
+          {
+            "market": "SouthAfrica",
+            "return": 10.29
+          },
+          {
+            "market": "Mexico",
+            "return": 1.25
+          },
+          {
+            "market": "HongKong",
+            "return": -5.91
+          },
+          {
+            "market": "Taiwan",
+            "return": -13.64
+          },
+          {
+            "market": "Korea",
+            "return": -16.41
+          }
+        ]
+      },
+      "2023": {
+        "winner": "Taiwan",
+        "return": 26.01,
+        "rankings": [
+          {
+            "market": "Taiwan",
+            "return": 26.01
+          },
+          {
+            "market": "Brazil",
+            "return": 21.17
+          },
+          {
+            "market": "Korea",
+            "return": 17.97
+          },
+          {
+            "market": "Mexico",
+            "return": 17.65
+          },
+          {
+            "market": "SouthAfrica",
+            "return": 4.59
+          },
+          {
+            "market": "HongKong",
+            "return": -14.38
+          }
+        ]
+      },
+      "2024": {
+        "winner": "Taiwan",
+        "return": 33.91,
+        "rankings": [
+          {
+            "market": "Taiwan",
+            "return": 33.91
+          },
+          {
+            "market": "HongKong",
+            "return": 22.65
+          },
+          {
+            "market": "SouthAfrica",
+            "return": 14.0
+          },
+          {
+            "market": "Korea",
+            "return": -5.81
+          },
+          {
+            "market": "Brazil",
+            "return": -6.57
+          },
+          {
+            "market": "Mexico",
+            "return": -10.07
+          }
+        ]
+      },
+      "2025": {
+        "winner": "Korea",
+        "return": 83.78,
+        "rankings": [
+          {
+            "market": "Korea",
+            "return": 83.78
+          },
+          {
+            "market": "SouthAfrica",
+            "return": 44.13
+          },
+          {
+            "market": "Brazil",
+            "return": 40.17
+          },
+          {
+            "market": "Mexico",
+            "return": 35.91
+          },
+          {
+            "market": "HongKong",
+            "return": 33.7
+          },
+          {
+            "market": "Taiwan",
+            "return": 31.57
+          }
+        ]
+      },
+      "2026": {
+        "winner": "Korea",
+        "return": 90.04,
+        "rankings": [
+          {
+            "market": "Korea",
+            "return": 90.04
+          },
+          {
+            "market": "Taiwan",
+            "return": 51.93
+          },
+          {
+            "market": "Brazil",
+            "return": 18.32
+          },
+          {
+            "market": "Mexico",
+            "return": 15.02
+          },
+          {
+            "market": "HongKong",
+            "return": 8.26
+          },
+          {
+            "market": "SouthAfrica",
+            "return": 6.3
+          }
+        ]
+      }
+    }
+  },
+  "bt_rows": [
+    {
+      "year": 2000,
+      "port_nav": NaN,
+      "port_ret": NaN,
+      "regime": "NORMAL",
+      "sg_ratio": 9.0,
+      "dev_winner": "France",
+      "em_winner": "Brazil"
+    },
+    {
+      "year": 2001,
+      "port_nav": NaN,
+      "port_ret": NaN,
+      "regime": "NORMAL",
+      "sg_ratio": 9.0,
+      "dev_winner": "USA_SP500",
+      "em_winner": "Korea"
+    },
+    {
+      "year": 2002,
+      "port_nav": NaN,
+      "port_ret": NaN,
+      "regime": "NORMAL",
+      "sg_ratio": 9.0,
+      "dev_winner": "Japan",
+      "em_winner": "Mexico"
+    },
+    {
+      "year": 2003,
+      "port_nav": NaN,
+      "port_ret": NaN,
+      "regime": "OVERVALUED",
+      "sg_ratio": 9.6,
+      "dev_winner": "USA_NASDAQ",
+      "em_winner": "Brazil"
+    },
+    {
+      "year": 2004,
+      "port_nav": NaN,
+      "port_ret": NaN,
+      "regime": "OVERVALUED",
+      "sg_ratio": 10.8,
+      "dev_winner": "USA_SP500",
+      "em_winner": "Mexico"
+    },
+    {
+      "year": 2005,
+      "port_nav": NaN,
+      "port_ret": NaN,
+      "regime": "OVERVALUED",
+      "sg_ratio": 12.6,
+      "dev_winner": "Japan",
+      "em_winner": "Korea"
+    },
+    {
+      "year": 2006,
+      "port_nav": NaN,
+      "port_ret": NaN,
+      "regime": "OVERVALUED",
+      "sg_ratio": 15.3,
+      "dev_winner": "Germany",
+      "em_winner": "Mexico"
+    },
+    {
+      "year": 2007,
+      "port_nav": NaN,
+      "port_ret": NaN,
+      "regime": "OVERVALUED",
+      "sg_ratio": 19.3,
+      "dev_winner": "Germany",
+      "em_winner": "Brazil"
+    },
+    {
+      "year": 2008,
+      "port_nav": NaN,
+      "port_ret": -6.41,
+      "regime": "NORMAL",
+      "sg_ratio": 7.1,
+      "dev_winner": "UK",
+      "em_winner": "Mexico"
+    },
+    {
+      "year": 2009,
+      "port_nav": NaN,
+      "port_ret": 32.33,
+      "regime": "OVERVALUED",
+      "sg_ratio": 10.7,
+      "dev_winner": "USA_NASDAQ",
+      "em_winner": "Brazil"
+    },
+    {
+      "year": 2010,
+      "port_nav": NaN,
+      "port_ret": 23.91,
+      "regime": "OVERVALUED",
+      "sg_ratio": 10.0,
+      "dev_winner": "USA_NASDAQ",
+      "em_winner": "Korea"
+    },
+    {
+      "year": 2011,
+      "port_nav": NaN,
+      "port_ret": 8.99,
+      "regime": "NORMAL",
+      "sg_ratio": 5.8,
+      "dev_winner": "USA_SP500",
+      "em_winner": "Mexico"
+    },
+    {
+      "year": 2012,
+      "port_nav": NaN,
+      "port_ret": 20.58,
+      "regime": "NORMAL",
+      "sg_ratio": 6.6,
+      "dev_winner": "Germany",
+      "em_winner": "HongKong"
+    },
+    {
+      "year": 2013,
+      "port_nav": NaN,
+      "port_ret": 15.12,
+      "regime": "NORMAL",
+      "sg_ratio": 8.9,
+      "dev_winner": "Japan",
+      "em_winner": "SouthAfrica"
+    },
+    {
+      "year": 2014,
+      "port_nav": NaN,
+      "port_ret": 7.02,
+      "regime": "OVERVALUED",
+      "sg_ratio": 11.4,
+      "dev_winner": "USA_NASDAQ",
+      "em_winner": "Taiwan"
+    },
+    {
+      "year": 2015,
+      "port_nav": NaN,
+      "port_ret": 0.28,
+      "regime": "OVERVALUED",
+      "sg_ratio": 11.5,
+      "dev_winner": "Germany",
+      "em_winner": "Korea"
+    },
+    {
+      "year": 2016,
+      "port_nav": NaN,
+      "port_ret": 14.61,
+      "regime": "OVERVALUED",
+      "sg_ratio": 10.6,
+      "dev_winner": "UK",
+      "em_winner": "Brazil"
+    },
+    {
+      "year": 2017,
+      "port_nav": NaN,
+      "port_ret": 11.89,
+      "regime": "OVERVALUED",
+      "sg_ratio": 12.7,
+      "dev_winner": "USA_NASDAQ",
+      "em_winner": "HongKong"
+    },
+    {
+      "year": 2018,
+      "port_nav": NaN,
+      "port_ret": 7.04,
+      "regime": "OVERVALUED",
+      "sg_ratio": 12.6,
+      "dev_winner": "USA_NASDAQ",
+      "em_winner": "Brazil"
+    },
+    {
+      "year": 2019,
+      "port_nav": NaN,
+      "port_ret": 20.88,
+      "regime": "OVERVALUED",
+      "sg_ratio": 11.8,
+      "dev_winner": "USA_NASDAQ",
+      "em_winner": "Brazil"
+    },
+    {
+      "year": 2020,
+      "port_nav": NaN,
+      "port_ret": 27.93,
+      "regime": "OVERVALUED",
+      "sg_ratio": 10.7,
+      "dev_winner": "USA_NASDAQ",
+      "em_winner": "Korea"
+    },
+    {
+      "year": 2021,
+      "port_nav": NaN,
+      "port_ret": 7.23,
+      "regime": "OVERVALUED",
+      "sg_ratio": 13.3,
+      "dev_winner": "France",
+      "em_winner": "SouthAfrica"
+    },
+    {
+      "year": 2022,
+      "port_nav": NaN,
+      "port_ret": 9.68,
+      "regime": "OVERVALUED",
+      "sg_ratio": 12.6,
+      "dev_winner": "UK",
+      "em_winner": "Brazil"
+    },
+    {
+      "year": 2023,
+      "port_nav": NaN,
+      "port_ret": 15.31,
+      "regime": "OVERVALUED",
+      "sg_ratio": 13.2,
+      "dev_winner": "USA_NASDAQ",
+      "em_winner": "Taiwan"
+    },
+    {
+      "year": 2024,
+      "port_nav": NaN,
+      "port_ret": 25.12,
+      "regime": "OVERVALUED",
+      "sg_ratio": 10.8,
+      "dev_winner": "USA_NASDAQ",
+      "em_winner": "Taiwan"
+    },
+    {
+      "year": 2025,
+      "port_nav": NaN,
+      "port_ret": 47.3,
+      "regime": "NORMAL",
+      "sg_ratio": 6.8,
+      "dev_winner": "Japan",
+      "em_winner": "Korea"
+    },
+    {
+      "year": 2026,
+      "port_nav": NaN,
+      "port_ret": 25.61,
+      "regime": "NORMAL",
+      "sg_ratio": 5.4,
+      "dev_winner": "Japan",
+      "em_winner": "Korea"
+    }
+  ],
+  "cagr": NaN,
+  "max_dd": 0.0,
+  "sharpe": 0,
+  "nifty_annual": {
+    "2008": -51.8,
+    "2009": 75.8,
+    "2010": 17.9,
+    "2011": -24.6,
+    "2012": 27.7,
+    "2013": 6.8,
+    "2014": 31.4,
+    "2015": -4.1,
+    "2016": 3.0,
+    "2017": 28.6,
+    "2018": 3.2,
+    "2019": 12.0,
+    "2020": 14.9,
+    "2021": 24.1,
+    "2022": 4.3,
+    "2023": 20.0,
+    "2024": 8.8,
+    "2025": 10.5,
+    "2026": -10.4
+  },
+  "strategy": {
+    "normal_alloc": {
+      "developed": 0.15,
+      "emerging": 0.2,
+      "india": 0.2,
+      "gold": 0.2,
+      "silver": 0.05,
+      "debt": 0.2
+    },
+    "overvalued_alloc": {
+      "developed": 0.1,
+      "emerging": 0.1,
+      "india": 0.1,
+      "gold": 0.4,
+      "silver": 0.1,
+      "debt": 0.2
+    },
+    "gold_silver_cap": 0.5,
+    "thresholds": {
+      "nifty_pe": 24.0,
+      "shiller_cape": 30.0,
+      "sg_ratio": 9.0
+    }
+  }
+}

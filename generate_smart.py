@@ -245,51 +245,92 @@ def pick_annual_winners(returns_dict, start_year=START_YEAR):
 def fetch_nifty_pe():
     """
     Fetch live Nifty 50 PE ratio from NSE India API.
-    Falls back to None if unavailable.
+    Tries two endpoints. Falls back to None if unavailable.
     """
     print("   Fetching Nifty 50 PE...")
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Referer": "https://www.nseindia.com/",
+        "Connection": "keep-alive",
+    }
+    # Attempt 1: NSE indices API
     try:
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-            "Accept": "application/json",
-            "Referer": "https://www.nseindia.com/",
-        }
-        # Use NSE session cookie
         session = requests.Session()
-        session.get("https://www.nseindia.com", headers=headers, timeout=10)
+        session.get("https://www.nseindia.com", headers=headers, timeout=15)
+        time.sleep(1)
         r = session.get(
             "https://www.nseindia.com/api/equity-stockIndices?index=NIFTY%2050",
-            headers=headers, timeout=10
+            headers=headers, timeout=15
         )
         r.raise_for_status()
-        data = r.json()
-        pe = float(data["data"][0]["pe"])
+        pe = float(r.json()["data"][0]["pe"])
         print(f"   ✅ Nifty PE: {pe}")
         return pe
     except Exception as e:
-        print(f"   ⚠ Nifty PE fetch failed: {e}")
-        return None
+        print(f"   ⚠ NSE API attempt 1 failed: {e}")
+
+    # Attempt 2: NSE market data summary
+    try:
+        session2 = requests.Session()
+        session2.get("https://www.nseindia.com", headers=headers, timeout=15)
+        time.sleep(1)
+        r2 = session2.get(
+            "https://www.nseindia.com/api/market-data-pre-open?key=NIFTY",
+            headers=headers, timeout=15
+        )
+        r2.raise_for_status()
+        data2 = r2.json()
+        if "data" in data2 and data2["data"]:
+            pe2 = float(data2["data"][0].get("metadata", {}).get("pe", 0) or 0)
+            if pe2 > 0:
+                print(f"   ✅ Nifty PE (attempt 2): {pe2}")
+                return pe2
+    except Exception as e2:
+        print(f"   ⚠ NSE API attempt 2 failed: {e2}")
+
+    print("   ⚠ Nifty PE unavailable — will show N/A in dashboard")
+    return None
 
 
 def fetch_shiller_cape():
     """
-    Fetch latest Shiller CAPE (S&P 500 cyclically adjusted PE).
-    Source: GitHub dataset — no API key needed.
+    Fetch latest Shiller CAPE from multiple free sources.
     """
     print("   Fetching Shiller CAPE...")
+
+    # Source 1: GitHub datasets repo
     try:
         url = "https://raw.githubusercontent.com/datasets/s-and-p-500/main/data/shiller-pe.csv"
-        r = requests.get(url, timeout=15)
+        r = requests.get(url, timeout=15, headers={"User-Agent":"Mozilla/5.0"})
         r.raise_for_status()
         df = pd.read_csv(StringIO(r.text))
-        # Last row with valid PE
         df = df.dropna(subset=["PE10"])
         cape = float(df["PE10"].iloc[-1])
-        print(f"   ✅ Shiller CAPE: {cape}")
+        print(f"   ✅ Shiller CAPE (GitHub): {cape}")
         return cape
     except Exception as e:
-        print(f"   ⚠ Shiller CAPE fetch failed: {e}")
-        return None
+        print(f"   ⚠ Source 1 failed: {e}")
+
+    # Source 2: multpl.com (Shiller PE table)
+    try:
+        r2 = requests.get("https://www.multpl.com/shiller-pe/table/by-month",
+                          headers={"User-Agent":"Mozilla/5.0"}, timeout=15)
+        r2.raise_for_status()
+        # Parse first data row from the HTML table
+        import re
+        matches = re.findall(r'<td[^>]*>\s*([\d.]+)\s*</td>', r2.text)
+        if matches:
+            cape2 = float(matches[0])
+            if 10 < cape2 < 60:  # sanity check
+                print(f"   ✅ Shiller CAPE (multpl.com): {cape2}")
+                return cape2
+    except Exception as e2:
+        print(f"   ⚠ Source 2 failed: {e2}")
+
+    print("   ⚠ Shiller CAPE unavailable — will show N/A in dashboard")
+    return None
 
 
 def fetch_sg_ratio():

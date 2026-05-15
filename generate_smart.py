@@ -195,6 +195,153 @@ def fetch_annual_returns(tickers_dict, fx_hist, start_year=START_YEAR):
     return results
 
 
+# ══════════════════════════════════════════════════════════════════
+# STEP 1b — FETCH MONTHLY RETURNS (for accurate MaxDD)
+# ══════════════════════════════════════════════════════════════════
+
+def fetch_monthly_returns(tickers_dict, fx_hist, start_year=START_YEAR):
+    """
+    Fetch monthly price history for each ticker.
+    Returns {market_name: {"YYYY-MM": return_pct, ...}, ...}
+    All returns converted to INR.
+    """
+    results = {}
+    for name, ticker in tickers_dict.items():
+        print(f"   Fetching monthly {name} ({ticker})...")
+        try:
+            hist = yf.Ticker(ticker).history(start=f"{start_year-1}-06-01")["Close"].dropna()
+            if hist.empty:
+                continue
+            try:
+                hist.index = hist.index.tz_localize(None)
+            except TypeError:
+                hist.index = hist.index.tz_convert(None)
+
+            # Resample to month-end
+            monthly = hist.resample("ME").last()
+            if monthly.empty:
+                continue
+
+            mon_rets = {}
+            prev_price = None
+            prev_fx = None
+            for ts, price in monthly.items():
+                if not _valid(price):
+                    prev_price = None
+                    continue
+                month_key = ts.strftime("%Y-%m")
+                if ts.year < start_year:
+                    prev_price = price
+                    try:
+                        prev_fx = float(fx_hist.asof(ts)) if not fx_hist.empty else 1.0
+                    except Exception:
+                        prev_fx = 1.0
+                    continue
+                if prev_price is not None and prev_price > 0:
+                    # Convert to INR return
+                    if ticker not in (INDIA_TICKER, SENSEX_TICKER):
+                        try:
+                            cur_fx  = float(fx_hist.asof(ts)) if not fx_hist.empty else 1.0
+                            ret = ((price * cur_fx) / (prev_price * (prev_fx or cur_fx)) - 1) * 100
+                        except Exception:
+                            ret = (price / prev_price - 1) * 100
+                    else:
+                        ret = (price / prev_price - 1) * 100
+                    if _valid(ret):
+                        mon_rets[month_key] = round(ret, 4)
+                prev_price = price
+                try:
+                    prev_fx = float(fx_hist.asof(ts)) if not fx_hist.empty else 1.0
+                except Exception:
+                    prev_fx = 1.0
+
+            if mon_rets:
+                results[name] = mon_rets
+                print(f"   ✅ {name}: {len(mon_rets)} months")
+            time.sleep(0.2)
+        except Exception as e:
+            print(f"   ❌ {name} monthly: {e}")
+    return results
+
+
+def build_monthly_portfolio_nav(
+    dev_monthly, em_monthly, india_monthly,
+    gold_monthly, silver_monthly, debt_monthly,
+    dev_winners, em_winners, sg_history
+):
+    """
+    Build monthly portfolio NAV series from START_YEAR to present.
+    Each month uses the year's winner + that year's regime allocation.
+    Returns: {"YYYY-MM": nav_value, ...}, max_dd_monthly
+    """
+    # Gather all months across all sources
+    all_months = set()
+    for d in [india_monthly, gold_monthly, silver_monthly, debt_monthly]:
+        all_months.update(d.keys())
+    for d in dev_monthly.values():
+        all_months.update(d.keys())
+    for d in em_monthly.values():
+        all_months.update(d.keys())
+
+    all_months = sorted(m for m in all_months if m[:4] >= str(START_YEAR))
+
+    monthly_nav = {}
+    nav = 100.0
+    peak = 100.0
+    max_dd = 0.0
+
+    for month in all_months:
+        yr = int(month[:4])
+        ystr = str(yr)
+
+        # Regime for this year
+        sg = sg_history.get(ystr, 9.0)
+        alloc = OVERVALUED_ALLOC.copy() if sg > SG_RATIO_THRESHOLD else NORMAL_ALLOC.copy()
+        gs = alloc["gold"] + alloc["silver"]
+        if gs > GOLD_SILVER_CAP:
+            scale = GOLD_SILVER_CAP / gs
+            alloc["gold"]   *= scale
+            alloc["silver"] *= scale
+            alloc["debt"]   += gs - GOLD_SILVER_CAP
+
+        # Winner for this year
+        dev_w = dev_winners.get(ystr, {}).get("winner", "USA_SP500")
+        em_w  = em_winners.get(ystr,  {}).get("winner", "Brazil")
+
+        dev_ret = dev_monthly.get(dev_w, {}).get(month)
+        em_ret  = em_monthly.get(em_w,  {}).get(month)
+        ind_ret = india_monthly.get(month)
+        gld_ret = gold_monthly.get(month)
+        slv_ret = silver_monthly.get(month)
+        dbt_ret = debt_monthly.get(month)
+
+        # Annual fallback ÷ 12 for missing months
+        if not _valid(dev_ret): dev_ret = 10.0 / 12
+        if not _valid(em_ret):  em_ret  = 10.0 / 12
+        if not _valid(ind_ret): ind_ret = 12.0 / 12
+        if not _valid(gld_ret): gld_ret = 8.0  / 12
+        if not _valid(slv_ret): slv_ret = 5.0  / 12
+        if not _valid(dbt_ret): dbt_ret = 7.0  / 12
+
+        port_ret = (
+            alloc["developed"] * dev_ret +
+            alloc["emerging"]  * em_ret  +
+            alloc["india"]     * ind_ret +
+            alloc["gold"]      * gld_ret +
+            alloc["silver"]    * slv_ret +
+            alloc["debt"]      * dbt_ret
+        )
+
+        nav *= (1 + port_ret / 100)
+        if nav > peak: peak = nav
+        dd = (nav - peak) / peak * 100
+        if dd < max_dd: max_dd = dd
+
+        monthly_nav[month] = round(nav, 4)
+
+    return monthly_nav, round(max_dd, 1)
+
+
 def fetch_fx_history(start_year=START_YEAR):
     """Fetch USD/INR full history for fx conversion."""
     print("   Fetching USD/INR fx history...")
@@ -741,6 +888,16 @@ def main():
     print("\n📊 Commodities and Debt:")
     gold_ann, silver_ann, debt_ann = fetch_commodity_and_debt_returns(fx_hist)
 
+    # ── Monthly returns for accurate MaxDD ────────────────────────
+    print("📅 Fetching monthly data for MaxDD calculation...")
+    dev_monthly    = fetch_monthly_returns(DEVELOPED_TICKERS, fx_hist)
+    em_monthly     = fetch_monthly_returns(EMERGING_TICKERS,  fx_hist)
+    india_monthly  = fetch_monthly_returns({"Nifty50": INDIA_TICKER}, fx_hist).get("Nifty50", {})
+    gold_monthly   = fetch_monthly_returns({"Gold":    GOLD_TICKER},  fx_hist).get("Gold",   {})
+    silver_monthly = fetch_monthly_returns({"Silver":  SILVER_TICKER},fx_hist).get("Silver", {})
+    debt_monthly   = {}  # use annual/12 fallback
+
+
     # ── 3. Pick annual winners ─────────────────────────────────
     print("\n🏆 Step 3: Picking annual winners...")
     dev_winners = pick_annual_winners(dev_returns)
@@ -788,6 +945,17 @@ def main():
     print(f"   CAGR: {cagr}%  MaxDD: {max_dd}%  Sharpe: {sharpe}")
     print(f"   bt_rows: {bt_rows[0]['year'] if bt_rows else '?'} to {bt_rows[-1]['year'] if bt_rows else '?'}")
 
+    # ── Monthly MaxDD (more accurate than annual) ─────────────
+    print("📉 Building monthly portfolio NAV for accurate MaxDD...")
+    monthly_nav, max_dd_monthly = build_monthly_portfolio_nav(
+        dev_monthly, em_monthly, india_monthly,
+        gold_monthly, silver_monthly, debt_monthly,
+        dev_winners, em_winners, sg_history
+    )
+    print(f"   Monthly MaxDD: {max_dd_monthly}%  ({len(monthly_nav)} months)")
+    if max_dd_monthly != 0.0: max_dd = max_dd_monthly
+
+
     # ── 9. Nifty 50 annual returns for comparison ──────────────
     nifty_annual = {}
     try:
@@ -810,10 +978,12 @@ def main():
             "developed": dev_winners,
             "emerging":  em_winners,
         },
-        "bt_rows":  bt_rows,
-        "cagr":     cagr,
-        "max_dd":   max_dd,
-        "sharpe":   sharpe,
+        "bt_rows":      bt_rows,
+        "monthly_nav":  monthly_nav,
+        "cagr":         cagr,
+        "max_dd":       max_dd,
+        "max_dd_monthly": max_dd_monthly,
+        "sharpe":       sharpe,
         "nifty_annual": nifty_annual,
         "strategy": {
             "normal_alloc":      NORMAL_ALLOC,

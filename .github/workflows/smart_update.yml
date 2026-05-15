@@ -1,0 +1,39 @@
+name: Smart Portfolio Weekly Update
+
+on:
+  schedule:
+    # Every Sunday at 8:30 PM UTC = Monday 2:00 AM IST
+    - cron: '30 20 * * 0'
+  workflow_dispatch:
+    # Allow manual trigger from GitHub Actions tab
+
+jobs:
+  smart-update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install yfinance pandas numpy requests
+
+      - name: Run smart allocation generator
+        run: python generate_smart.py
+
+      - name: Commit smart_data.json
+        run: |
+          git config user.email "bot@mintingm.com"
+          git config user.name "MintingM Smart Bot"
+          git add smart_data.json
+          git diff --staged --quiet && echo "No changes" || (
+            git commit -m "smart: weekly update $(date -I)"
+            git push
+          )

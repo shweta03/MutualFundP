@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T10:28:14.468794",
+  "generated_at": "2026-05-15T10:36:39.616757",
   "regime": "NORMAL",
   "trigger_count": 0,
   "signals": {
@@ -14,7 +14,7 @@
       "fired": false
     },
     "sg_ratio": {
-      "value": 5.34,
+      "value": 5.35,
       "threshold": 9.0,
       "fired": false
     }
@@ -865,15 +865,15 @@
           },
           {
             "market": "UK",
-            "return": 10.09
+            "return": 10.13
           },
           {
             "market": "Germany",
-            "return": 5.08
+            "return": 5.11
           },
           {
             "market": "France",
-            "return": 4.56
+            "return": 4.6
           }
         ]
       }
@@ -1633,7 +1633,7 @@
           },
           {
             "market": "SouthAfrica",
-            "return": 6.57
+            "return": 6.47
           }
         ]
       }
@@ -1876,10 +1876,10 @@
     },
     {
       "year": 2026,
-      "port_nav": 4537.08,
-      "port_ret": 25.78,
+      "port_nav": 4536.61,
+      "port_ret": 25.77,
       "regime": "NORMAL",
-      "sg_ratio": 5.3,
+      "sg_ratio": 5.4,
       "dev_winner": "Japan",
       "em_winner": "Korea"
     }

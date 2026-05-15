@@ -27,6 +27,16 @@ from datetime import date, datetime
 from io import StringIO
 
 
+def _valid(v):
+    """Return True if v is a real finite number (not None, not NaN, not Inf)."""
+    if v is None:
+        return False
+    try:
+        return not (v != v) and abs(v) < 1e15  # NaN != NaN is True; also guard inf
+    except Exception:
+        return False
+
+
 # ══════════════════════════════════════════════════════════════════
 # STRATEGY CONSTANTS — change these to adjust the strategy rules
 # ══════════════════════════════════════════════════════════════════
@@ -149,7 +159,7 @@ def fetch_annual_returns(tickers_dict, fx_hist, start_year=START_YEAR):
                     end_ts   = pd.Timestamp(f"{year}-12-31")
                     p_start  = float(hist.asof(start_ts))
                     p_end    = float(hist.asof(end_ts))
-                    if p_start <= 0:
+                    if not _valid(p_start) or not _valid(p_end) or p_start <= 0:
                         continue
 
                     # Raw price return
@@ -215,7 +225,7 @@ def pick_annual_winners(returns_dict, start_year=START_YEAR):
         ystr = str(year)
         ranked = []
         for name, ann in returns_dict.items():
-            if ystr in ann and ann[ystr] is not None:
+            if ystr in ann and _valid(ann[ystr]):
                 ranked.append((name, ann[ystr]))
         if not ranked:
             continue
@@ -494,13 +504,13 @@ def run_backtest(
         slv_ret = silver_returns.get(ystr)
         dbt_ret = debt_returns.get(ystr)
 
-        # Fallback for missing data
-        if dev_ret is None: dev_ret = 10.0
-        if em_ret  is None: em_ret  = 10.0
-        if ind_ret is None: ind_ret = 12.0
-        if gld_ret is None: gld_ret = 8.0
-        if slv_ret is None: slv_ret = 5.0
-        if dbt_ret is None: dbt_ret = 7.0
+        # Fallback for missing/NaN data (yfinance can return NaN for missing periods)
+        if not _valid(dev_ret): dev_ret = 10.0
+        if not _valid(em_ret):  em_ret  = 10.0
+        if not _valid(ind_ret): ind_ret = 12.0
+        if not _valid(gld_ret): gld_ret = 8.0
+        if not _valid(slv_ret): slv_ret = 5.0
+        if not _valid(dbt_ret): dbt_ret = 7.0
 
         # ── Weighted portfolio return ──────────────────────────────
         port_ret = (
@@ -776,9 +786,15 @@ def main():
         }
     }
 
-    # ── 11. Write smart_data.json ──────────────────────────────
+    # ── 11. Write smart_data.json (NaN → null for valid JSON) ──
+    import io as _io
+    _buf = _io.StringIO()
+    json.dump(output, _buf, indent=2, allow_nan=True)
+    _content = (_buf.getvalue()
+                .replace(": NaN",  ": null").replace(":NaN",  ":null")
+                .replace(": Infinity",  ": null").replace(": -Infinity", ": null"))
     with open("smart_data.json", "w") as f:
-        json.dump(output, f, indent=2)
+        f.write(_content)
 
     print(f"\n✅ smart_data.json written — {len(bt_rows)} backtest rows")
     print(f"   Regime: {regime} ({trigger_count} signals fired)")

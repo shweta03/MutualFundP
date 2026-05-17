@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T11:39:37.472255",
+  "generated_at": "2026-05-17T21:11:44.478535",
   "regime": "NORMAL",
   "trigger_count": 0,
   "signals": {
@@ -849,31 +849,31 @@
       },
       "2026": {
         "winner": "Japan",
-        "return": 30.21,
+        "return": 30.4,
         "rankings": [
           {
             "market": "Japan",
-            "return": 30.21
+            "return": 30.4
           },
           {
             "market": "USA_NASDAQ",
-            "return": 22.32
+            "return": 20.61
           },
           {
             "market": "USA_SP500",
-            "return": 16.96
+            "return": 15.68
           },
           {
             "market": "UK",
-            "return": 9.85
+            "return": 9.73
           },
           {
             "market": "Germany",
-            "return": 4.96
+            "return": 4.53
           },
           {
             "market": "France",
-            "return": 4.44
+            "return": 4.31
           }
         ]
       }
@@ -1609,31 +1609,31 @@
       },
       "2026": {
         "winner": "Korea",
-        "return": 89.79,
+        "return": 90.06,
         "rankings": [
           {
             "market": "Korea",
-            "return": 89.79
+            "return": 90.06
           },
           {
             "market": "Taiwan",
-            "return": 51.73
+            "return": 51.95
           },
           {
             "market": "Brazil",
-            "return": 18.16
+            "return": 17.61
           },
           {
             "market": "Mexico",
-            "return": 14.87
+            "return": 12.99
           },
           {
             "market": "HongKong",
-            "return": 8.12
+            "return": 8.28
           },
           {
             "market": "SouthAfrica",
-            "return": 6.24
+            "return": 5.7
           }
         ]
       }
@@ -1876,7 +1876,7 @@
     },
     {
       "year": 2026,
-      "port_nav": 4533.96,
+      "port_nav": 4533.64,
       "port_ret": 25.69,
       "regime": "NORMAL",
       "sg_ratio": 5.3,
@@ -2153,7 +2153,7 @@
     "2026-02": 2842.7326,
     "2026-03": 2579.2222,
     "2026-04": 2845.7141,
-    "2026-05": 2954.8586
+    "2026-05": 2954.0225
   },
   "cagr": 15.2,
   "max_dd": -18.3,

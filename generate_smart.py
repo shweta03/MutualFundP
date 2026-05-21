@@ -737,7 +737,7 @@ def run_backtest(
     rf_pct = 6.5
     down_rets = [r for r in rets if r < rf_pct]
     down_std_s = float(np.std(down_rets)) if len(down_rets) > 1 else (std if std > 0 else 1.0)
-    sortino = round((cagr - rf_pct / 100) / down_std_s, 2) if down_std_s > 0 else 0
+    sortino = round((cagr - rf_pct) / down_std_s, 2) if down_std_s > 0 else 0
 
     return bt_rows, round(max_dd, 1), round(cagr * 100, 1), sharpe, round(sortino, 2)
 

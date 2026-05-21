@@ -1179,7 +1179,7 @@ def run_backtest(profile_key, eq_ratio, debt_ratio, sg_history,
     rf_annual = RISK_FREE_RATE * 100
     down_rets = [r for r in rets if r < rf_annual]
     down_std  = float(np.std(down_rets)) if len(down_rets) > 1 else ann_std
-    sortino   = round(((port_cagr / 100) - RISK_FREE_RATE) / down_std, 2) if down_std > 0 else 0
+    sortino   = round((port_cagr - RISK_FREE_RATE * 100) / down_std, 2) if down_std > 0 else 0
 
     return {
         "cagr":       port_cagr,

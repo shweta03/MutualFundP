@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-17T21:11:44.478535",
+  "generated_at": "2026-05-21T07:01:41.594266",
   "regime": "NORMAL",
   "trigger_count": 0,
   "signals": {
@@ -14,7 +14,7 @@
       "fired": false
     },
     "sg_ratio": {
-      "value": 5.35,
+      "value": 5.38,
       "threshold": 9.0,
       "fired": false
     }
@@ -38,8 +38,8 @@
       "bucket": "india",
       "pct": 20.0,
       "market": "india",
-      "fund_name": "Motilal Oswal Large and Midcap Fund - Regular Plan Growth",
-      "fund_code": 147701
+      "fund_name": "quant Flexi Cap Fund - Growth Option - Regular Plan",
+      "fund_code": 109830
     },
     {
       "bucket": "gold",
@@ -849,31 +849,31 @@
       },
       "2026": {
         "winner": "Japan",
-        "return": 30.4,
+        "return": 31.53,
         "rankings": [
           {
             "market": "Japan",
-            "return": 30.4
+            "return": 31.53
           },
           {
             "market": "USA_NASDAQ",
-            "return": 20.61
+            "return": 21.32
           },
           {
             "market": "USA_SP500",
-            "return": 15.68
+            "return": 16.55
           },
           {
             "market": "UK",
-            "return": 9.73
+            "return": 12.75
           },
           {
             "market": "Germany",
-            "return": 4.53
+            "return": 8.42
           },
           {
             "market": "France",
-            "return": 4.31
+            "return": 6.91
           }
         ]
       }
@@ -1609,31 +1609,31 @@
       },
       "2026": {
         "winner": "Korea",
-        "return": 90.06,
+        "return": 99.07,
         "rankings": [
           {
             "market": "Korea",
-            "return": 90.06
+            "return": 99.07
           },
           {
             "market": "Taiwan",
-            "return": 51.95
+            "return": 53.31
           },
           {
             "market": "Brazil",
-            "return": 17.61
+            "return": 18.15
           },
           {
             "market": "Mexico",
-            "return": 12.99
+            "return": 14.99
           },
           {
             "market": "HongKong",
-            "return": 8.28
+            "return": 6.46
           },
           {
             "market": "SouthAfrica",
-            "return": 5.7
+            "return": 6.23
           }
         ]
       }
@@ -1876,10 +1876,10 @@
     },
     {
       "year": 2026,
-      "port_nav": 4533.64,
-      "port_ret": 25.69,
+      "port_nav": 4595.66,
+      "port_ret": 27.41,
       "regime": "NORMAL",
-      "sg_ratio": 5.3,
+      "sg_ratio": 5.4,
       "dev_winner": "Japan",
       "em_winner": "Korea"
     }
@@ -2153,12 +2153,13 @@
     "2026-02": 2842.7326,
     "2026-03": 2579.2222,
     "2026-04": 2845.7141,
-    "2026-05": 2954.0225
+    "2026-05": 2982.5199
   },
   "cagr": 15.2,
   "max_dd": -18.3,
   "max_dd_monthly": -18.3,
   "sharpe": 0.78,
+  "sortino": 0.02,
   "nifty_annual": {
     "2008": -51.8,
     "2009": 75.8,
@@ -2178,7 +2179,7 @@
     "2023": 20.0,
     "2024": 8.8,
     "2025": 10.5,
-    "2026": -9.5
+    "2026": -9.3
   },
   "strategy": {
     "normal_alloc": {

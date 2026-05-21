@@ -733,7 +733,13 @@ def run_backtest(
     std  = float(np.std(rets)) if n > 1 else 0
     sharpe = round((cagr * 100 - 6.5) / std, 2) if std > 0 else 0
 
-    return bt_rows, round(max_dd, 1), round(cagr * 100, 1), sharpe
+    # Sortino ratio — downside deviation only
+    rf_pct = 6.5
+    down_rets = [r for r in rets if r < rf_pct]
+    down_std_s = float(np.std(down_rets)) if len(down_rets) > 1 else (std if std > 0 else 1.0)
+    sortino = round((cagr - rf_pct / 100) / down_std_s, 2) if down_std_s > 0 else 0
+
+    return bt_rows, round(max_dd, 1), round(cagr * 100, 1), sharpe, round(sortino, 2)
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -937,16 +943,11 @@ def main():
 
     # ── 8. Run backtest ────────────────────────────────────────
     print("\n📈 Step 8: Running full backtest...")
-    bt_rows, max_dd, cagr, sharpe = run_backtest(
+    bt_rows, max_dd, cagr, sharpe, sortino_smart = run_backtest(
         dev_returns, em_returns, india_returns,
         gold_ann, silver_ann, debt_ann,
         dev_winners, em_winners, sg_history
     )
-    import numpy as _np2
-    _rf = 6.5
-    _down = [r for r in rets if r < _rf]
-    _down_std = float(_np2.std(_down)) if len(_down) > 1 else (float(_np2.std(rets)) if rets else 1)
-    sortino_smart = round((cagr - _rf) / _down_std, 2) if _down_std > 0 else 0
     print(f"   CAGR: {cagr}%  MaxDD: {max_dd}%  Sharpe: {sharpe}  Sortino: {sortino_smart}")
     print(f"   bt_rows: {bt_rows[0]['year'] if bt_rows else '?'} to {bt_rows[-1]['year'] if bt_rows else '?'}")
 

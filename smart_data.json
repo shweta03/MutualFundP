@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T21:23:31.003782",
+  "generated_at": "2026-08-02T21:14:27.618341",
   "regime": "NORMAL",
   "trigger_count": 0,
   "signals": {
@@ -14,7 +14,7 @@
       "fired": false
     },
     "sg_ratio": {
-      "value": 6.05,
+      "value": 6.2,
       "threshold": 9.0,
       "fired": false
     }
@@ -849,31 +849,31 @@
       },
       "2026": {
         "winner": "Japan",
-        "return": 41.92,
+        "return": 35.86,
         "rankings": [
           {
             "market": "Japan",
-            "return": 41.92
-          },
-          {
-            "market": "USA_SP500",
-            "return": 16.4
-          },
-          {
-            "market": "USA_NASDAQ",
-            "return": 16.33
+            "return": 35.86
           },
           {
             "market": "UK",
-            "return": 15.22
+            "return": 16.28
           },
           {
-            "market": "France",
-            "return": 9.53
+            "market": "USA_SP500",
+            "return": 16.26
+          },
+          {
+            "market": "USA_NASDAQ",
+            "return": 16.01
           },
           {
             "market": "Germany",
-            "return": 8.75
+            "return": 11.2
+          },
+          {
+            "market": "France",
+            "return": 10.96
           }
         ]
       }
@@ -1609,31 +1609,31 @@
       },
       "2026": {
         "winner": "Korea",
-        "return": 81.13,
+        "return": 66.31,
         "rankings": [
           {
             "market": "Korea",
-            "return": 81.13
+            "return": 66.31
           },
           {
             "market": "Taiwan",
-            "return": 66.55
+            "return": 58.2
           },
           {
             "market": "Brazil",
-            "return": 17.97
+            "return": 17.39
           },
           {
             "market": "Mexico",
-            "return": 10.83
+            "return": 10.6
           },
           {
             "market": "HongKong",
-            "return": 5.79
+            "return": 7.31
           },
           {
             "market": "SouthAfrica",
-            "return": 0.59
+            "return": 2.28
           }
         ]
       }
@@ -1876,10 +1876,10 @@
     },
     {
       "year": 2026,
-      "port_nav": 4404.48,
-      "port_ret": 22.1,
+      "port_nav": 4271.58,
+      "port_ret": 18.42,
       "regime": "NORMAL",
-      "sg_ratio": 6.0,
+      "sg_ratio": 6.2,
       "dev_winner": "Japan",
       "em_winner": "Korea"
     }
@@ -2155,12 +2155,12 @@
     "2026-04": 2845.7141,
     "2026-05": 3071.2037,
     "2026-06": 2980.7561,
-    "2026-07": 2900.8488
+    "2026-07": 2852.0831
   },
-  "cagr": 15.0,
+  "cagr": 14.9,
   "max_dd": -18.3,
   "max_dd_monthly": -18.3,
-  "sharpe": 0.78,
+  "sharpe": 0.77,
   "sortino": -1.52,
   "nifty_annual": {
     "2008": -51.8,
@@ -2181,7 +2181,7 @@
     "2023": 20.0,
     "2024": 8.8,
     "2025": 10.5,
-    "2026": -9.0
+    "2026": -6.7
   },
   "strategy": {
     "normal_alloc": {

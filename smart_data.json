@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T21:14:27.618341",
+  "generated_at": "2026-08-09T20:58:35.126272",
   "regime": "NORMAL",
   "trigger_count": 0,
   "signals": {
@@ -14,7 +14,7 @@
       "fired": false
     },
     "sg_ratio": {
-      "value": 6.2,
+      "value": 5.83,
       "threshold": 9.0,
       "fired": false
     }
@@ -30,7 +30,7 @@
     {
       "bucket": "emerging",
       "pct": 20.0,
-      "market": "Korea",
+      "market": "Taiwan",
       "fund_name": "Edelweiss MSCI Emerging Markets Equity ETF FoF",
       "fund_code": 135800
     },
@@ -64,7 +64,7 @@
     }
   ],
   "current_dev_winner": "Japan",
-  "current_em_winner": "Korea",
+  "current_em_winner": "Taiwan",
   "annual_winners": {
     "developed": {
       "2000": {
@@ -849,31 +849,31 @@
       },
       "2026": {
         "winner": "Japan",
-        "return": 35.86,
+        "return": 38.21,
         "rankings": [
           {
             "market": "Japan",
-            "return": 35.86
-          },
-          {
-            "market": "UK",
-            "return": 16.28
-          },
-          {
-            "market": "USA_SP500",
-            "return": 16.26
+            "return": 38.21
           },
           {
             "market": "USA_NASDAQ",
-            "return": 16.01
+            "return": 21.78
+          },
+          {
+            "market": "USA_SP500",
+            "return": 20.18
+          },
+          {
+            "market": "UK",
+            "return": 16.4
           },
           {
             "market": "Germany",
-            "return": 11.2
+            "return": 13.97
           },
           {
             "market": "France",
-            "return": 10.96
+            "return": 13.41
           }
         ]
       }
@@ -1608,32 +1608,32 @@
         ]
       },
       "2026": {
-        "winner": "Korea",
-        "return": 66.31,
+        "winner": "Taiwan",
+        "return": 61.93,
         "rankings": [
           {
-            "market": "Korea",
-            "return": 66.31
+            "market": "Taiwan",
+            "return": 61.93
           },
           {
-            "market": "Taiwan",
-            "return": 58.2
+            "market": "Korea",
+            "return": 57.5
           },
           {
             "market": "Brazil",
-            "return": 17.39
+            "return": 13.54
           },
           {
             "market": "Mexico",
-            "return": 10.6
-          },
-          {
-            "market": "HongKong",
-            "return": 7.31
+            "return": 10.38
           },
           {
             "market": "SouthAfrica",
-            "return": 2.28
+            "return": 7.59
+          },
+          {
+            "market": "HongKong",
+            "return": 6.2
           }
         ]
       }
@@ -1876,12 +1876,12 @@
     },
     {
       "year": 2026,
-      "port_nav": 4271.58,
-      "port_ret": 18.42,
+      "port_nav": 4323.36,
+      "port_ret": 19.86,
       "regime": "NORMAL",
-      "sg_ratio": 6.2,
+      "sg_ratio": 5.8,
       "dev_winner": "Japan",
-      "em_winner": "Korea"
+      "em_winner": "Taiwan"
     }
   ],
   "monthly_nav": {
@@ -2149,15 +2149,16 @@
     "2025-10": 2294.4231,
     "2025-11": 2330.1607,
     "2025-12": 2413.0778,
-    "2026-01": 2632.2657,
-    "2026-02": 2842.7326,
-    "2026-03": 2579.2222,
-    "2026-04": 2845.7141,
-    "2026-05": 3071.2037,
-    "2026-06": 2980.7561,
-    "2026-07": 2852.0831
+    "2026-01": 2566.7984,
+    "2026-02": 2725.8654,
+    "2026-03": 2522.143,
+    "2026-04": 2742.655,
+    "2026-05": 2884.8636,
+    "2026-06": 2817.6127,
+    "2026-07": 2776.4887,
+    "2026-08": 2859.704
   },
-  "cagr": 14.9,
+  "cagr": 15.0,
   "max_dd": -18.3,
   "max_dd_monthly": -18.3,
   "sharpe": 0.77,
@@ -2181,7 +2182,7 @@
     "2023": 20.0,
     "2024": 8.8,
     "2025": 10.5,
-    "2026": -6.7
+    "2026": -6.0
   },
   "strategy": {
     "normal_alloc": {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T20:43:41.637427",
+  "generated_at": "2026-08-23T20:44:50.220103",
   "regime": "NORMAL",
   "trigger_count": 0,
   "signals": {
@@ -14,7 +14,7 @@
       "fired": false
     },
     "sg_ratio": {
-      "value": 5.73,
+      "value": 5.39,
       "threshold": 9.0,
       "fired": false
     }
@@ -38,8 +38,8 @@
       "bucket": "india",
       "pct": 20.0,
       "market": "india",
-      "fund_name": "quant Flexi Cap Fund - Growth Option - Regular Plan",
-      "fund_code": 109830
+      "fund_name": "Parag Parikh Flexi Cap Fund",
+      "fund_code": 122639
     },
     {
       "bucket": "gold",
@@ -59,8 +59,8 @@
       "bucket": "debt",
       "pct": 20.0,
       "market": "debt",
-      "fund_name": "Franklin India Corporate Debt Fund - Growth",
-      "fund_code": 100528
+      "fund_name": "DSP Short Term Fund",
+      "fund_code": 120843
     }
   ],
   "current_dev_winner": "Japan",
@@ -849,31 +849,31 @@
       },
       "2026": {
         "winner": "Japan",
-        "return": 45.09,
+        "return": 39.78,
         "rankings": [
           {
             "market": "Japan",
-            "return": 45.09
+            "return": 39.78
           },
           {
             "market": "USA_NASDAQ",
-            "return": 22.24
+            "return": 20.06
           },
           {
             "market": "USA_SP500",
-            "return": 20.89
+            "return": 19.49
           },
           {
             "market": "UK",
-            "return": 15.05
+            "return": 16.08
           },
           {
             "market": "Germany",
-            "return": 14.75
+            "return": 13.75
           },
           {
             "market": "France",
-            "return": 12.64
+            "return": 10.96
           }
         ]
       }
@@ -1609,31 +1609,31 @@
       },
       "2026": {
         "winner": "Korea",
-        "return": 76.0,
+        "return": 74.84,
         "rankings": [
           {
             "market": "Korea",
-            "return": 76.0
+            "return": 74.84
           },
           {
             "market": "Taiwan",
-            "return": 68.11
+            "return": 66.42
           },
           {
             "market": "Brazil",
-            "return": 10.12
+            "return": 12.75
           },
           {
             "market": "Mexico",
-            "return": 6.44
+            "return": 8.94
           },
           {
             "market": "SouthAfrica",
-            "return": 4.66
+            "return": 8.35
           },
           {
             "market": "HongKong",
-            "return": 4.16
+            "return": 8.16
           }
         ]
       }
@@ -1876,10 +1876,10 @@
     },
     {
       "year": 2026,
-      "port_nav": 4469.7,
-      "port_ret": 23.91,
+      "port_nav": 4487.5,
+      "port_ret": 24.41,
       "regime": "NORMAL",
-      "sg_ratio": 5.7,
+      "sg_ratio": 5.4,
       "dev_winner": "Japan",
       "em_winner": "Korea"
     }
@@ -2155,8 +2155,8 @@
     "2026-04": 2845.7141,
     "2026-05": 3071.2037,
     "2026-06": 2980.7561,
-    "2026-07": 2754.0723,
-    "2026-08": 3005.8412
+    "2026-07": 2842.9291,
+    "2026-08": 2999.5613
   },
   "cagr": 15.1,
   "max_dd": -18.3,
@@ -2182,7 +2182,7 @@
     "2023": 20.0,
     "2024": 8.8,
     "2025": 10.5,
-    "2026": -6.7
+    "2026": -7.2
   },
   "strategy": {
     "normal_alloc": {

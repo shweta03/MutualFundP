@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-16T22:25:12.376976",
-  "generated_date": "16 Sep 2026",
-  "generated_time": "22:24 IST",
+  "generated_at": "2026-09-17T22:28:17.763884",
+  "generated_date": "17 Sep 2026",
+  "generated_time": "22:28 IST",
   "data_source": "AMFI India direct + mfapi.in \u2014 official NAV data",
   "live_funds": 0,
   "total_funds": 0,
   "gold_threshold": 9.0,
-  "sg_ratio": 5.58,
+  "sg_ratio": 5.5,
   "gold_active": false,
   "sg_history": {
     "2003": 9.6,
@@ -32,7 +32,7 @@
     "2023": 13.2,
     "2024": 10.7,
     "2025": 6.8,
-    "2026": 5.58
+    "2026": 5.5
   },
   "nifty_annual": {
     "2008": -51.8,
@@ -53,7 +53,7 @@
     "2023": 20.0,
     "2024": 8.8,
     "2025": 10.5,
-    "2026": -11.5
+    "2026": -11.1
   },
   "benchmark_annual": {
     "nifty50": {
@@ -75,7 +75,7 @@
       "2023": 20.0,
       "2024": 8.8,
       "2025": 10.5,
-      "2026": -11.5
+      "2026": -11.1
     },
     "midcap50": {
       "2008": -65.4,
